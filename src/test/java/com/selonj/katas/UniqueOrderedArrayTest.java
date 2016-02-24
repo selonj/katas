@@ -23,14 +23,15 @@ public class UniqueOrderedArrayTest {
     @Test
     public void distinction() throws Exception {
         assertThat(unique(1), returns(1));
-//        assertThat(unique(1, 2), returns(1, 2));
+        assertThat(unique(1, 2), returns(1, 2));
     }
 
     private int[] unique(int... array) {
         int[] results = new int[array.length];
         int i = 0;
-        if (array.length > i) {
+        while (array.length > i) {
             results[i] = array[i];
+            i++;
         }
         return results;
     }
