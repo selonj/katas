@@ -21,7 +21,7 @@ public class UniqueOrderedArrayTest {
     }
 
     private int[] unique(int[] array) {
-        return new int[0];
+        return new int[array.length];
     }
 
     private Matcher<? super int[]> returns(int[] expected) {
