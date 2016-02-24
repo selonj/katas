@@ -1,6 +1,6 @@
 #   Katas
 
-##  删除有序数组中的重复元素
+##  [删除有序数组中的重复元素](src/test/java/com/selonj/katas/UniqueOrderedArrayTest.java)
 
 伪代码:
 ```pseudo-code
