@@ -39,9 +39,9 @@ public class UniqueOrderedArrayTest {
         int[] results = new int[array.length];
         int n = 0;
         for (int i = 0; array.length > i; i++) {
-            if (i > 0 && array[i] == results[n - 1]) ;
-            else
+            if (i <= 0 || array[i] != results[n - 1]) {
                 results[n++] = array[i];
+            }
         }
         return Arrays.copyOfRange(results, 0, n);
     }
