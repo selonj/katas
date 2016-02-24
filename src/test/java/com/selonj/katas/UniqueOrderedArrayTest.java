@@ -21,7 +21,7 @@ public class UniqueOrderedArrayTest {
     }
 
     @Test
-    public void distinction() throws Exception {
+    public void distinctions() throws Exception {
         assertThat(unique(1), returns(1));
         assertThat(unique(1, 2), returns(1, 2));
         assertThat(unique(1, 2, 3), returns(1, 2, 3));
