@@ -33,6 +33,11 @@ public class UniqueOrderedArrayTest {
     public void duplications() throws Exception {
         assertThat(unique(1, 1), returns(1));
         assertThat(unique(1, 1, 1), returns(1));
+        assertThat(unique(1, 1, 1, 2), returns(1, 2));
+        assertThat(unique(1, 2, 2), returns(1, 2));
+        assertThat(unique(1, 2, 2, 3), returns(1, 2, 3));
+        assertThat(unique(1, 2, 3, 3), returns(1, 2, 3));
+        assertThat(unique(1, 1, 2, 2, 3, 3), returns(1, 2, 3));
     }
 
     private int[] unique(int... array) {
