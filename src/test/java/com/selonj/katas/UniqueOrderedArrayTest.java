@@ -27,6 +27,11 @@ public class UniqueOrderedArrayTest {
         assertThat(unique(1, 2, 3), returns(1, 2, 3));
     }
 
+    @Test
+    public void duplications() throws Exception {
+        assertThat(unique(1, 1), returns(1));
+    }
+
     private int[] unique(int... array) {
         int[] results = new int[array.length];
         for (int i = 0; array.length > i; i++) {
