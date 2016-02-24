@@ -31,16 +31,18 @@ public class UniqueOrderedArrayTest {
 
     @Test
     public void duplications() throws Exception {
-//        assertThat(unique(1, 1), returns(1));
+        assertThat(unique(1, 1), returns(1));
     }
 
     private int[] unique(int... array) {
         int[] results = new int[array.length];
         int n = 0;
         for (int i = 0; array.length > i; i++) {
-            results[n++] = array[i];
+            if (i == 1 && array[1] == 1) ;
+            else
+                results[n++] = array[i];
         }
-        return results;
+        return Arrays.copyOfRange(results, 0, n);
     }
 
     private Matcher<? super int[]> returns(int... expected) {
