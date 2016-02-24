@@ -32,6 +32,7 @@ public class UniqueOrderedArrayTest {
     @Test
     public void duplications() throws Exception {
         assertThat(unique(1, 1), returns(1));
+        assertThat(unique(1, 1, 1), returns(1));
     }
 
     private int[] unique(int... array) {
