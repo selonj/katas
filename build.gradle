@@ -1,0 +1,22 @@
+group 'com.selonj'
+version '1.0'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.+'
+}
+
+apply plugin: 'idea'
+idea {
+    module {
+        excludeDirs += [file('.gradle'), file('gradle'), file('.idea')]
+    }
+}
