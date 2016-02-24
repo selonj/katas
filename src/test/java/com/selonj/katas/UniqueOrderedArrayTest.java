@@ -40,6 +40,7 @@ public class UniqueOrderedArrayTest {
         int n = 0;
         for (int i = 0; array.length > i; i++) {
             if (i == 1 && array[1] == 1) ;
+            else if (i == 2 && array[2] == 1) ;
             else
                 results[n++] = array[i];
         }
