@@ -28,10 +28,8 @@ public class UniqueOrderedArrayTest {
 
     private int[] unique(int... array) {
         int[] results = new int[array.length];
-        int i = 0;
-        while (array.length > i) {
+        for (int i = 0; array.length > i; i++) {
             results[i] = array[i];
-            i++;
         }
         return results;
     }
