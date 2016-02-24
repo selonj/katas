@@ -16,7 +16,7 @@ public class UniqueOrderedArrayTest {
     }
 
     private int[] unique(int[] array) {
-        return null;
+        return new int[0];
     }
 
     private Matcher<? super int[]> returns(int[] expected) {
