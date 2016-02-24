@@ -20,6 +20,11 @@ public class UniqueOrderedArrayTest {
         assertThat(unique(new int[1]), returns(new int[1]));
     }
 
+    @Test
+    public void distinction() throws Exception {
+        assertThat(unique(1), returns(1));
+    }
+
     private int[] unique(int[] array) {
         return new int[array.length];
     }
