@@ -25,11 +25,11 @@ public class UniqueOrderedArrayTest {
         assertThat(unique(1), returns(1));
     }
 
-    private int[] unique(int[] array) {
+    private int[] unique(int... array) {
         return new int[array.length];
     }
 
-    private Matcher<? super int[]> returns(int[] expected) {
+    private Matcher<? super int[]> returns(int... expected) {
         return equalTo(expected);
     }
 }
