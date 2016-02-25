@@ -7,7 +7,7 @@
 unique([1,1,2,2,3,3])==[1,2,3]
 ```
 
-##  求解一个数的素因数
+##  [求解一个数的素因数](src/test/java/com/selonj/katas/PrimeFactorsTest.java)
 
 伪代码:
 ```pseudo-code
