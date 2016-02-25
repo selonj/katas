@@ -8,6 +8,10 @@ import java.util.List;
  */
 public class PrimeFactors {
     public static List<Integer> of(int n) {
-        return new ArrayList<>();
+        ArrayList<Integer> primes = new ArrayList<>();
+        if (n > 1) {
+            primes.add(2);
+        }
+        return primes;
     }
 }
