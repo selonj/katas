@@ -6,3 +6,10 @@
 ```pseudo-code
 unique([1,1,2,2,3,3])==[1,2,3]
 ```
+
+##  求解一个数的素因数
+
+伪代码:
+```pseudo-code
+PrimeFactors.of(30)==[2,3,5]
+```
