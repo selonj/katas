@@ -32,6 +32,12 @@ public class PrimeFactorsTest {
         assertThat(PrimeFactors.of(9), returnListAs(3, 3));
     }
 
+    @Test
+    public void diffFactors() throws Exception {
+        assertThat(PrimeFactors.of(6), returnListAs(2, 3));
+        assertThat(PrimeFactors.of(30), returnListAs(2, 3, 5));
+    }
+
     private Matcher<? super List<Integer>> returnListAs(Integer... numbers) {
         return equalTo(Arrays.asList(numbers));
     }
