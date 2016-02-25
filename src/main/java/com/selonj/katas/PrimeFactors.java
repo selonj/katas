@@ -1,5 +1,6 @@
 package com.selonj.katas;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,6 +8,6 @@ import java.util.List;
  */
 public class PrimeFactors {
     public static List<Integer> of(int n) {
-        return null;
+        return new ArrayList<>();
     }
 }
