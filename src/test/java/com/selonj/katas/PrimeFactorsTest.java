@@ -22,6 +22,7 @@ public class PrimeFactorsTest {
     @Test
     public void primeNumbers() throws Exception {
         assertThat(PrimeFactors.of(2), returnListAs(2));
+        assertThat(PrimeFactors.of(3), returnListAs(3));
     }
 
     private Matcher<? super List<Integer>> returnListAs(int numbers) {
