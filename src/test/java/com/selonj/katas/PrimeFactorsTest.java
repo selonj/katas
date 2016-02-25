@@ -28,6 +28,7 @@ public class PrimeFactorsTest {
     @Test
     public void sameFactors() throws Exception {
         assertThat(PrimeFactors.of(4), returnListAs(2, 2));
+        assertThat(PrimeFactors.of(8), returnListAs(2, 2, 2));
     }
 
     private Matcher<? super List<Integer>> returnListAs(Integer... numbers) {
