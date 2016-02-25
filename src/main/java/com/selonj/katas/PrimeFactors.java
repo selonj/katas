@@ -9,13 +9,11 @@ import java.util.List;
 public class PrimeFactors {
     public static List<Integer> of(int n) {
         ArrayList<Integer> primes = new ArrayList<>();
-        int candidate = 2;
-        while (n > 1) {
-            while (n % candidate == 0) {
+
+        for (int candidate = 2; n > 1; candidate++) {
+            for (;n % candidate == 0;n /= candidate) {
                 primes.add(candidate);
-                n /= candidate;
             }
-            candidate++;
         }
         return primes;
     }
