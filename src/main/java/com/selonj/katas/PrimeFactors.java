@@ -10,7 +10,7 @@ public class PrimeFactors {
     public static List<Integer> of(int n) {
         ArrayList<Integer> primes = new ArrayList<>();
         if (n > 1) {
-            primes.add(2);
+            primes.add(n);
         }
         return primes;
     }
