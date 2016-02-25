@@ -3,6 +3,7 @@ package com.selonj.katas;
 import org.hamcrest.Matcher;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -16,6 +17,15 @@ public class PrimeFactorsTest {
     @Test
     public void noFactors() throws Exception {
         assertThat(PrimeFactors.of(1), returnsEmptyList());
+    }
+
+    @Test
+    public void primeNumbers() throws Exception {
+        assertThat(PrimeFactors.of(2), returnListAs(2));
+    }
+
+    private Matcher<? super List<Integer>> returnListAs(int numbers) {
+        return equalTo(Arrays.asList(numbers));
     }
 
     private Matcher<? super List<Integer>> returnsEmptyList() {
