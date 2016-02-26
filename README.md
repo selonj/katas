@@ -17,7 +17,7 @@ unique([1,1,2,2,3,3])==[1,2,3]
 PrimeFactors.of(30)==[2,3,5]
 ```
 
-## [保龄球游戏]((src/test/java/com/selonj/katas/BowlingGameTest.java))
+## [保龄球游戏](src/test/java/com/selonj/katas/BowlingGameTest.java)
 
 ![保龄球游戏](etc/bowling-game.png)
 
