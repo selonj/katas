@@ -20,18 +20,20 @@ public class BowlingGameTest {
 
     @Test
     public void noPinsKnockedDownInAllRolls() throws Exception {
-        for (int i = 0; i < 20; i++) {
-            game.roll(0);
-        }
+        rollMany(20, 0);
 
         assertThat(game.score(), equalTo(0));
     }
 
+    private void rollMany(int n, int pins) {
+        for (int i = 0; i < n; i++) {
+            game.roll(pins);
+        }
+    }
+
     @Test
     public void onePinKnockedDownInAllRolls() throws Exception {
-        for (int i = 0; i < 20; i++) {
-            game.roll(1);
-        }
+        rollMany(20, 1);
 
         assertThat(game.score(), equalTo(20));
     }
