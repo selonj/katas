@@ -19,7 +19,7 @@ public class Game {
         int score = 0;
         int frameIndex = 0;
         for (int frame = 0; frame < FRAMES; frame++) {
-            if (rolls[frameIndex] + rolls[frameIndex + 1] == FRAME_PINS) {
+            if (isSpare(frameIndex)) {
                 score += FRAME_PINS + rolls[frameIndex + 2];
                 frameIndex += 2;
             } else {
@@ -28,5 +28,9 @@ public class Game {
             }
         }
         return score;
+    }
+
+    private boolean isSpare(int frameIndex) {
+        return rolls[frameIndex] + rolls[frameIndex + 1] == FRAME_PINS;
     }
 }
