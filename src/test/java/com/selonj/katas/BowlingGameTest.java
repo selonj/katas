@@ -22,13 +22,25 @@ public class BowlingGameTest {
     @Test
     public void noPinsKnockedDownInAllRolls() throws Exception {
         rollMany(20, 0);
+
         assertGameScoreEquals(0);
     }
 
     @Test
     public void onePinKnockedDownInAllRolls() throws Exception {
         rollMany(20, 1);
+
         assertGameScoreEquals(20);
+    }
+
+    private void rollMany(int n, int pins) {
+        for (int i = 0; i < n; i++) {
+            game.roll(pins);
+        }
+    }
+
+    private void assertGameScoreEquals(int expected) {
+        assertThat(game.score(), equalTo(expected));
     }
 
     @Test
@@ -36,6 +48,7 @@ public class BowlingGameTest {
         rollASpare();
         game.roll(3);
         rollMany(17, 0);
+
         assertGameScoreEquals(16);
     }
 
@@ -45,6 +58,7 @@ public class BowlingGameTest {
         game.roll(3);
         game.roll(4);
         rollMany(16, 0);
+
         assertGameScoreEquals(24);
     }
 
@@ -64,13 +78,5 @@ public class BowlingGameTest {
         game.roll(5);
     }
 
-    private void rollMany(int n, int pins) {
-        for (int i = 0; i < n; i++) {
-            game.roll(pins);
-        }
-    }
 
-    private void assertGameScoreEquals(int expected) {
-        assertThat(game.score(), equalTo(expected));
-    }
 }
