@@ -32,7 +32,6 @@ public class BowlingGameTest {
     }
 
     @Test
-    @Ignore
     public void oneSpare() throws Exception {
         game.roll(5);
         game.roll(5);//spare
