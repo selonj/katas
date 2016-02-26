@@ -41,11 +41,15 @@ public class BowlingGameTest {
 
     @Test
     public void oneStrike() throws Exception {
-        game.roll(10);
+        rollAStrike();
         game.roll(3);
         game.roll(4);
         rollMany(16, 0);
         assertGameScoreEquals(24);
+    }
+
+    private void rollAStrike() {
+        game.roll(10);
     }
 
     private void rollASpare() {
