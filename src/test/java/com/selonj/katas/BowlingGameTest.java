@@ -30,6 +30,15 @@ public class BowlingGameTest {
         assertGameScoreEquals(20);
     }
 
+    @Test
+    public void oneSpare() throws Exception {
+        game.roll(5);
+        game.roll(5);//spare
+        game.roll(3);
+        rollMany(17, 0);
+        assertGameScoreEquals(16);
+    }
+
     private void rollMany(int n, int pins) {
         for (int i = 0; i < n; i++) {
             game.roll(pins);
