@@ -21,8 +21,13 @@ public class BowlingGameTest {
     @Test
     public void noPinsKnockedDownInAllRolls() throws Exception {
         rollMany(20, 0);
+        assertGameScoreEquals(0);
+    }
 
-        assertThat(game.score(), equalTo(0));
+    @Test
+    public void onePinKnockedDownInAllRolls() throws Exception {
+        rollMany(20, 1);
+        assertGameScoreEquals(20);
     }
 
     private void rollMany(int n, int pins) {
@@ -31,10 +36,7 @@ public class BowlingGameTest {
         }
     }
 
-    @Test
-    public void onePinKnockedDownInAllRolls() throws Exception {
-        rollMany(20, 1);
-
-        assertThat(game.score(), equalTo(20));
+    private void assertGameScoreEquals(int expected) {
+        assertThat(game.score(), equalTo(expected));
     }
 }
