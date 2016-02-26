@@ -48,6 +48,13 @@ public class BowlingGameTest {
         assertGameScoreEquals(24);
     }
 
+    @Test
+    public void perfectGame() throws Exception {
+        rollMany(12, 10);
+
+        assertGameScoreEquals(300);
+    }
+
     private void rollAStrike() {
         game.roll(10);
     }
