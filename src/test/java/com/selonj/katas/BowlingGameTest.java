@@ -1,6 +1,7 @@
 package com.selonj.katas;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -31,6 +32,7 @@ public class BowlingGameTest {
     }
 
     @Test
+    @Ignore
     public void oneSpare() throws Exception {
         game.roll(5);
         game.roll(5);//spare
