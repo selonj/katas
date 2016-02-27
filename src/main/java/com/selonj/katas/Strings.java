@@ -8,6 +8,13 @@ public class Strings {
         if (s1.length() != s2.length()) {
             return false;
         }
+        if (s1.length() == 0) {
+            return true;
+        }
+        int pos = s2.indexOf(s1.charAt(0));
+        if (pos == -1) {
+            return false;
+        }
         return s1.equals(s2);
     }
 }
