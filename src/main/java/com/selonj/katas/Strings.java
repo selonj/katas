@@ -1,0 +1,35 @@
+package com.selonj.katas;
+
+/**
+ * Created by L.x on 16-2-27.
+ */
+public class Strings {
+
+    public static final int BEFORE_FIRST = -1;
+    public static final int NOT_FOUND = -1;
+
+    public static boolean isPermutationOf(String s1, String s2) {
+        if (s1.length() != s2.length()) {
+            return false;
+        }
+
+        if (s1.length() == 0) {
+            return true;
+        }
+
+        int pos = BEFORE_FIRST;
+        while (true) {
+            pos = s2.indexOf(s1.charAt(0), pos + 1);
+            if (pos == NOT_FOUND) {
+                return false;
+            }
+            if (s1.equals(swapAt(s2, pos))) {
+                return true;
+            }
+        }
+    }
+
+    private static String swapAt(String s, int pos) {
+        return s.substring(pos) + s.substring(0, pos);
+    }
+}
