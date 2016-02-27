@@ -5,6 +5,6 @@ package com.selonj.katas;
  */
 public class Strings {
     public static boolean isPermutationOf(String s1, String s2) {
-        return false;
+        return true;
     }
 }
