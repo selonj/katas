@@ -11,10 +11,14 @@ public class Strings {
         if (s1.length() == 0) {
             return true;
         }
-        int pos = s2.indexOf(s1.charAt(0));
+        int pos = -1;
+        pos = s2.indexOf(s1.charAt(0), pos + 1);
         if (pos == -1) {
             return false;
         }
-        return s1.equals(s2.substring(pos) + s2.substring(0, pos));
+        if (s1.equals(s2.substring(pos) + s2.substring(0, pos))) {
+            return true;
+        }
+        return false;
     }
 }
