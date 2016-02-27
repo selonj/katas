@@ -12,6 +12,11 @@ public class StringPermutationTest {
 
     @Test
     public void emptyStrings() throws Exception {
-        assertThat(Strings.isPermutationOf("",""),is(true));
+        assertThat(Strings.isPermutationOf("", ""), is(true));
+    }
+
+    @Test
+    public void diffLengthStrings() throws Exception {
+        assertThat(Strings.isPermutationOf("a", "bc"), is(false));
     }
 }
