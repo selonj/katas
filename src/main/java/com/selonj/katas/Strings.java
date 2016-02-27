@@ -5,9 +5,9 @@ package com.selonj.katas;
  */
 public class Strings {
     public static boolean isPermutationOf(String s1, String s2) {
-        if(s1.length()!=s2.length()){
+        if (s1.length() != s2.length()) {
             return false;
         }
-        return true;
+        return s1.equals(s2);
     }
 }
