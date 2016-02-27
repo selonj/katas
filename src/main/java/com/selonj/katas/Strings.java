@@ -15,6 +15,6 @@ public class Strings {
         if (pos == -1) {
             return false;
         }
-        return s1.equals(s2);
+        return s1.equals(s2.substring(pos) + s2.substring(0, pos));
     }
 }
