@@ -19,4 +19,9 @@ public class StringPermutationTest {
     public void diffLengthStrings() throws Exception {
         assertThat(Strings.isPermutationOf("a", "bc"), is(false));
     }
+
+    @Test
+    public void diffStringsWithSameLength() throws Exception {
+        assertThat(Strings.isPermutationOf("a", "b"), is(false));
+    }
 }
