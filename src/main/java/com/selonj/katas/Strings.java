@@ -17,9 +17,10 @@ public class Strings {
             return true;
         }
 
+        char header = s1.charAt(0);
         int pos = BEFORE_FIRST;
         while (true) {
-            pos = s2.indexOf(s1.charAt(0), pos + 1);
+            pos = s2.indexOf(header, pos + 1);
             if (pos == NOT_FOUND) {
                 return false;
             }
