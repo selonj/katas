@@ -28,5 +28,6 @@ public class StringPermutationTest {
     @Test
     public void permutations() throws Exception {
         assertThat(Strings.isPermutationOf("ab", "ab"), is(true));
+        assertThat(Strings.isPermutationOf("ab", "ba"), is(true));
     }
 }
