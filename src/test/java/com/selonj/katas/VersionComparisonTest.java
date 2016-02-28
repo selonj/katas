@@ -11,7 +11,7 @@ import static org.junit.Assert.assertThat;
  */
 public class VersionComparisonTest {
     @Test
-    public void withoutMinorVersions() throws Exception {
+    public void justMajorVersionOnly() throws Exception {
         assertThat(version("1").compareTo(version("0")), equalTo(1));
         assertThat(version("1").compareTo(version("2")), equalTo(-1));
         assertThat(version("1").compareTo(version("1")), equalTo(0));
