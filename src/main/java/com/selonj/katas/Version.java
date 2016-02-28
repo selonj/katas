@@ -4,6 +4,7 @@ package com.selonj.katas;
  * Created by L.x on 16-2-28.
  */
 public class Version implements Comparable<Version> {
+    public static final String VERSION_SEP = "\\.";
     private String[] parts;
 
     public static Version version(String version) {
@@ -11,7 +12,7 @@ public class Version implements Comparable<Version> {
     }
 
     public Version(String version) {
-        this.parts = version.split("\\.");
+        this.parts = version.split(VERSION_SEP);
     }
 
     @Override
