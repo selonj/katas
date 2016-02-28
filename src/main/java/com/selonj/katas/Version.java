@@ -19,6 +19,10 @@ public class Version implements Comparable<Version> {
     public int compareTo(Version that) {
         int i = 0;
         int result = Double.valueOf(parts[i]).compareTo(Double.valueOf(that.parts[i]));
+        i++;
+        if (result == 0 && parts.length > 1) {
+            result = Double.valueOf(parts[i]).compareTo(Double.valueOf(that.parts[i]));
+        }
         return result;
     }
 }
