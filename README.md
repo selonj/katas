@@ -39,7 +39,7 @@ permutation?('abc','bac')==false
 permutation?('good','odgo')==true
 ```
 
-## 版本号比较
+## [版本号比较](src/test/java/com/selonj/katas/VersionComparisonTest.java)
 
 伪代码:
 ```pseudo-code
