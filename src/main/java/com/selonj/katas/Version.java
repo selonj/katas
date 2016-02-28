@@ -5,6 +5,7 @@ package com.selonj.katas;
  */
 public class Version implements Comparable<Version> {
     public static final String VERSION_SEP = "\\.";
+    public static final int NOTHING = 0;
     private String[] parts;
 
     public static Version version(String version) {
@@ -18,13 +19,14 @@ public class Version implements Comparable<Version> {
     @Override
     public int compareTo(Version that) {
         int result = 0;
-        for (int i = 0; result == 0 && i < parts.length; i++) {
+        int times = Math.max(parts.length, that.parts.length);
+        for (int i = 0; result == 0 && i < times; i++) {
             result = part(i).compareTo(that.part(i));
         }
         return result;
     }
 
     private Integer part(int pos) {
-        return Integer.valueOf(parts[pos]);
+        return pos < parts.length ? Integer.valueOf(parts[pos]) : NOTHING;
     }
 }

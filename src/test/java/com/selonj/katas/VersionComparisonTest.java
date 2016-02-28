@@ -27,5 +27,6 @@ public class VersionComparisonTest {
     @Test
     public void withinDiffNumberOfMinorVersions() throws Exception {
         assertThat(version("1").compareTo(version("1.01")), equalTo(-1));
+        assertThat(version("11.0.0").compareTo(version("11")), equalTo(0));
     }
 }
