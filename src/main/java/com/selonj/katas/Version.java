@@ -17,11 +17,15 @@ public class Version implements Comparable<Version> {
 
     @Override
     public int compareTo(Version that) {
+        int result = 0;
         int i = 0;
-        int result = Double.valueOf(parts[i]).compareTo(Double.valueOf(that.parts[i]));
-        i++;
-        if (result == 0 && parts.length > 1) {
+        if (result == 0 && parts.length > i) {
             result = Double.valueOf(parts[i]).compareTo(Double.valueOf(that.parts[i]));
+            i++;
+        }
+        if (result == 0 && parts.length > i) {
+            result = Double.valueOf(parts[i]).compareTo(Double.valueOf(that.parts[i]));
+            i++;
         }
         return result;
     }
