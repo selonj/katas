@@ -22,4 +22,9 @@ public class VersionComparisonTest {
         assertThat(Version.version("1.10").compareTo(Version.version("1.01")), equalTo(1));
         assertThat(Version.version("1.10.1").compareTo(Version.version("1.10.0")), equalTo(1));
     }
+
+    @Test
+    public void withinDiffNumberOfMinorVersions() throws Exception {
+        assertThat(Version.version("1").compareTo(Version.version("1.01")), equalTo(-1));
+    }
 }
