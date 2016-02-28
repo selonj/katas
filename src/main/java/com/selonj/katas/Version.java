@@ -18,14 +18,8 @@ public class Version implements Comparable<Version> {
     @Override
     public int compareTo(Version that) {
         int result = 0;
-        int i = 0;
-        while (result == 0 && parts.length > i) {
-            result = Double.valueOf(parts[i]).compareTo(Double.valueOf(that.parts[i]));
-            i++;
-        }
-        if (result == 0 && parts.length > i) {
-            result = Double.valueOf(parts[i]).compareTo(Double.valueOf(that.parts[i]));
-            i++;
+        for (int i = 0; result == 0 && i < parts.length; i++) {
+            result = Integer.valueOf(parts[i]).compareTo(Integer.valueOf(that.parts[i]));
         }
         return result;
     }
