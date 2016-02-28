@@ -11,12 +11,9 @@ import static org.junit.Assert.assertThat;
 public class VersionComparisonTest {
     @Test
     public void withoutMinorVersions() throws Exception {
-        assertThat(version("1").compareTo(version("0")), equalTo(1));
-        assertThat(version("1").compareTo(version("2")), equalTo(-1));
-        assertThat(version("1").compareTo(version("1")), equalTo(0));
+        assertThat(Version.version("1").compareTo(Version.version("0")), equalTo(1));
+        assertThat(Version.version("1").compareTo(Version.version("2")), equalTo(-1));
+        assertThat(Version.version("1").compareTo(Version.version("1")), equalTo(0));
     }
 
-    private Version version(String version) {
-        return new Version(version);
-    }
 }

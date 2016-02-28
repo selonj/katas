@@ -6,8 +6,11 @@ package com.selonj.katas;
 public class Version implements Comparable<Version> {
     private String version;
 
-    public Version(String version) {
+    public static Version version(String version) {
+        return new Version(version);
+    }
 
+    public Version(String version) {
         this.version = version;
     }
 
