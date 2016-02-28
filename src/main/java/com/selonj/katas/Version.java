@@ -16,6 +16,6 @@ public class Version implements Comparable<Version> {
 
     @Override
     public int compareTo(Version that) {
-        return Integer.valueOf(version).compareTo(Integer.valueOf(that.version));
+        return Double.valueOf(version).compareTo(Double.valueOf(that.version));
     }
 }
