@@ -38,3 +38,12 @@ permutation?('abc','bca')==true
 permutation?('abc','bac')==false
 permutation?('good','odgo')==true
 ```
+
+## 版本号比较
+
+伪代码:
+```pseudo-code
+'3.1.2'.compare('3.1')== 1
+'12.0.0'.compare('11.0.0')== -1
+'11.0.0'.compare('11')==0
+```
