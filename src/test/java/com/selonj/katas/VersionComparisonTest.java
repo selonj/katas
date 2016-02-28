@@ -14,6 +14,7 @@ public class VersionComparisonTest {
         assertThat(Version.version("1").compareTo(Version.version("0")), equalTo(1));
         assertThat(Version.version("1").compareTo(Version.version("2")), equalTo(-1));
         assertThat(Version.version("1").compareTo(Version.version("1")), equalTo(0));
+        assertThat(Version.version("11").compareTo(Version.version("9")), equalTo(1));
     }
 
 }
