@@ -17,4 +17,8 @@ public class VersionComparisonTest {
         assertThat(Version.version("11").compareTo(Version.version("9")), equalTo(1));
     }
 
+    @Test
+    public void withinSameNumberOfMinorVersions() throws Exception {
+        assertThat(Version.version("1.10").compareTo(Version.version("1.01")), equalTo(1));
+    }
 }
