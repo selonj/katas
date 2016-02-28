@@ -10,6 +10,6 @@ public class Version implements Comparable<Version> {
 
     @Override
     public int compareTo(Version that) {
-        return 0;
+        return 1;
     }
 }
