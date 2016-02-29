@@ -8,19 +8,17 @@ import java.util.List;
  * Created by L.x on 16-2-29.
  */
 public class QueryString {
-    private Parameter parameter;
     private List<Parameter> parameters = new ArrayList<>();
 
     public static QueryString within(Parameter... parameters) {
         QueryString instance = new QueryString();
-        instance.parameter = parameters[0];
         instance.parameters.addAll(Arrays.asList(parameters));
         return instance;
     }
 
     public String toString() {
         String queryString = "?";
-        queryString += parameter.asString();
+        queryString += parameters.get(0).asString();
         if (parameters.size() > 1) {
             queryString += "&" + parameters.get(1).asString();
         }
