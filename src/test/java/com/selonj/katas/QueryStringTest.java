@@ -21,6 +21,11 @@ public class QueryStringTest {
         assertThat(QueryString.within(param("a", "b"), param("c", "d"), param("e", "f")).toString(), equalTo("?a=b&c=d&e=f"));
     }
 
+    @Test
+    public void withoutAnyParameters() throws Exception {
+        assertThat(QueryString.withNothing().toString(),equalTo(""));
+    }
+
     private Parameter param(String name, String value) {
         return new Parameter(name, value);
     }

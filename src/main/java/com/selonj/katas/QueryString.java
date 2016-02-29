@@ -12,6 +12,7 @@ public class QueryString {
     public static final String PARAM_SEP = "&";
     private List<Parameter> parameters = new ArrayList<>();
 
+
     public static QueryString within(Parameter... parameters) {
         QueryString instance = new QueryString();
         instance.parameters.addAll(Arrays.asList(parameters));
@@ -28,5 +29,4 @@ public class QueryString {
 
         return queryString;
     }
-
 }
