@@ -62,7 +62,7 @@ public class QueryString {
 
         @Override
         public String asString() {
-            return name + "=" + value;
+            return name + "=" + (value == null ? "" : value);
         }
     }
 }
