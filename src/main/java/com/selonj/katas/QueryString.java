@@ -1,19 +1,27 @@
 package com.selonj.katas;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by L.x on 16-2-29.
  */
 public class QueryString {
     private Parameter parameter;
+    private List<Parameter> parameters = new ArrayList<>();
 
     public static QueryString within(Parameter... parameters) {
         QueryString instance = new QueryString();
         instance.parameter = parameters[0];
+        instance.parameters.addAll(Arrays.asList(parameters));
         return instance;
     }
 
     public String toString() {
-        return "?" + parameter.asString();
+        String queryString = "?";
+        queryString += parameter.asString();
+        return queryString;
     }
 
 }
