@@ -13,4 +13,8 @@ public class QueryStringTest {
     public void singleParameter() throws Exception {
         assertThat(QueryString.within(param("key", "value")).toString(), equalTo("?key=value"));
     }
+
+    private Parameter param(String name, String value) {
+        return null;
+    }
 }
