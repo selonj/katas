@@ -6,9 +6,9 @@ package com.selonj.katas;
 public class QueryString {
     private Parameter parameter;
 
-    public static QueryString within(Parameter parameter) {
+    public static QueryString within(Parameter... parameters) {
         QueryString instance = new QueryString();
-        instance.parameter = parameter;
+        instance.parameter = parameters[0];
         return instance;
     }
 
