@@ -5,6 +5,4 @@ package com.selonj.katas;
  */
 public interface Component {
     void build(QueryString queryString);
-
-    String asString();
 }
