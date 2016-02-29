@@ -15,7 +15,12 @@ public class QueryStringTest {
         assertThat(QueryString.within(param("foo", "bar")).toString(), equalTo("?foo=bar"));
     }
 
+    @Test
+    public void multiParameters() throws Exception {
+        assertThat(QueryString.within(param("key", "value"), param("foo", "bar")).toString(), equalTo("?key=value&foo=bar"));
+    }
+
     private Parameter param(String name, String value) {
-        return new Parameter(name,value);
+        return new Parameter(name, value);
     }
 }
