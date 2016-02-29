@@ -13,6 +13,7 @@ public class QueryString {
     }
 
     public String toString() {
-        return "?" + parameter.name + "=" + parameter.value;
+        return "?" + parameter.asString();
     }
+
 }
