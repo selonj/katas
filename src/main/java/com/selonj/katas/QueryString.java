@@ -1,7 +1,6 @@
 package com.selonj.katas;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -18,8 +17,14 @@ public class QueryString {
 
     public static QueryString within(Parameter... parameters) {
         QueryString instance = new QueryString();
-        instance.parameters.addAll(Arrays.asList(parameters));
+        for (Parameter parameter : parameters) {
+            instance.addParameter(parameter);
+        }
         return instance;
+    }
+
+    public void addParameter(Parameter parameter) {
+        parameters.add(parameter);
     }
 
     public String toString() {
