@@ -47,3 +47,11 @@ permutation?('good','odgo')==true
 '12.0.0'.compare('11.0.0')== -1
 '11.0.0'.compare('11')==0
 ```
+
+## [建造URL中的queryString](src/test/java/com/selonj/katas/QueryStringTest.java)
+
+
+伪代码:
+```pseudo-code
+QueryString.within(param('foo','bar'),param('key','value')).toString() == ?foo=bar&key=value
+```
