@@ -13,7 +13,7 @@ public class QueryString {
     private List<Parameter> parameters = new ArrayList<>();
 
     public static QueryString withNothing() {
-        return null;
+        return new QueryString();
     }
 
     public static QueryString within(Parameter... parameters) {
@@ -23,8 +23,11 @@ public class QueryString {
     }
 
     public String toString() {
-        String queryString = QUERY_STRING_PREFIX;
+        if (parameters.isEmpty()) {
+            return "";
+        }
 
+        String queryString = QUERY_STRING_PREFIX;
         queryString += parameters.get(0).asString();
         for (int i = 1; i < parameters.size(); i++) {
             queryString += PARAM_SEP + parameters.get(i).asString();
