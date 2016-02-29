@@ -21,6 +21,9 @@ public class QueryString {
     public String toString() {
         String queryString = "?";
         queryString += parameter.asString();
+        if (parameters.size() > 1) {
+            queryString += "&" + parameters.get(1).asString();
+        }
         return queryString;
     }
 
