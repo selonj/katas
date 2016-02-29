@@ -12,6 +12,10 @@ public class Parameter {
         this.value = value;
     }
 
+    public void build(QueryString queryString) {
+        queryString.addParameter(this);
+    }
+
     public String asString() {
         return name + "=" + value;
     }

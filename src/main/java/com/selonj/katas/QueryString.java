@@ -17,9 +17,9 @@ public class QueryString {
 
     public static QueryString within(Parameter... parameters) {
         QueryString instance = new QueryString();
-        for (Parameter parameter : parameters) {
-            instance.addParameter(parameter);
-        }
+        for (Parameter parameter : parameters)
+            parameter.build(instance);
+
         return instance;
     }
 
