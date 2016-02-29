@@ -22,6 +22,9 @@ public class QueryString {
         if (parameters.size() > 1) {
             queryString += "&" + parameters.get(1).asString();
         }
+        if (parameters.size() > 2) {
+            queryString += "&" + parameters.get(2).asString();
+        }
         return queryString;
     }
 
