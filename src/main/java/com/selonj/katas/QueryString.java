@@ -19,14 +19,11 @@ public class QueryString {
     public String toString() {
         String queryString = "?";
         queryString += parameters.get(0).asString();
-        int i = 1;
-        if (parameters.size() > i) {
-            queryString += "&" + parameters.get(i).asString();
-            i++;
-        }
-        if (parameters.size() > i) {
+
+        for (int i = 1; i < parameters.size(); i++) {
             queryString += "&" + parameters.get(i).asString();
         }
+
         return queryString;
     }
 
