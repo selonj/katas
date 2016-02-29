@@ -9,7 +9,7 @@ import java.util.List;
 public class QueryString {
     public static final String QUERY_STRING_PREFIX = "?";
     public static final String PARAM_SEP = "&";
-    private List<Component> parameters = new ArrayList<>();
+    private List<Parameter> parameters = new ArrayList<>();
 
     public static QueryString withNothing() {
         return new QueryString();
@@ -28,7 +28,7 @@ public class QueryString {
         return new Parameter(name, value);
     }
 
-    public void addParameter(Component parameter) {
+    public void addParameter(Parameter parameter) {
         parameters.add(parameter);
     }
 
@@ -60,7 +60,6 @@ public class QueryString {
             queryString.addParameter(this);
         }
 
-        @Override
         public String asString() {
             return name + "=" + (value == null ? "" : value);
         }
