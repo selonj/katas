@@ -24,6 +24,10 @@ public class QueryString {
         return instance;
     }
 
+    public static Component param(String name, String value) {
+        return new Parameter(name, value);
+    }
+
     public void addParameter(Component parameter) {
         parameters.add(parameter);
     }
@@ -40,5 +44,25 @@ public class QueryString {
         }
 
         return queryString;
+    }
+
+    private static class Parameter implements Component {
+        private final String name;
+        private final String value;
+
+        public Parameter(String name, String value) {
+            this.name = name;
+            this.value = value;
+        }
+
+        @Override
+        public void build(QueryString queryString) {
+            queryString.addParameter(this);
+        }
+
+        @Override
+        public String asString() {
+            return name + "=" + value;
+        }
     }
 }
