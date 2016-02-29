@@ -9,21 +9,22 @@ import java.util.List;
 public class QueryString {
     public static final String QUERY_STRING_PREFIX = "?";
     public static final String PARAM_SEP = "&";
-    private List<Parameter> parameters = new ArrayList<>();
+    private List<Component> parameters = new ArrayList<>();
 
     public static QueryString withNothing() {
         return new QueryString();
     }
 
-    public static QueryString within(Parameter... parameters) {
+    public static QueryString within(Component... components) {
         QueryString instance = new QueryString();
-        for (Parameter parameter : parameters)
-            parameter.build(instance);
+
+        for (Component component : components)
+            component.build(instance);
 
         return instance;
     }
 
-    public void addParameter(Parameter parameter) {
+    public void addParameter(Component parameter) {
         parameters.add(parameter);
     }
 

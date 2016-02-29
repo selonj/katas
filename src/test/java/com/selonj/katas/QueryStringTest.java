@@ -26,7 +26,7 @@ public class QueryStringTest {
         assertThat(QueryString.withNothing().toString(),equalTo(""));
     }
 
-    private Parameter param(String name, String value) {
+    private Component param(String name, String value) {
         return new Parameter(name, value);
     }
 }
