@@ -56,7 +56,7 @@ permutation?('good','odgo')==true
 QueryString.within(param('foo','bar'),param('key','value')).toString() == ?foo=bar&key=value
 ```
 
-## BerlinClock 
+## [BerlinClock](src/test/java/com/selonj/katas/BerlinClockTest.java) 
 [![berlin clock](etc/berlin-clock.jpg)](https://en.wikipedia.org/wiki/Mengenlehreuhr)
 
 [BerlinClock](https://en.wikipedia.org/wiki/Mengenlehreuhr)是首个使用着色的指示灯来显示时间。
