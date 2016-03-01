@@ -28,7 +28,7 @@ public class BerlinClock {
     }
 
     public String getHoursOfRow2() {
-        return null;
+        return "0000";
     }
 
     private String unlitLightsOfRow1() {
