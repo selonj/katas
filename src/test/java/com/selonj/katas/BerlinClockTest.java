@@ -18,6 +18,12 @@ public class BerlinClockTest {
                         "0000"
         ));
 
+        assertThat(BerlinClock.at("23:59").display(), equalTo(
+                    /**/"RRRR" +
+                        "RRR0" +
+                        "YYRYYRYYRYY" +
+                        "YYYY"
+        ));
 
     }
 }
