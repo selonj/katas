@@ -4,10 +4,11 @@ package com.selonj.katas;
  * Created by L.x on 16-3-1.
  */
 public class BerlinClock {
-    private String time;
+    private final int hours;
 
     public BerlinClock(String time) {
-        this.time = time;
+        String[] parts = time.split(":");
+        this.hours = Integer.parseInt(parts[0]);
     }
 
     public static BerlinClock at(String time) {
@@ -22,7 +23,7 @@ public class BerlinClock {
     }
 
     public String getHoursOfRow1() {
-        if (time.equals("05:00")) {
+        if (hours / 5 == 1) {
             return "R000";
         }
         return "0000";
