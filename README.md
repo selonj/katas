@@ -55,3 +55,14 @@ permutation?('good','odgo')==true
 ```pseudo-code
 QueryString.within(param('foo','bar'),param('key','value')).toString() == ?foo=bar&key=value
 ```
+
+## [BerlinClock](src/test/java/com/selonj/katas/BerlinClockTest.java) 
+[![berlin clock](etc/berlin-clock.jpg)](https://en.wikipedia.org/wiki/Mengenlehreuhr)
+
+[BerlinClock](https://en.wikipedia.org/wiki/Mengenlehreuhr)是首个使用着色的指示灯来显示时间。
+
+-   前两排指示灯用来显示小时，后两排指示灯显示分钟。
+-   第一排的4个红色指示灯每个表示5小时；
+-   第二排的4个红色指示灯每个表示1小时；
+-   第三排的11个红/黄色指示灯每个表示5分钟（15、30和45分钟的指示灯为红色）；
+-   最后一排的4个黄色指示灯每个表示1分钟；
