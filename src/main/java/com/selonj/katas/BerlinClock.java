@@ -5,6 +5,7 @@ package com.selonj.katas;
  */
 public class BerlinClock {
     public static final String LIT_LIGHT_OF_HOURS = "RRRR";
+    public static final String LIT_LIGHT_OF_MINUTES2 = "YYYY";
     private final int hours;
     private final int minutes;
 
@@ -46,6 +47,6 @@ public class BerlinClock {
     }
 
     private String litLightsOfMinute2(int numberOfLitLights) {
-        return "YYYY".substring(0, numberOfLitLights);
+        return LIT_LIGHT_OF_MINUTES2.substring(0, numberOfLitLights);
     }
 }
