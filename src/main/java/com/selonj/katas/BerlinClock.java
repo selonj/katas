@@ -24,26 +24,19 @@ public class BerlinClock {
     }
 
     public String getHoursOfRow1() {
-        return litLightsOfRow1() + unlitLightsOfRow1();
+        return litLightsOfHours(hours / 5) + unlitLightsOfHours(hours / 5);
     }
 
-    private String unlitLightsOfRow1() {
-        return "0000".substring(hours / 5);
+    private String unlitLightsOfHours(int numberOfLintLights) {
+        return "0000".substring(numberOfLintLights);
     }
 
-    private String litLightsOfRow1() {
-        return LITED_LIGHT.substring(0, hours / 5);
+    private String litLightsOfHours(int n) {
+        return LITED_LIGHT.substring(0, n);
     }
 
     public String getHoursOfRow2() {
-        return litLightsOfRow2() + unlitLightsOfRow2();
+        return litLightsOfHours(hours % 5) + unlitLightsOfHours(hours % 5);
     }
 
-    private String unlitLightsOfRow2() {
-        return "0000".substring(hours % 5);
-    }
-
-    private String litLightsOfRow2() {
-        return LITED_LIGHT.substring(0, hours % 5);
-    }
 }
