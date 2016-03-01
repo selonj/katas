@@ -48,4 +48,14 @@ public class BerlinClockTest {
         assertThat(BerlinClock.at("04:00").getHoursOfRow2(), equalTo("RRRR"));
         assertThat(BerlinClock.at("12:00").getHoursOfRow2(), equalTo("RR00"));
     }
+
+    @Test
+    public void getMinutesOfRow2() throws Exception {
+        assertThat(BerlinClock.at("00:00").getMinutesOfRow2(), equalTo("0000"));
+        assertThat(BerlinClock.at("00:01").getMinutesOfRow2(), equalTo("Y000"));
+        assertThat(BerlinClock.at("00:02").getMinutesOfRow2(), equalTo("YY00"));
+        assertThat(BerlinClock.at("00:03").getMinutesOfRow2(), equalTo("YYY0"));
+        assertThat(BerlinClock.at("00:04").getMinutesOfRow2(), equalTo("YYYY"));
+        assertThat(BerlinClock.at("00:06").getMinutesOfRow2(), equalTo("Y000"));
+    }
 }
