@@ -25,12 +25,16 @@ public class BerlinClock {
 
     public String getHoursOfRow1() {
         if (hours / 5 == 2) {
-            return litLightsOfRow1() + "0000".substring(hours / 5);
+            return litLightsOfRow1() + unlitLightsOfRow1();
         }
         if (hours / 5 == 1) {
-            return litLightsOfRow1() + "0000".substring(hours / 5);
+            return litLightsOfRow1() + unlitLightsOfRow1();
         }
-        return litLightsOfRow1() + "0000".substring(hours / 5);
+        return litLightsOfRow1() + unlitLightsOfRow1();
+    }
+
+    private String unlitLightsOfRow1() {
+        return "0000".substring(hours / 5);
     }
 
     private String litLightsOfRow1() {
