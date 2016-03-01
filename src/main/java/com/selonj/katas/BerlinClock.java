@@ -23,6 +23,9 @@ public class BerlinClock {
     }
 
     public String getHoursOfRow1() {
+        if (hours / 5 == 2) {
+            return "RR00";
+        }
         if (hours / 5 == 1) {
             return "R000";
         }
