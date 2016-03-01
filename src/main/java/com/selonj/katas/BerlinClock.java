@@ -36,9 +36,14 @@ public class BerlinClock {
     }
 
     public String getHoursOfRow2() {
-        if (hours % 5 == 1) {
-            return "R000";
-        }
-        return "0000";
+        return litLightsOfRow2() + unlitLightsOfRow2();
+    }
+
+    private String unlitLightsOfRow2() {
+        return "0000".substring(hours % 5);
+    }
+
+    private String litLightsOfRow2() {
+        return LITED_LIGHT.substring(0, hours % 5);
     }
 }
