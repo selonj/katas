@@ -4,7 +4,7 @@ package com.selonj.katas;
  * Created by L.x on 16-3-1.
  */
 public class BerlinClock {
-    public static final String LITED_LIGHT = "RRRR";
+    public static final String LIT_LIGHT_OF_HOURS = "RRRR";
     private final int hours;
     private final int minutes;
 
@@ -34,7 +34,7 @@ public class BerlinClock {
     }
 
     private String litLightsOfHours(int n) {
-        return LITED_LIGHT.substring(0, n);
+        return LIT_LIGHT_OF_HOURS.substring(0, n);
     }
 
     public String getHoursOfRow2() {
