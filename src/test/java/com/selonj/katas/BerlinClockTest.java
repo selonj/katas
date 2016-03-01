@@ -32,5 +32,6 @@ public class BerlinClockTest {
     @Test
     public void getHoursOfRow1() throws Exception {
         assertThat(BerlinClock.at("00:00").getHoursOfRow1(),equalTo("0000"));
+        assertThat(BerlinClock.at("05:00").getHoursOfRow1(),equalTo("R000"));
     }
 }
