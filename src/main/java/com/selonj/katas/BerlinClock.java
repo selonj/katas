@@ -41,34 +41,30 @@ public class BerlinClock {
     };
 
     public String getHoursOfRow1() {
-        int numberOfLitLights = hours / 5;
-        int row = 0;
-        return litLightsAt(row, numberOfLitLights) + unlitLightsAt(row, numberOfLitLights);
+        return display(0, hours / 5);
     }
 
     public String getHoursOfRow2() {
-        int numberOfLitLights = hours % 5;
-        int row = 1;
-        return litLightsAt(row, numberOfLitLights) + unlitLightsAt(row, numberOfLitLights);
+        return display(1, hours % 5);
     }
 
     public String getMinutesOfRow2() {
-        int numberOfLitLights = minutes % 5;
-        int row = 3;
-        return litLightsAt(row, numberOfLitLights) + unlitLightsAt(row, numberOfLitLights);
+        return display(3, minutes % 5);
     }
 
     public String getMinutesOfRow1() {
-        int numberOfLitLights = minutes / 5;
-        int row = 2;
+        return display(2, minutes / 5);
+    }
+
+    private String display(int row, int numberOfLitLights) {
         return litLightsAt(row, numberOfLitLights) + unlitLightsAt(row, numberOfLitLights);
     }
 
-    private String litLightsAt(int row, int numberOfLitLights) {
+    private static String litLightsAt(int row, int numberOfLitLights) {
         return LIT_LIGHTS[row].substring(0, numberOfLitLights);
     }
 
-    private String unlitLightsAt(int row, int numberOfLitLights) {
+    private static String unlitLightsAt(int row, int numberOfLitLights) {
         return UNLIT_LIGHTS[row].substring(numberOfLitLights);
     }
 
