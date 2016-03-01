@@ -23,10 +23,10 @@ public class BerlinClock {
     }
 
     public String display() {
-        return "0000" +
-                "0000" +
-                "00000000000" +
-                "0000";
+        return getHoursOfRow1() +
+                getHoursOfRow2() +
+                getMinutesOfRow1() +
+                getMinutesOfRow2();
     }
 
     public String getHoursOfRow1() {

@@ -1,6 +1,5 @@
 package com.selonj.katas;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -11,7 +10,6 @@ import static org.junit.Assert.assertThat;
  */
 public class BerlinClockTest {
     @Test
-    @Ignore
     public void displayTime() throws Exception {
         assertThat(BerlinClock.at("00:00").display(), equalTo(
                     /**/"0000" +
