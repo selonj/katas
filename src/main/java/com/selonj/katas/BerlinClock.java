@@ -14,4 +14,8 @@ public class BerlinClock {
                 "00000000000" +
                 "0000";
     }
+
+    public String getHoursOfRow1() {
+        return null;
+    }
 }
