@@ -52,4 +52,16 @@ public class BerlinClock {
     private String litLightsOfMinutes2(int numberOfLitLights) {
         return LIT_LIGHT_OF_MINUTES2.substring(0, numberOfLitLights);
     }
+
+    public String getMinutesOfRow1() {
+        return litLightsOfMinutes1(minutes / 5) + unlitLights2(minutes / 5);
+    }
+
+    private String litLightsOfMinutes1(int n) {
+        return "YYRYYRYYRYY".substring(0, n);
+    }
+
+    private String unlitLights2(int numberOfLitLights) {
+        return "00000000000".substring(numberOfLitLights);
+    }
 }

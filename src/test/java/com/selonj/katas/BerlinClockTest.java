@@ -58,4 +58,12 @@ public class BerlinClockTest {
         assertThat(BerlinClock.at("00:04").getMinutesOfRow2(), equalTo("YYYY"));
         assertThat(BerlinClock.at("00:06").getMinutesOfRow2(), equalTo("Y000"));
     }
+
+    @Test
+    public void getMinutesOfRow1() throws Exception {
+        assertThat(BerlinClock.at("00:00").getMinutesOfRow1(), equalTo("00000000000"));
+        assertThat(BerlinClock.at("00:05").getMinutesOfRow1(), equalTo("Y0000000000"));
+        assertThat(BerlinClock.at("00:15").getMinutesOfRow1(), equalTo("YYR00000000"));
+        assertThat(BerlinClock.at("00:55").getMinutesOfRow1(), equalTo("YYRYYRYYRYY"));
+    }
 }
