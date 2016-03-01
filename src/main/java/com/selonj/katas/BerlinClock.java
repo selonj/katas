@@ -6,13 +6,16 @@ package com.selonj.katas;
 public class BerlinClock {
     public static final String LIT_LIGHT_OF_HOURS = "RRRR";
     public static final String LIT_LIGHT_OF_MINUTES2 = "YYYY";
+    private static final int HOURS_POS = 0;
+    private static final int MINUTES_POS = 1;
+    private static final String TIME_SEP = ":";
     private final int hours;
     private final int minutes;
 
     public BerlinClock(String time) {
-        String[] parts = time.split(":");
-        this.hours = Integer.parseInt(parts[0]);
-        this.minutes = Integer.parseInt(parts[1]);
+        String[] parts = time.split(TIME_SEP);
+        this.hours = Integer.parseInt(parts[HOURS_POS]);
+        this.minutes = Integer.parseInt(parts[MINUTES_POS]);
     }
 
     public static BerlinClock at(String time) {
