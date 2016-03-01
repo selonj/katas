@@ -27,24 +27,39 @@ public class BerlinClock {
                 getMinutesOfRow2();
     }
 
+    private static final String[] LIT_LIGHTS = new String[]{
+            "RRRR",
+            "RRRR",
+            "YYRYYRYYRYY",
+            "YYYY"
+    };
+
     public String getHoursOfRow1() {
         int numberOfLitLights = hours / 5;
-        return "RRRR".substring(0, numberOfLitLights) + "0000".substring(numberOfLitLights);
+        int row = 0;
+        return litLightsAt(row, numberOfLitLights) + "0000".substring(numberOfLitLights);
     }
 
     public String getHoursOfRow2() {
         int numberOfLitLights = hours % 5;
-        return "RRRR".substring(0, numberOfLitLights) + "0000".substring(numberOfLitLights);
+        int row = 1;
+        return litLightsAt(row, numberOfLitLights) + "0000".substring(numberOfLitLights);
     }
 
     public String getMinutesOfRow2() {
         int numberOfLitLights = minutes % 5;
-        return "YYYY".substring(0, numberOfLitLights) + "0000".substring(numberOfLitLights);
+        int row = 3;
+        return litLightsAt(row, numberOfLitLights) + "0000".substring(numberOfLitLights);
     }
 
     public String getMinutesOfRow1() {
         int numberOfLitLights = minutes / 5;
-        return "YYRYYRYYRYY".substring(0, numberOfLitLights) + "00000000000".substring(numberOfLitLights);
+        int row = 2;
+        return litLightsAt(row, numberOfLitLights) + "00000000000".substring(numberOfLitLights);
+    }
+
+    private String litLightsAt(int row, int numberOfLitLights) {
+        return LIT_LIGHTS[row].substring(0, numberOfLitLights);
     }
 
 }
