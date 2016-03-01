@@ -27,14 +27,14 @@ public class BerlinClock {
     private final int hours;
     private final int minutes;
 
+    public static BerlinClock at(String time) {
+        return new BerlinClock(time);
+    }
+
     public BerlinClock(String time) {
         String[] parts = time.split(TIME_SEP);
         this.hours = Integer.parseInt(parts[HOURS_POS]);
         this.minutes = Integer.parseInt(parts[MINUTES_POS]);
-    }
-
-    public static BerlinClock at(String time) {
-        return new BerlinClock(time);
     }
 
     public String display() {

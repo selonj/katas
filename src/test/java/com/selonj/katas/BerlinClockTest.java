@@ -47,7 +47,7 @@ public class BerlinClockTest {
     }
 
     @Test
-    public void displayLightsOfMinutes1() throws Exception {
+    public void displayLightsOfMinutes2() throws Exception {
         assertThat(BerlinClock.at("00:00").displayLightsOfMinutes2(), equalTo("0000"));
         assertThat(BerlinClock.at("00:01").displayLightsOfMinutes2(), equalTo("Y000"));
         assertThat(BerlinClock.at("00:02").displayLightsOfMinutes2(), equalTo("YY00"));
@@ -57,7 +57,7 @@ public class BerlinClockTest {
     }
 
     @Test
-    public void displayLightsOfMinutes2() throws Exception {
+    public void displayLightsOfMinutes1() throws Exception {
         assertThat(BerlinClock.at("00:00").displayLightsOfMinutes1(), equalTo("00000000000"));
         assertThat(BerlinClock.at("00:05").displayLightsOfMinutes1(), equalTo("Y0000000000"));
         assertThat(BerlinClock.at("00:15").displayLightsOfMinutes1(), equalTo("YYR00000000"));
