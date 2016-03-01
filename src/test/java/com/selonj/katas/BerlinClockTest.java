@@ -24,44 +24,43 @@ public class BerlinClockTest {
                         "YYRYYRYYRYY" +
                         "YYYY"
         ));
-
     }
 
     @Test
-    public void getHoursOfRow1() throws Exception {
-        assertThat(BerlinClock.at("00:00").getHoursOfRow1(), equalTo("0000"));
-        assertThat(BerlinClock.at("05:00").getHoursOfRow1(), equalTo("R000"));
-        assertThat(BerlinClock.at("10:00").getHoursOfRow1(), equalTo("RR00"));
-        assertThat(BerlinClock.at("15:00").getHoursOfRow1(), equalTo("RRR0"));
-        assertThat(BerlinClock.at("20:00").getHoursOfRow1(), equalTo("RRRR"));
-        assertThat(BerlinClock.at("17:00").getHoursOfRow1(), equalTo("RRR0"));
+    public void displayLightsOfHours1() throws Exception {
+        assertThat(BerlinClock.at("00:00").displayLightsOfHours1(), equalTo("0000"));
+        assertThat(BerlinClock.at("05:00").displayLightsOfHours1(), equalTo("R000"));
+        assertThat(BerlinClock.at("10:00").displayLightsOfHours1(), equalTo("RR00"));
+        assertThat(BerlinClock.at("15:00").displayLightsOfHours1(), equalTo("RRR0"));
+        assertThat(BerlinClock.at("20:00").displayLightsOfHours1(), equalTo("RRRR"));
+        assertThat(BerlinClock.at("17:00").displayLightsOfHours1(), equalTo("RRR0"));
     }
 
     @Test
-    public void getHoursOfRow2() throws Exception {
-        assertThat(BerlinClock.at("00:00").getHoursOfRow2(), equalTo("0000"));
-        assertThat(BerlinClock.at("01:00").getHoursOfRow2(), equalTo("R000"));
-        assertThat(BerlinClock.at("02:00").getHoursOfRow2(), equalTo("RR00"));
-        assertThat(BerlinClock.at("03:00").getHoursOfRow2(), equalTo("RRR0"));
-        assertThat(BerlinClock.at("04:00").getHoursOfRow2(), equalTo("RRRR"));
-        assertThat(BerlinClock.at("12:00").getHoursOfRow2(), equalTo("RR00"));
+    public void displayLightsOfHours2() throws Exception {
+        assertThat(BerlinClock.at("00:00").displayLightsOfHours2(), equalTo("0000"));
+        assertThat(BerlinClock.at("01:00").displayLightsOfHours2(), equalTo("R000"));
+        assertThat(BerlinClock.at("02:00").displayLightsOfHours2(), equalTo("RR00"));
+        assertThat(BerlinClock.at("03:00").displayLightsOfHours2(), equalTo("RRR0"));
+        assertThat(BerlinClock.at("04:00").displayLightsOfHours2(), equalTo("RRRR"));
+        assertThat(BerlinClock.at("12:00").displayLightsOfHours2(), equalTo("RR00"));
     }
 
     @Test
-    public void getMinutesOfRow2() throws Exception {
-        assertThat(BerlinClock.at("00:00").getMinutesOfRow2(), equalTo("0000"));
-        assertThat(BerlinClock.at("00:01").getMinutesOfRow2(), equalTo("Y000"));
-        assertThat(BerlinClock.at("00:02").getMinutesOfRow2(), equalTo("YY00"));
-        assertThat(BerlinClock.at("00:03").getMinutesOfRow2(), equalTo("YYY0"));
-        assertThat(BerlinClock.at("00:04").getMinutesOfRow2(), equalTo("YYYY"));
-        assertThat(BerlinClock.at("00:06").getMinutesOfRow2(), equalTo("Y000"));
+    public void displayLightsOfMinutes1() throws Exception {
+        assertThat(BerlinClock.at("00:00").displayLightsOfMinutes2(), equalTo("0000"));
+        assertThat(BerlinClock.at("00:01").displayLightsOfMinutes2(), equalTo("Y000"));
+        assertThat(BerlinClock.at("00:02").displayLightsOfMinutes2(), equalTo("YY00"));
+        assertThat(BerlinClock.at("00:03").displayLightsOfMinutes2(), equalTo("YYY0"));
+        assertThat(BerlinClock.at("00:04").displayLightsOfMinutes2(), equalTo("YYYY"));
+        assertThat(BerlinClock.at("00:06").displayLightsOfMinutes2(), equalTo("Y000"));
     }
 
     @Test
-    public void getMinutesOfRow1() throws Exception {
-        assertThat(BerlinClock.at("00:00").getMinutesOfRow1(), equalTo("00000000000"));
-        assertThat(BerlinClock.at("00:05").getMinutesOfRow1(), equalTo("Y0000000000"));
-        assertThat(BerlinClock.at("00:15").getMinutesOfRow1(), equalTo("YYR00000000"));
-        assertThat(BerlinClock.at("00:55").getMinutesOfRow1(), equalTo("YYRYYRYYRYY"));
+    public void displayLightsOfMinutes2() throws Exception {
+        assertThat(BerlinClock.at("00:00").displayLightsOfMinutes1(), equalTo("00000000000"));
+        assertThat(BerlinClock.at("00:05").displayLightsOfMinutes1(), equalTo("Y0000000000"));
+        assertThat(BerlinClock.at("00:15").displayLightsOfMinutes1(), equalTo("YYR00000000"));
+        assertThat(BerlinClock.at("00:55").displayLightsOfMinutes1(), equalTo("YYRYYRYYRYY"));
     }
 }

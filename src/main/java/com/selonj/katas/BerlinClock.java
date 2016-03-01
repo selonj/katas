@@ -38,26 +38,26 @@ public class BerlinClock {
     }
 
     public String display() {
-        return getHoursOfRow1() +
-                getHoursOfRow2() +
-                getMinutesOfRow1() +
-                getMinutesOfRow2();
+        return displayLightsOfHours1() +
+                displayLightsOfHours2() +
+                displayLightsOfMinutes1() +
+                displayLightsOfMinutes2();
     }
 
 
-    public String getHoursOfRow1() {
+    public String displayLightsOfHours1() {
         return displayLightsAt(ROW_OF_HOURS1, hours / 5);
     }
 
-    public String getHoursOfRow2() {
+    public String displayLightsOfHours2() {
         return displayLightsAt(ROW_OF_HOURS2, hours % 5);
     }
 
-    public String getMinutesOfRow1() {
+    public String displayLightsOfMinutes1() {
         return displayLightsAt(ROW_OF_MINUTES1, minutes / 5);
     }
 
-    public String getMinutesOfRow2() {
+    public String displayLightsOfMinutes2() {
         return displayLightsAt(ROW_OF_MINUTES2, minutes % 5);
     }
 
