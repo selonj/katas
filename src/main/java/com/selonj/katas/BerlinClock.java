@@ -5,10 +5,13 @@ package com.selonj.katas;
  */
 public class BerlinClock {
     public static BerlinClock at(String time) {
-        return null;
+        return new BerlinClock();
     }
 
     public String display() {
-        return null;
+        return "0000" +
+                "0000" +
+                "00000000000" +
+                "0000";
     }
 }

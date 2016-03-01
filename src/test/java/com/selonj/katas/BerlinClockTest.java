@@ -12,10 +12,12 @@ public class BerlinClockTest {
     @Test
     public void displayTime() throws Exception {
         assertThat(BerlinClock.at("00:00").display(), equalTo(
-                "0000" +
-                "0000" +
-                "00000000000" +
-                "0000"
+                    /**/"0000" +
+                        "0000" +
+                        "00000000000" +
+                        "0000"
         ));
+
+
     }
 }
