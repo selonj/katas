@@ -33,33 +33,43 @@ public class BerlinClock {
             "YYRYYRYYRYY",
             "YYYY"
     };
+    private static final String[] UNLIT_LIGHTS = new String[]{
+            "0000",
+            "0000",
+            "00000000000",
+            "0000"
+    };
 
     public String getHoursOfRow1() {
         int numberOfLitLights = hours / 5;
         int row = 0;
-        return litLightsAt(row, numberOfLitLights) + "0000".substring(numberOfLitLights);
+        return litLightsAt(row, numberOfLitLights) + unlitLightsAt(row, numberOfLitLights);
     }
 
     public String getHoursOfRow2() {
         int numberOfLitLights = hours % 5;
         int row = 1;
-        return litLightsAt(row, numberOfLitLights) + "0000".substring(numberOfLitLights);
+        return litLightsAt(row, numberOfLitLights) + unlitLightsAt(row, numberOfLitLights);
     }
 
     public String getMinutesOfRow2() {
         int numberOfLitLights = minutes % 5;
         int row = 3;
-        return litLightsAt(row, numberOfLitLights) + "0000".substring(numberOfLitLights);
+        return litLightsAt(row, numberOfLitLights) + unlitLightsAt(row, numberOfLitLights);
     }
 
     public String getMinutesOfRow1() {
         int numberOfLitLights = minutes / 5;
         int row = 2;
-        return litLightsAt(row, numberOfLitLights) + "00000000000".substring(numberOfLitLights);
+        return litLightsAt(row, numberOfLitLights) + unlitLightsAt(row, numberOfLitLights);
     }
 
     private String litLightsAt(int row, int numberOfLitLights) {
         return LIT_LIGHTS[row].substring(0, numberOfLitLights);
+    }
+
+    private String unlitLightsAt(int row, int numberOfLitLights) {
+        return UNLIT_LIGHTS[row].substring(numberOfLitLights);
     }
 
 }
