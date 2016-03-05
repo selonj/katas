@@ -68,7 +68,7 @@ QueryString.within(param('foo','bar'),param('key','value')).toString() == ?foo=b
 -   最后一排的4个黄色指示灯每个表示1分钟；
 
 
-## 从url中提取domain
+## [从url中提取domain](src/test/java/com/selonj/katas/DomainTest.java)
 
 ``` pseudo-code
     Domain.from('http://www.google.com/search?word=kata') == 'google.com'
