@@ -20,7 +20,7 @@ public enum FuzzBuzz {
         if (Fuzz.test(n) && Buzz.test(n)) {
             return Fuzz.name() + Buzz.name();
         }
-        FuzzBuzz[] all = new FuzzBuzz[]{Fuzz, Buzz};
+        FuzzBuzz[] all = FuzzBuzz.values();
         for (FuzzBuzz candidate : all) {
             if (candidate.test(n)) {
                 return candidate.name();
