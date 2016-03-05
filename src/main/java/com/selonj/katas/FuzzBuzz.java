@@ -6,12 +6,16 @@ package com.selonj.katas;
 public enum FuzzBuzz {
     Fuzz, Buzz;
 
+    public boolean test(int n) {
+        return n % 3 == 0;
+    }
+
     public static String of(int n) {
         if (n > 0) {
-            if (isFuzz(n) && isBuzz(n)) {
+            if (Fuzz.test(n) && isBuzz(n)) {
                 return "FuzzBuzz";
             }
-            if (isFuzz(n)) {
+            if (Fuzz.test(n)) {
                 return Fuzz.name();
             }
             if (isBuzz(n)) {
@@ -20,10 +24,6 @@ public enum FuzzBuzz {
         }
 
         return String.valueOf(n);
-    }
-
-    private static boolean isFuzz(int n) {
-        return n % 3 == 0;
     }
 
     private static boolean isBuzz(int n) {
