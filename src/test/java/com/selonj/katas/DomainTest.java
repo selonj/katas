@@ -12,5 +12,6 @@ public class DomainTest {
     @Test
     public void domainOnly() throws Exception {
         assertThat(Domain.from("google.com").getName(),equalTo("google.com"));
+        assertThat(Domain.from("baidu.com").getName(),equalTo("baidu.com"));
     }
 }
