@@ -19,6 +19,6 @@ public class FuzzBuzz {
     }
 
     private static boolean isBuzz(int n) {
-        return n % 3 == 0;
+        return n % 5 == 0;
     }
 }
