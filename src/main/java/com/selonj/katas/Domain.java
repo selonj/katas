@@ -17,9 +17,9 @@ public class Domain {
 
     private String dropProtocol(String url) {
         if (url.startsWith(HTTP_PROTOCOL))
-            return url.substring(7);
+            return url.substring(HTTP_PROTOCOL.length());
         if (url.startsWith(HTTPS_PROTOCOL))
-            return url.substring(8);
+            return url.substring(HTTPS_PROTOCOL.length());
         return url;
     }
 
