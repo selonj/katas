@@ -16,6 +16,7 @@ public class FuzzBuzz {
                 return "Buzz";
             }
         }
+
         return String.valueOf(n);
     }
 
