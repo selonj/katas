@@ -22,15 +22,13 @@ public enum FuzzBuzz {
         }
         FuzzBuzz[] all = new FuzzBuzz[]{Fuzz, Buzz};
         int i = 0;
-        FuzzBuzz fuzz = all[i];
-        if (fuzz.test(n)) {
-            return Fuzz.name();
+        if (all[i].test(n)) {
+            return all[i].name();
         }
         i++;
 
-        FuzzBuzz buzz = all[i];
-        if (buzz.test(n)) {
-            return Buzz.name();
+        if (all[i].test(n)) {
+            return all[i].name();
         }
 
         return String.valueOf(n);
