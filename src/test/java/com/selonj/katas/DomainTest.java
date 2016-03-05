@@ -20,6 +20,7 @@ public class DomainTest {
     public void secondaryDomain() throws Exception {
         assertThat(Domain.from("code.google.com").getName(), equalTo("google.com"));
         assertThat(Domain.from("wenku.baidu.com").getName(), equalTo("baidu.com"));
+        assertThat(Domain.from("code.selonj.cn").getName(), equalTo("selonj.cn"));
     }
 
     @Test
@@ -29,7 +30,6 @@ public class DomainTest {
     }
 
     @Test
-    @Ignore
     public void topLevelDomainHasMultiParts() throws Exception {
         assertThat(Domain.from("sina.com.cn").getName(), equalTo("sina.com.cn"));
     }
