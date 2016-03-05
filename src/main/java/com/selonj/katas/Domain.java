@@ -8,6 +8,7 @@ public class Domain {
     private String hostName;
 
     public Domain(String url) {
+        url = url.startsWith("http://") ? url.substring(7) : url;
         int index = url.indexOf('/');
         this.hostName = index != -1 ? url.substring(0, index) : url;
     }
