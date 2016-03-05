@@ -17,16 +17,14 @@ public enum FuzzBuzz {
     }
 
     public static String of(int n) {
-        if (n > 0) {
-            if (Fuzz.test(n) && Buzz.test(n)) {
-                return "FuzzBuzz";
-            }
-            if (Fuzz.test(n)) {
-                return Fuzz.name();
-            }
-            if (Buzz.test(n)) {
-                return Buzz.name();
-            }
+        if (Fuzz.test(n) && Buzz.test(n)) {
+            return "FuzzBuzz";
+        }
+        if (Fuzz.test(n)) {
+            return Fuzz.name();
+        }
+        if (Buzz.test(n)) {
+            return Buzz.name();
         }
 
         return String.valueOf(n);
