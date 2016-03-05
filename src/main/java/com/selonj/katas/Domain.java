@@ -16,8 +16,12 @@ public class Domain {
     }
 
     public String getName() {
-        String[] parts = url.split("\\.");
-        int last = parts.length - 1;
-        return parts[last - 1] + '.' + parts[last];
+        int topLevelNamePos = url.lastIndexOf(topLevelName());
+        int primaryDomainPos = url.lastIndexOf('.', topLevelNamePos - 2);
+        return url.substring(primaryDomainPos + 1);
+    }
+
+    private String topLevelName() {
+        return "com";
     }
 }
