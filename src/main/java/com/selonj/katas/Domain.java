@@ -5,6 +5,8 @@ package com.selonj.katas;
  * Created by Administrator on 2016-03-05.
  */
 public class Domain {
+    public static final String HTTP_PROTOCOL = "http://";
+    public static final String HTTPS_PROTOCOL = "https://";
     private String hostName;
 
     public Domain(String url) {
@@ -14,9 +16,9 @@ public class Domain {
     }
 
     private String dropProtocol(String url) {
-        if (url.startsWith("http://"))
+        if (url.startsWith(HTTP_PROTOCOL))
             return url.substring(7);
-        if (url.startsWith("https://"))
+        if (url.startsWith(HTTPS_PROTOCOL))
             return url.substring(8);
         return url;
     }
