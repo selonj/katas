@@ -8,10 +8,17 @@ public class FuzzBuzz {
         if (isFuzz(n)) {
             return "Fuzz";
         }
+        if (isBuzz(n)) {
+            return "Buzz";
+        }
         return String.valueOf(n);
     }
 
     private static boolean isFuzz(int n) {
+        return n % 3 == 0;
+    }
+
+    private static boolean isBuzz(int n) {
         return n % 3 == 0;
     }
 }
