@@ -5,8 +5,6 @@ package com.selonj.katas;
  * Created by Administrator on 2016-03-05.
  */
 public class Domain {
-    public static final String HTTP_PROTOCOL = "http://";
-    public static final String HTTPS_PROTOCOL = "https://";
     public static final char PATH_SEP = '/';
     private String hostName;
 
@@ -16,10 +14,11 @@ public class Domain {
     }
 
     private String dropProtocol(String url) {
-        if (url.startsWith(HTTP_PROTOCOL))
-            return url.substring(HTTP_PROTOCOL.length());
-        if (url.startsWith(HTTPS_PROTOCOL))
-            return url.substring(HTTPS_PROTOCOL.length());
+        for (Scheme candidate : Scheme.values()) {
+            if (candidate.include(url)) {
+                return candidate.truncate(url);
+            }
+        }
         return url;
     }
 
@@ -42,5 +41,24 @@ public class Domain {
         if (hostName.endsWith("com.cn"))
             return "com.cn";
         return hostName.substring(hostName.lastIndexOf('.') + 1);
+    }
+
+    private enum Scheme {
+        HTTP,
+        HTTPS;
+
+        private static final String SUFFIX = "://";
+
+        public String protocol() {
+            return name().toLowerCase() + SUFFIX;
+        }
+
+        private boolean include(String url) {
+            return url.startsWith(protocol());
+        }
+
+        private String truncate(String url) {
+            return url.substring(protocol().length());
+        }
     }
 }
