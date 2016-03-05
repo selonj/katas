@@ -74,3 +74,12 @@ QueryString.within(param('foo','bar'),param('key','value')).toString() == ?foo=b
     Domain.from('http://www.google.com/search?word=kata') == 'google.com'
     Domain.from('http://code.google.com/project') == 'google.com'
 ```
+
+##  FuzzBuzz
+
+```pseudo-code
+FuzzBuzz.of(1)=='1'
+FuzzBuzz.of(3)=='Fuzz'
+FuzzBuzz.of(5)=='Buzz'
+FuzzBuzz.of(15)=='FuzzBuzz'
+```
