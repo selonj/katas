@@ -11,7 +11,13 @@ import static org.junit.Assert.assertThat;
 public class DomainTest {
     @Test
     public void domainOnly() throws Exception {
-        assertThat(Domain.from("google.com").getName(),equalTo("google.com"));
-        assertThat(Domain.from("baidu.com").getName(),equalTo("baidu.com"));
+        assertThat(Domain.from("google.com").getName(), equalTo("google.com"));
+        assertThat(Domain.from("baidu.com").getName(), equalTo("baidu.com"));
+    }
+
+    @Test
+    public void secondaryDomain() throws Exception {
+        assertThat(Domain.from("code.google.com").getName(), equalTo("google.com"));
+        assertThat(Domain.from("wenku.baidu.com").getName(), equalTo("baidu.com"));
     }
 }
