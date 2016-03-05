@@ -21,11 +21,11 @@ public enum FuzzBuzz {
             return Fuzz.name() + Buzz.name();
         }
         FuzzBuzz[] all = new FuzzBuzz[]{Fuzz, Buzz};
-        FuzzBuzz fuzz = Fuzz;
+        FuzzBuzz fuzz = all[0];
         if (fuzz.test(n)) {
             return Fuzz.name();
         }
-        FuzzBuzz buzz = Buzz;
+        FuzzBuzz buzz = all[1];
         if (buzz.test(n)) {
             return Buzz.name();
         }
