@@ -22,6 +22,8 @@ public class Domain {
     }
 
     private String topLevelName() {
-        return "com";
+        if (url.endsWith("com.cn"))
+            return "com.cn";
+        return url.substring(url.lastIndexOf('.')+1);
     }
 }
