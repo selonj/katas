@@ -33,4 +33,9 @@ public class FuzzBuzzTest {
         assertThat(FuzzBuzz.of(15), equalTo("FuzzBuzz"));
         assertThat(FuzzBuzz.of(30), equalTo("FuzzBuzz"));
     }
+
+    @Test
+    public void zero() throws Exception {
+        assertThat(FuzzBuzz.of(0), equalTo("0"));
+    }
 }
