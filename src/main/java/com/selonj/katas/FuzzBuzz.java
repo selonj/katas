@@ -21,16 +21,11 @@ public enum FuzzBuzz {
             return Fuzz.name() + Buzz.name();
         }
         FuzzBuzz[] all = new FuzzBuzz[]{Fuzz, Buzz};
-        int i = 0;
-        if (all[i].test(n)) {
-            return all[i].name();
+        for (int i = 0; i < all.length; i++) {
+            if (all[i].test(n)) {
+                return all[i].name();
+            }
         }
-        i++;
-
-        if (all[i].test(n)) {
-            return all[i].name();
-        }
-        i++;
 
         return String.valueOf(n);
     }
