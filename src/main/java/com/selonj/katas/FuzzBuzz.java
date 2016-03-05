@@ -13,7 +13,7 @@ public enum FuzzBuzz {
     }
 
     public boolean test(int n) {
-        return n % mod == 0;
+        return n > 0 && n % mod == 0;
     }
 
     public static String of(int n) {
