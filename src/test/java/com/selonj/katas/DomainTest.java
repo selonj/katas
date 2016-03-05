@@ -42,5 +42,6 @@ public class DomainTest {
     @Test
     public void urlWithinProtocols() throws Exception {
         assertThat(Domain.from("http://google.com/search?word=foo").getName(), equalTo("google.com"));
+        assertThat(Domain.from("https://google.com/search?word=foo").getName(), equalTo("google.com"));
     }
 }
