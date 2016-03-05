@@ -5,14 +5,16 @@ package com.selonj.katas;
  */
 public class FuzzBuzz {
     public static String of(int n) {
-        if (isFuzz(n) && isBuzz(n)) {
-            return "FuzzBuzz";
-        }
-        if (isFuzz(n)) {
-            return "Fuzz";
-        }
-        if (isBuzz(n)) {
-            return "Buzz";
+        if (n > 0) {
+            if (isFuzz(n) && isBuzz(n)) {
+                return "FuzzBuzz";
+            }
+            if (isFuzz(n)) {
+                return "Fuzz";
+            }
+            if (isBuzz(n)) {
+                return "Buzz";
+            }
         }
         return String.valueOf(n);
     }
