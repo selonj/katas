@@ -20,4 +20,10 @@ public class DomainTest {
         assertThat(Domain.from("code.google.com").getName(), equalTo("google.com"));
         assertThat(Domain.from("wenku.baidu.com").getName(), equalTo("baidu.com"));
     }
+
+    @Test
+    public void multiLevelDomain() throws Exception {
+        assertThat(Domain.from("user.code.google.com").getName(), equalTo("google.com"));
+        assertThat(Domain.from("user.wenku.baidu.com").getName(), equalTo("baidu.com"));
+    }
 }
