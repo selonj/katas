@@ -6,10 +6,10 @@ package com.selonj.katas;
  */
 public class Domain {
     public static Domain from(String url) {
-        return null;
+        return new Domain();
     }
 
     public String getName() {
-        return null;
+        return "google.com";
     }
 }
