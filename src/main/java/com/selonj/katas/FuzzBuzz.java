@@ -5,9 +5,13 @@ package com.selonj.katas;
  */
 public class FuzzBuzz {
     public static String of(int n) {
-        if (n % 3 == 0) {//fuzz?
+        if (isFuzz(n)) {
             return "Fuzz";
         }
         return String.valueOf(n);
+    }
+
+    private static boolean isFuzz(int n) {
+        return n % 3 == 0;
     }
 }
