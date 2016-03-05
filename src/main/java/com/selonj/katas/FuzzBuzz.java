@@ -3,17 +3,19 @@ package com.selonj.katas;
 /**
  * Created by L.x on 16-3-5.
  */
-public class FuzzBuzz {
+public enum FuzzBuzz {
+    Fuzz, Buzz;
+
     public static String of(int n) {
         if (n > 0) {
             if (isFuzz(n) && isBuzz(n)) {
                 return "FuzzBuzz";
             }
             if (isFuzz(n)) {
-                return "Fuzz";
+                return Fuzz.name();
             }
             if (isBuzz(n)) {
-                return "Buzz";
+                return Buzz.name();
             }
         }
 
