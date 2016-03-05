@@ -32,9 +32,9 @@ public class Domain {
     }
 
     public String getName() {
-        int topLevelNamePos = hostName.lastIndexOf(topLevelName());
-        int primaryDomainPos = hostName.lastIndexOf('.', topLevelNamePos - 2);
-        return hostName.substring(primaryDomainPos + 1);
+        int last = hostName.length() - topLevelName().length() - 1 - 1;
+        int start = hostName.lastIndexOf('.', last);
+        return hostName.substring(start + 1);
     }
 
     private String topLevelName() {
