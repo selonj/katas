@@ -7,12 +7,12 @@ package com.selonj.katas;
 public class Domain {
     public static final String HTTP_PROTOCOL = "http://";
     public static final String HTTPS_PROTOCOL = "https://";
+    public static final char PATH_SEP = '/';
     private String hostName;
 
     public Domain(String url) {
         url = dropProtocol(url);
-        int index = url.indexOf('/');
-        this.hostName = index != -1 ? url.substring(0, index) : url;
+        this.hostName = dropUri(url);
     }
 
     private String dropProtocol(String url) {
@@ -21,6 +21,11 @@ public class Domain {
         if (url.startsWith(HTTPS_PROTOCOL))
             return url.substring(HTTPS_PROTOCOL.length());
         return url;
+    }
+
+    private String dropUri(String url) {
+        int index = url.indexOf(PATH_SEP);
+        return index != -1 ? url.substring(0, index) : url;
     }
 
     public static Domain from(String url) {
