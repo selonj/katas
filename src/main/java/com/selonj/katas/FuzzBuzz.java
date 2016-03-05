@@ -18,8 +18,9 @@ public enum FuzzBuzz {
 
     public static String of(int n) {
         if (Fuzz.test(n) && Buzz.test(n)) {
-            return "FuzzBuzz";
+            return Fuzz.name() + Buzz.name();
         }
+
         if (Fuzz.test(n)) {
             return Fuzz.name();
         }
