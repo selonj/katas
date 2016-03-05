@@ -38,4 +38,9 @@ public class DomainTest {
     public void domainFromUrl() throws Exception {
         assertThat(Domain.from("google.com/search?word=foo").getName(), equalTo("google.com"));
     }
+
+    @Test
+    public void urlWithinProtocols() throws Exception {
+        assertThat(Domain.from("http://google.com/search?word=foo").getName(), equalTo("google.com"));
+    }
 }
