@@ -75,7 +75,7 @@ QueryString.within(param('foo','bar'),param('key','value')).toString() == ?foo=b
     Domain.from('http://code.google.com/project') == 'google.com'
 ```
 
-##  FuzzBuzz
+##  [FuzzBuzz](src/test/java/com/selonj/katas/FuzzBuzzTest.java)
 
 ```pseudo-code
 FuzzBuzz.of(1)=='1'
