@@ -12,6 +12,7 @@ public class FuzzBuzzTest {
     @Test
     public void number() throws Exception {
         assertThat(FuzzBuzz.of(1),equalTo("1"));
+        assertThat(FuzzBuzz.of(2),equalTo("2"));
 
     }
 }
