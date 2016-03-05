@@ -16,6 +16,7 @@ public class Domain {
     }
 
     public String getName() {
-        return url;
+        String[] parts = url.split("\\.");
+        return parts[0] + '.' + parts[1];
     }
 }

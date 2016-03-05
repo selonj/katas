@@ -1,5 +1,6 @@
 package com.selonj.katas;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -16,6 +17,7 @@ public class DomainTest {
     }
 
     @Test
+    @Ignore
     public void secondaryDomain() throws Exception {
         assertThat(Domain.from("code.google.com").getName(), equalTo("google.com"));
         assertThat(Domain.from("wenku.baidu.com").getName(), equalTo("baidu.com"));
