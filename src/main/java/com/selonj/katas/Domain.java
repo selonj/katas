@@ -8,7 +8,8 @@ public class Domain {
     private String url;
 
     public Domain(String url) {
-        this.url = url;
+        int index = url.indexOf('/');
+        this.url = index != -1 ? url.substring(0, index) : url;
     }
 
     public static Domain from(String url) {
@@ -24,6 +25,6 @@ public class Domain {
     private String topLevelName() {
         if (url.endsWith("com.cn"))
             return "com.cn";
-        return url.substring(url.lastIndexOf('.')+1);
+        return url.substring(url.lastIndexOf('.') + 1);
     }
 }
