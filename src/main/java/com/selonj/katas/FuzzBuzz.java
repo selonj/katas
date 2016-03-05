@@ -18,21 +18,17 @@ public enum FuzzBuzz {
 
     public static String of(int n) {
         if (n > 0) {
-            if (Fuzz.test(n) && isBuzz(n)) {
+            if (Fuzz.test(n) && Buzz.test(n)) {
                 return "FuzzBuzz";
             }
             if (Fuzz.test(n)) {
                 return Fuzz.name();
             }
-            if (isBuzz(n)) {
+            if (Buzz.test(n)) {
                 return Buzz.name();
             }
         }
 
         return String.valueOf(n);
-    }
-
-    private static boolean isBuzz(int n) {
-        return n % 5 == 0;
     }
 }
