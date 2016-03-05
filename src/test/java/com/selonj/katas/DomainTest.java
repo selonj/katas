@@ -33,4 +33,9 @@ public class DomainTest {
     public void topLevelDomainHasMultiParts() throws Exception {
         assertThat(Domain.from("sina.com.cn").getName(), equalTo("sina.com.cn"));
     }
+
+    @Test
+    public void domainFromUrl() throws Exception {
+        assertThat(Domain.from("google.com/search?word=foo").getName(), equalTo("google.com"));
+    }
 }
