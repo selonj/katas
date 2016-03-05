@@ -66,3 +66,11 @@ QueryString.within(param('foo','bar'),param('key','value')).toString() == ?foo=b
 -   第二排的4个红色指示灯每个表示1小时；
 -   第三排的11个红/黄色指示灯每个表示5分钟（15、30和45分钟的指示灯为红色）；
 -   最后一排的4个黄色指示灯每个表示1分钟；
+
+
+## [从url中提取domain](src/test/java/com/selonj/katas/DomainTest.java)
+
+``` pseudo-code
+    Domain.from('http://www.google.com/search?word=kata') == 'google.com'
+    Domain.from('http://code.google.com/project') == 'google.com'
+```
