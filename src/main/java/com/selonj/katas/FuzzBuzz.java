@@ -6,8 +6,10 @@ package com.selonj.katas;
 public enum FuzzBuzz {
     Fuzz, Buzz;
 
+    private final int mod = 3;
+
     public boolean test(int n) {
-        return n % 3 == 0;
+        return n % mod == 0;
     }
 
     public static String of(int n) {
