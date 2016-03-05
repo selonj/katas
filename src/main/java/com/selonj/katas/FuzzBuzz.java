@@ -21,10 +21,12 @@ public enum FuzzBuzz {
             return Fuzz.name() + Buzz.name();
         }
 
-        if (Fuzz.test(n)) {
+        FuzzBuzz fuzz = Fuzz;
+        if (fuzz.test(n)) {
             return Fuzz.name();
         }
-        if (Buzz.test(n)) {
+        FuzzBuzz buzz = Buzz;
+        if (buzz.test(n)) {
             return Buzz.name();
         }
 
