@@ -5,6 +5,9 @@ package com.selonj.katas;
  */
 public class FuzzBuzz {
     public static String of(int n) {
+        if (isFuzz(n) && isBuzz(n)) {
+            return "FuzzBuzz";
+        }
         if (isFuzz(n)) {
             return "Fuzz";
         }
