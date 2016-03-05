@@ -6,11 +6,15 @@ package com.selonj.katas;
  */
 public class Domain {
     public static final char PATH_SEP = '/';
+    public static final char DOMAIN_SEP = '.';
     private String hostName;
 
+    public static Domain from(String url) {
+        return new Domain(url);
+    }
+
     public Domain(String url) {
-        url = dropProtocol(url);
-        this.hostName = dropUri(url);
+        this.hostName = dropUri(dropProtocol(url));
     }
 
     private String dropProtocol(String url) {
@@ -27,20 +31,17 @@ public class Domain {
         return index != -1 ? url.substring(0, index) : url;
     }
 
-    public static Domain from(String url) {
-        return new Domain(url);
-    }
-
     public String getName() {
-        int last = hostName.length() - topLevelName().length() - 1 - 1;
-        int start = hostName.lastIndexOf('.', last);
+        int frontOfTopLevelNameSepPos = hostName.length() - topLevelName().length() - 1 - 1;
+        int start = hostName.lastIndexOf(DOMAIN_SEP, frontOfTopLevelNameSepPos);
         return hostName.substring(start + 1);
     }
 
     private String topLevelName() {
-        if (hostName.endsWith("com.cn"))
-            return "com.cn";
-        return hostName.substring(hostName.lastIndexOf('.') + 1);
+        String topLevelName = "com.cn";
+        if (hostName.endsWith(topLevelName))
+            return topLevelName;
+        return hostName.substring(hostName.lastIndexOf(DOMAIN_SEP) + 1);
     }
 
     private enum Scheme {
