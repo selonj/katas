@@ -30,6 +30,7 @@ public enum FuzzBuzz {
         if (all[i].test(n)) {
             return all[i].name();
         }
+        i++;
 
         return String.valueOf(n);
     }
