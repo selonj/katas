@@ -1,5 +1,6 @@
 package com.selonj.katas;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -25,5 +26,11 @@ public class DomainTest {
     public void multiLevelDomain() throws Exception {
         assertThat(Domain.from("user.code.google.com").getName(), equalTo("google.com"));
         assertThat(Domain.from("user.wenku.baidu.com").getName(), equalTo("baidu.com"));
+    }
+
+    @Test
+    @Ignore
+    public void topLevelDomainHasMultiParts() throws Exception {
+        assertThat(Domain.from("sina.com.cn").getName(), equalTo("sina.com.cn"));
     }
 }
