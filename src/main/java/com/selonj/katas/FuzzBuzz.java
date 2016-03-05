@@ -20,8 +20,8 @@ public enum FuzzBuzz {
         if (Fuzz.test(n) && Buzz.test(n)) {
             return Fuzz.name() + Buzz.name();
         }
-        FuzzBuzz[] all = FuzzBuzz.values();
-        for (FuzzBuzz candidate : all) {
+
+        for (FuzzBuzz candidate : FuzzBuzz.values()) {
             if (candidate.test(n)) {
                 return candidate.name();
             }
