@@ -27,8 +27,8 @@ public class Domain {
     }
 
     private String dropUri(String url) {
-        int index = url.indexOf(PATH_SEP);
-        return index != -1 ? url.substring(0, index) : url;
+        int start = url.indexOf(PATH_SEP);
+        return start != -1 ? url.substring(0, start) : url;
     }
 
     public String getName() {
@@ -38,9 +38,9 @@ public class Domain {
     }
 
     private String topLevelName() {
-        String topLevelName = "com.cn";
-        if (hostName.endsWith(topLevelName))
-            return topLevelName;
+        String name = "com.cn";
+        if (hostName.endsWith(name))
+            return name;
         return hostName.substring(hostName.lastIndexOf(DOMAIN_SEP) + 1);
     }
 
