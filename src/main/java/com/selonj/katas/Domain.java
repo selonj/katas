@@ -5,11 +5,11 @@ package com.selonj.katas;
  * Created by Administrator on 2016-03-05.
  */
 public class Domain {
-    private String url;
+    private String hostName;
 
     public Domain(String url) {
         int index = url.indexOf('/');
-        this.url = index != -1 ? url.substring(0, index) : url;
+        this.hostName = index != -1 ? url.substring(0, index) : url;
     }
 
     public static Domain from(String url) {
@@ -17,14 +17,14 @@ public class Domain {
     }
 
     public String getName() {
-        int topLevelNamePos = url.lastIndexOf(topLevelName());
-        int primaryDomainPos = url.lastIndexOf('.', topLevelNamePos - 2);
-        return url.substring(primaryDomainPos + 1);
+        int topLevelNamePos = hostName.lastIndexOf(topLevelName());
+        int primaryDomainPos = hostName.lastIndexOf('.', topLevelNamePos - 2);
+        return hostName.substring(primaryDomainPos + 1);
     }
 
     private String topLevelName() {
-        if (url.endsWith("com.cn"))
+        if (hostName.endsWith("com.cn"))
             return "com.cn";
-        return url.substring(url.lastIndexOf('.') + 1);
+        return hostName.substring(hostName.lastIndexOf('.') + 1);
     }
 }
