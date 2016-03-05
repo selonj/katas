@@ -5,6 +5,6 @@ package com.selonj.katas;
  */
 public class FuzzBuzz {
     public static String of(int n) {
-        return null;
+        return "1";
     }
 }
