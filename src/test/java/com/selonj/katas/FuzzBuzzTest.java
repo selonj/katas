@@ -20,4 +20,10 @@ public class FuzzBuzzTest {
         assertThat(FuzzBuzz.of(3), equalTo("Fuzz"));
         assertThat(FuzzBuzz.of(6), equalTo("Fuzz"));
     }
+
+    @Test
+    public void buzz() throws Exception {
+        assertThat(FuzzBuzz.of(5), equalTo("Buzz"));
+        assertThat(FuzzBuzz.of(10), equalTo("Buzz"));
+    }
 }
