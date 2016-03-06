@@ -41,12 +41,18 @@ public class UniqueOrderedArrayTest {
     }
 
     private int[] unique(int... array) {
+        if (array.length == 0) {
+            return array;
+        }
+
         int[] results = new int[array.length];
         int n = 0;
+        results[n] = array[n++];//init reference value used to comparing
         for (int item : array) {
-            if (n <= 0 || item != results[n - 1]) {
-                results[n++] = item;
+            if (item == results[n - 1]) {//filtering same item in array
+                continue;
             }
+            results[n++] = item;
         }
         return Arrays.copyOfRange(results, 0, n);
     }
