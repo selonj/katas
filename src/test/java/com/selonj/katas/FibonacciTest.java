@@ -18,6 +18,6 @@ public class FibonacciTest {
     @Test
     public void fibN() throws Exception {
         assertThat(Fib.of(3),equalTo(2));
-//        assertThat(Fib.of(4),equalTo(3));
+        assertThat(Fib.of(4),equalTo(3));
     }
 }
