@@ -83,3 +83,11 @@ FuzzBuzz.of(3)=='Fuzz'
 FuzzBuzz.of(5)=='Buzz'
 FuzzBuzz.of(15)=='FuzzBuzz'
 ```
+
+## Fibonacci
+
+```pseudo-code
+Fib.of(1)==1
+Fib.of(2)==1
+Fib.of(n)=Fib.of(n-1)+Fib.of(n-2)
+```
