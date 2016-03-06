@@ -5,6 +5,6 @@ package com.selonj.katas;
  */
 public class Fib {
     public static int of(int n) {
-        return 0;
+        return 1;
     }
 }
