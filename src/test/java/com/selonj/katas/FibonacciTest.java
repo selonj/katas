@@ -14,4 +14,9 @@ public class FibonacciTest {
         assertThat(Fib.of(1),equalTo(1));
         assertThat(Fib.of(2),equalTo(1));
     }
+
+    @Test
+    public void fibN() throws Exception {
+        assertThat(Fib.of(3),equalTo(2));
+    }
 }
