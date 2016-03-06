@@ -6,7 +6,7 @@ package com.selonj.katas;
 public class Fib {
     public static int of(int n) {
         if (n == 3) {
-            return 2;
+            return of(1) + of(2);
         }
         return 1;
     }
