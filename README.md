@@ -84,7 +84,7 @@ FuzzBuzz.of(5)=='Buzz'
 FuzzBuzz.of(15)=='FuzzBuzz'
 ```
 
-## Fibonacci
+## [Fibonacci](src/test/java/com/selonj/katas/FibonacciTest.java)
 
 ```pseudo-code
 Fib.of(1)==1
