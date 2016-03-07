@@ -91,3 +91,9 @@ Fib.of(1)==1
 Fib.of(2)==1
 Fib.of(n)=Fib.of(n-1)+Fib.of(n-2)
 ```
+
+## [Factorial](src/test/java/com/selonj/katas/FactorialTest.java)
+
+```pseudo-code
+Factorial.of(n)=1*2*3*...*n
+```
