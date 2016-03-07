@@ -1,4 +1,4 @@
-package test.java.util.test.java.lang;
+package test.java.lang;
 
 import com.selonj.katas.data.Resource;
 import org.junit.Assert;
@@ -8,8 +8,6 @@ import javax.annotation.Generated;
 import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
 import javax.xml.stream.events.Characters;
-
-import java.util.List;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.nullValue;
