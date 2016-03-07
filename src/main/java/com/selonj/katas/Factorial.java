@@ -5,6 +5,6 @@ package com.selonj.katas;
  */
 public class Factorial {
     public static int of(int n) {
-        return 1;
+        return n;
     }
 }
