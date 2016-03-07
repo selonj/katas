@@ -13,5 +13,6 @@ public class FactorialTest {
     public void factorial() throws Exception {
         assertThat(Factorial.of(1), equalTo(1));
         assertThat(Factorial.of(2), equalTo(2));
+        assertThat(Factorial.of(3), equalTo(6));
     }
 }
