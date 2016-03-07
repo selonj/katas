@@ -16,26 +16,26 @@ import static org.junit.Assert.assertThat;
 public class PrimeFactorsTest {
     @Test
     public void noFactors() throws Exception {
-        assertThat(PrimeFactors.of(1), returnsEmptyList());
+        assertThat(NMath.primeFactors(1), returnsEmptyList());
     }
 
     @Test
     public void primeNumbers() throws Exception {
-        assertThat(PrimeFactors.of(2), returnListAs(2));
-        assertThat(PrimeFactors.of(3), returnListAs(3));
+        assertThat(NMath.primeFactors(2), returnListAs(2));
+        assertThat(NMath.primeFactors(3), returnListAs(3));
     }
 
     @Test
     public void sameFactors() throws Exception {
-        assertThat(PrimeFactors.of(4), returnListAs(2, 2));
-        assertThat(PrimeFactors.of(8), returnListAs(2, 2, 2));
-        assertThat(PrimeFactors.of(9), returnListAs(3, 3));
+        assertThat(NMath.primeFactors(4), returnListAs(2, 2));
+        assertThat(NMath.primeFactors(8), returnListAs(2, 2, 2));
+        assertThat(NMath.primeFactors(9), returnListAs(3, 3));
     }
 
     @Test
     public void diffFactors() throws Exception {
-        assertThat(PrimeFactors.of(6), returnListAs(2, 3));
-        assertThat(PrimeFactors.of(30), returnListAs(2, 3, 5));
+        assertThat(NMath.primeFactors(6), returnListAs(2, 3));
+        assertThat(NMath.primeFactors(30), returnListAs(2, 3, 5));
     }
 
     private Matcher<? super List<Integer>> returnListAs(Integer... numbers) {
