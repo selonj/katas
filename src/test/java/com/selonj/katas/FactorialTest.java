@@ -14,6 +14,6 @@ public class FactorialTest {
         assertThat(Factorial.of(1), equalTo(1));
         assertThat(Factorial.of(2), equalTo(2));
         assertThat(Factorial.of(3), equalTo(6));
-//        assertThat(Factorial.of(4), equalTo(24));
+        assertThat(Factorial.of(4), equalTo(24));
     }
 }
