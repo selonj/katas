@@ -8,9 +8,6 @@ public class Factorial {
         if (n > 2) {
             return of(n - 1) * n;
         }
-        if (n > 2) {
-            return of(n - 1) * n;
-        }
         return n;
     }
 }
