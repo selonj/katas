@@ -37,7 +37,7 @@ public class FibonacciTest {
 
     @Test
     public void fibN() throws Exception {
-        assertThat(Fib.of(n), equalTo(expected));
+        assertThat(NMath.fib(n), equalTo(expected));
     }
 
 }
