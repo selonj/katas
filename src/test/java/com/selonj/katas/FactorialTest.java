@@ -12,5 +12,6 @@ public class FactorialTest {
     @Test
     public void factorial() throws Exception {
         assertThat(Factorial.of(1), equalTo(1));
+        assertThat(Factorial.of(2), equalTo(2));
     }
 }
