@@ -6,7 +6,7 @@ package com.selonj.katas;
 public class Factorial {
     public static int of(int n) {
         if (n == 4) {
-            return 6 * 4;
+            return of(n - 1) * n;
         }
         if (n == 3) {
             return of(n - 1) * n;
