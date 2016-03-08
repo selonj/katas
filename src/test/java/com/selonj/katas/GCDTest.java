@@ -13,5 +13,6 @@ public class GCDTest {
     @Test
     public void GCDBetweenTwoNumbers() throws Exception {
         assertThat(NMath.gcd(1,2),equalTo(1));
+        assertThat(NMath.gcd(2,4),equalTo(2));
     }
 }
