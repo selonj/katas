@@ -36,9 +36,6 @@ public class NMath {
         if (m % n == 0) {
             return n;
         }
-        if (n % (m % n) == 0) {
-            return m % n;
-        }
 
         return gcd(n, m % n);
     }
