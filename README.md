@@ -97,3 +97,9 @@ Fib.of(n)=Fib.of(n-1)+Fib.of(n-2)
 ```pseudo-code
 Factorial.of(n)=1*2*3*...*n
 ```
+
+##  [Greatest Common Divisor](src/test/java/com/selonj/katas/GCDTest.java)
+
+```pseudo-code
+    gcd(6,4)=2
+```
