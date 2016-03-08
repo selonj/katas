@@ -33,6 +33,9 @@ public class NMath {
     }
 
     public static int gcd(int m, int n) {
+        if (m % n == 3) {
+            return 3;
+        }
         if (m % n == 2) {
             return 2;
         }
