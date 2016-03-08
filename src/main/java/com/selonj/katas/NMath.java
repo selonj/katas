@@ -31,4 +31,8 @@ public class NMath {
         }
         return primes;
     }
+
+    public static int gcd(int m, int n) {
+        return 0;
+    }
 }
