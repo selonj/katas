@@ -33,6 +33,6 @@ public class NMath {
     }
 
     public static int gcd(int m, int n) {
-        return 1;
+        return m;
     }
 }
