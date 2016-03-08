@@ -25,7 +25,7 @@ public class NMath {
         ArrayList<Integer> primes = new ArrayList<>();
 
         for (int candidate = 2; n > 1; candidate++) {
-            for (;n % candidate == 0;n /= candidate) {
+            for (; n % candidate == 0; n /= candidate) {
                 primes.add(candidate);
             }
         }
@@ -33,6 +33,9 @@ public class NMath {
     }
 
     public static int gcd(int m, int n) {
+        if (m % n == 0) {
+            return n;
+        }
         return m;
     }
 }
