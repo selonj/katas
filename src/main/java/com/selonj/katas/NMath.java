@@ -36,9 +36,6 @@ public class NMath {
         if (m % n != 0 && n % (m % n) == 0) {
             return m % n;
         }
-        if (m % n != 0 && n % (m % n) == 0) {
-            return m % n;
-        }
         if (m % n == 0) {
             return n;
         }
