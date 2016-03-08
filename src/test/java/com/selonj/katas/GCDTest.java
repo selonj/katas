@@ -22,4 +22,9 @@ public class GCDTest {
         assertThat(NMath.gcd(6, 4), equalTo(2));
         assertThat(NMath.gcd(9, 6), equalTo(3));
     }
+
+    @Test
+    public void gcdGeneratedByMoreThan2Times() throws Exception {
+        assertThat(NMath.gcd(131, 57), equalTo(1));
+    }
 }
