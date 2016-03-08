@@ -33,10 +33,10 @@ public class NMath {
     }
 
     public static int gcd(int m, int n) {
-        if (m % n == 3) {
+        if (m % n == 3 && n % (m % n) == 0) {
             return m % n;
         }
-        if (m % n == 2) {
+        if (m % n == 2 && n % (m % n) == 0) {
             return m % n;
         }
         if (m % n == 0) {
