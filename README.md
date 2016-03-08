@@ -97,3 +97,5 @@ Fib.of(n)=Fib.of(n-1)+Fib.of(n-2)
 ```pseudo-code
 Factorial.of(n)=1*2*3*...*n
 ```
+
+##  Greatest Common Divisor
