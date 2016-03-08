@@ -20,5 +20,6 @@ public class GCDTest {
     @Test
     public void gcd() throws Exception {
         assertThat(NMath.gcd(6, 4), equalTo(2));
+        assertThat(NMath.gcd(9, 6), equalTo(3));
     }
 }
