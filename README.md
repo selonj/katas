@@ -74,3 +74,32 @@ QueryString.within(param('foo','bar'),param('key','value')).toString() == ?foo=b
     Domain.from('http://www.google.com/search?word=kata') == 'google.com'
     Domain.from('http://code.google.com/project') == 'google.com'
 ```
+
+##  [FuzzBuzz](src/test/java/com/selonj/katas/FuzzBuzzTest.java)
+
+```pseudo-code
+FuzzBuzz.of(1)=='1'
+FuzzBuzz.of(3)=='Fuzz'
+FuzzBuzz.of(5)=='Buzz'
+FuzzBuzz.of(15)=='FuzzBuzz'
+```
+
+## [Fibonacci](src/test/java/com/selonj/katas/FibonacciTest.java)
+
+```pseudo-code
+Fib.of(1)==1
+Fib.of(2)==1
+Fib.of(n)=Fib.of(n-1)+Fib.of(n-2)
+```
+
+## [Factorial](src/test/java/com/selonj/katas/FactorialTest.java)
+
+```pseudo-code
+Factorial.of(n)=1*2*3*...*n
+```
+
+##  [Greatest Common Divisor](src/test/java/com/selonj/katas/GCDTest.java)
+
+```pseudo-code
+    gcd(6,4)=2
+```
