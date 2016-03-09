@@ -41,6 +41,6 @@ public class NMath {
     }
 
     public static int lcm(int m, int n) {
-        return 6;
+        return m * n;
     }
 }
