@@ -103,3 +103,9 @@ Factorial.of(n)=1*2*3*...*n
 ```pseudo-code
     gcd(6,4)=2
 ```
+
+##  Least Common Multiple
+
+```pseudo-code
+    lcm(6,4)=12
+```
