@@ -104,7 +104,7 @@ Factorial.of(n)=1*2*3*...*n
     gcd(6,4)=2
 ```
 
-##  Least Common Multiple
+##  [Least Common Multiple](src/test/java/com/selonj/katas/LCMTest.java)
 
 ```pseudo-code
     lcm(6,4)=12
