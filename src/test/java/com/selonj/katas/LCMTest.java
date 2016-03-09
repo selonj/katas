@@ -12,5 +12,6 @@ public class LCMTest {
     @Test
     public void noGCD() throws Exception {
         assertThat(NMath.lcm(2,3),equalTo(6));
+        assertThat(NMath.lcm(3,5),equalTo(15));
     }
 }
