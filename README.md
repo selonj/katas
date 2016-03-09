@@ -71,8 +71,8 @@ QueryString.within(param('foo','bar'),param('key','value')).toString() == ?foo=b
 ## [从url中提取domain](src/test/java/com/selonj/katas/DomainTest.java)
 
 ``` pseudo-code
-    Domain.from('http://www.google.com/search?word=kata') == 'google.com'
-    Domain.from('http://code.google.com/project') == 'google.com'
+Domain.from('http://www.google.com/search?word=kata') == 'google.com'
+Domain.from('http://code.google.com/project') == 'google.com'
 ```
 
 ##  [FuzzBuzz](src/test/java/com/selonj/katas/FuzzBuzzTest.java)
@@ -101,11 +101,11 @@ Factorial.of(n)=1*2*3*...*n
 ##  [Greatest Common Divisor](src/test/java/com/selonj/katas/GCDTest.java)
 
 ```pseudo-code
-    gcd(6,4)=2
+gcd(6,4)=2
 ```
 
 ##  [Least Common Multiple](src/test/java/com/selonj/katas/LCMTest.java)
 
 ```pseudo-code
-    lcm(6,4)=12
+lcm(6,4)=12
 ```
