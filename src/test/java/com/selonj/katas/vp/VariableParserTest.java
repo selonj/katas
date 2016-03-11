@@ -16,4 +16,9 @@ public class VariableParserTest {
         assertThat(parser.parse("foo"), equalTo(new Variable("foo", String.class)));
         assertThat(parser.parse("bar"), equalTo(new Variable("bar", String.class)));
     }
+
+    @Test
+    public void variableWithinType() throws Exception {
+        assertThat(parser.parse("name:string"), equalTo(new Variable("name", String.class)));
+    }
 }
