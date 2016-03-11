@@ -9,6 +9,8 @@ import java.util.regex.Pattern;
  * Created by L.x on 16-3-11.
  */
 public class VariablePicker {
+    public static final int NAME_POS = 0;
+    public static final int TYPE_POS = 1;
     private TypeResolver typeResolver = builtIn();
 
     //todo:can using custom type resolvers
@@ -30,10 +32,8 @@ public class VariablePicker {
     }
 
     private Variable resolveVariable(final String expression) {
-        return new Variable() {{//todo:using new Variable(String,Class) instead
-            String[] parts = expression.split(":");
-            name = parts[0];
-            type = typeResolver.lookup(parts.length > 1 ? parts[1] : null);
-        }};
+        String[] parts = expression.split(":");
+        Class type = typeResolver.lookup(parts.length > 1 ? parts[TYPE_POS] : null);
+        return new Variable(parts[NAME_POS], type);
     }
 }
