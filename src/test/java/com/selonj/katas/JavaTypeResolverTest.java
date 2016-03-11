@@ -12,7 +12,7 @@ import static org.junit.Assert.fail;
  * Created by L.x on 16-3-11.
  */
 public class JavaTypeResolverTest {
-    private JavaTypeResolver registry = new JavaTypeResolver();
+    private TypeResolver registry = new JavaTypeResolver();
 
     @Test
     public void lookupNullAsStringClass() throws Exception {

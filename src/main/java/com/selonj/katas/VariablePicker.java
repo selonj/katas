@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
  * Created by L.x on 16-3-11.
  */
 public class VariablePicker {
-    private JavaTypeResolver typeResolver = new JavaTypeResolver();
+    private TypeResolver typeResolver = new JavaTypeResolver();
 
     public Set<Variable> pick(String source) {
         HashSet<Variable> variables = new HashSet<>();

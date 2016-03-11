@@ -3,7 +3,8 @@ package com.selonj.katas;
 /**
  * Created by L.x on 16-3-11.
  */
-public class JavaTypeResolver {
+public class JavaTypeResolver implements TypeResolver {
+    @Override
     public Class lookup(String type) {
         if (type != null) {
             return loadClass(type);
