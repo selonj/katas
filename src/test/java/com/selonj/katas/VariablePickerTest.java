@@ -1,11 +1,14 @@
 package com.selonj.katas;
 
+import org.hamcrest.core.Every;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.Set;
 
+import static java.util.Collections.singleton;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -27,19 +30,13 @@ public class VariablePickerTest {
     @Test
     public void aVariable() throws Exception {
         Set<Variable> variables = picker.pick("${name}");
-        assertThat(variables.size(), is(1));
-        Variable variable = variables.iterator().next();
-        assertThat(variable.name, equalTo("name"));
-        assertThat(variable.type, equalTo((Class) String.class));
+        assertThat(variables, equalTo(singleton(new Variable("name", String.class))));
     }
 
     @Test
     public void aVariableWithinOtherType() throws Exception {
         Set<Variable> variables = picker.pick("${date:java.util.Date}");
-        assertThat(variables.size(), is(1));
-        Variable variable = variables.iterator().next();
-        assertThat(variable.name, equalTo("date"));
-        assertThat(variable.type, equalTo((Class) Date.class));
+        assertThat(variables, equalTo(singleton(new Variable("date", Date.class))));
     }
 
 }
