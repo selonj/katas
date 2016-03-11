@@ -38,7 +38,7 @@ public class VariablePickerTest {
         assertThat(variables.size(), is(1));
         Variable variable = variables.iterator().next();
         assertThat(variable.name, equalTo("date"));
-        assertThat(variable.type,equalTo(Date.class));
+        assertThat(variable.type,equalTo((Class) Date.class));
     }
 
 }

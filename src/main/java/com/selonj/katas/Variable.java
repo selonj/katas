@@ -5,4 +5,5 @@ package com.selonj.katas;
  */
 public class Variable {
     public String name;
+    public Class type;
 }
