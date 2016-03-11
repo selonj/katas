@@ -1,5 +1,6 @@
 package com.selonj.katas;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -30,6 +31,7 @@ public class TypeResolverGroupTest {
     }
 
     @Test
+    @Ignore
     public void returnFirstResolvedTypeOfAllAddedRegistry() throws Exception {
         given(registry1.lookup("string")).willReturn(String.class);
         given(registry2.lookup("string")).willReturn(StringBuilder.class);
