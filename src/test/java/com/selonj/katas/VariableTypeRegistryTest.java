@@ -2,6 +2,8 @@ package com.selonj.katas;
 
 import org.junit.Test;
 
+import java.util.Date;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
@@ -13,6 +15,11 @@ public class VariableTypeRegistryTest {
 
     @Test
     public void lookupNullAsStringClass() throws Exception {
-        assertThat(registry.lookup(null),equalTo((Class) String.class));
+        assertThat(registry.lookup(null), equalTo((Class) String.class));
+    }
+
+    @Test
+    public void loadClassIfLookupTypeIsNotNull() throws Exception {
+        assertThat(registry.lookup("java.util.Date"), equalTo((Class) Date.class));
     }
 }
