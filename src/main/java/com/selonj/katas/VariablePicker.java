@@ -21,7 +21,8 @@ public class VariablePicker {
 
     private Variable resolveVariable(final String expression) {
         return new Variable() {{
-            name = expression;
+            String[] parts = expression.split(":");
+            name = parts[0];
             type = String.class;
         }};
     }
