@@ -5,6 +5,6 @@ package com.selonj.katas.vp;
  */
 public class VariableParser {
     public Variable parse(String expression) {
-        return null;
+        return new Variable("foo", String.class);
     }
 }
