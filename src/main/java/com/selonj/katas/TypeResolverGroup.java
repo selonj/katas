@@ -18,7 +18,7 @@ public class TypeResolverGroup implements TypeResolver {
             } catch (UnresolvedTypeException skipped) {
             }
         }
-        return resolver.lookup(type);
+        throw new UnresolvedTypeException(type);
     }
 
     public void add(TypeResolver resolver) {
