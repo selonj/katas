@@ -13,8 +13,9 @@ public class VariablePicker {
         HashSet<Variable> variables = new HashSet<>();
         final Matcher matcher = Pattern.compile("\\$\\{(\\w+)\\}").matcher(source);
         if (matcher.find()) {
+            final String expression = matcher.group(1);
             variables.add(new Variable() {{
-                name = matcher.group(1);
+                name = expression;
             }});
         }
         return variables;
