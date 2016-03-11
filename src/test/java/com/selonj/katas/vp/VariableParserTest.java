@@ -1,6 +1,7 @@
 package com.selonj.katas.vp;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -45,6 +46,7 @@ public class VariableParserTest {
     }
 
     @Test
+    @Ignore
     public void variableWithinDefaultValue() throws Exception {
         given(typeResolver.lookup("name")).willReturn(String.class);
 

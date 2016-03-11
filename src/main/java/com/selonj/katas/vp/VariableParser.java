@@ -1,5 +1,8 @@
 package com.selonj.katas.vp;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Created by L.x on 16-3-12.
  */
@@ -11,8 +14,12 @@ public class VariableParser {
     }
 
     public Variable parse(String expression) {
-        String[] parts = expression.split(":");
-        Class type = typeResolver.lookup(parts.length > 1 ? parts[1] : null);
-        return new Variable(parts[0], type);
+        //todo:trim name,type and defaultValue
+        Matcher matcher = Pattern.compile("(.*?)(?:\\:(.*?))?").matcher(expression);
+        //todo:throw VariableParseException if can't matching
+        matcher.matches();
+        String name = matcher.group(1);
+        String typeName = matcher.group(2);
+        return new Variable(name, typeResolver.lookup(typeName));
     }
 }
