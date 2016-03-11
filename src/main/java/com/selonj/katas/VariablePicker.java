@@ -9,10 +9,15 @@ import java.util.regex.Pattern;
  * Created by L.x on 16-3-11.
  */
 public class VariablePicker {
-    private TypeResolver typeResolver = new TypeResolverGroup() {{
-        add(new JavaTypeResolver());
-        add(new AliasTypeRegistry());
-    }};
+    private TypeResolver typeResolver = builtIn();
+
+    //todo:can using custom type resolvers
+    private static TypeResolverGroup builtIn() {
+        return new TypeResolverGroup() {{
+            add(new JavaTypeResolver());
+            add(new AliasTypeRegistry());
+        }};
+    }
 
     public Set<Variable> pick(String source) {
         HashSet<Variable> variables = new HashSet<>();
