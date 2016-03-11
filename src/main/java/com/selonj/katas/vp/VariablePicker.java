@@ -13,6 +13,13 @@ public class VariablePicker {
     public static final int TYPE_POS = 1;
     private TypeResolver typeResolver = builtIn();
 
+    public VariablePicker(TypeResolver customTypeResolver) {
+
+    }
+
+    public VariablePicker() {
+    }
+
     //todo:can using custom type resolvers
     private static TypeResolverGroup builtIn() {
         return new TypeResolverGroup() {{

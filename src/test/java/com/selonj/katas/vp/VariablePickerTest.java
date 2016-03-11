@@ -15,8 +15,8 @@ import static org.junit.Assert.assertTrue;
  * Created by L.x on 16-3-11.
  */
 public class VariablePickerTest {
-
-    private final VariablePicker picker = new VariablePicker();
+    private AliasTypeRegistry customTypeRegistry = new AliasTypeRegistry();
+    private final VariablePicker picker = new VariablePicker(customTypeRegistry);
 
     @Test
     public void emptyString() throws Exception {
@@ -40,6 +40,13 @@ public class VariablePickerTest {
     public void aVariableWithinAliasType() throws Exception {
         Set<Variable> variables = picker.pick("${name:string}");
         assertThat(variables, equalTo(singleton(new Variable("name", String.class))));
+    }
+
+    @Test
+    public void aVariableWithinCustomType() throws Exception {
+        customTypeRegistry.alias(Object.class, "object");
+        Set<Variable> variables = picker.pick("${custom:object}");
+        assertThat(variables, equalTo(singleton(new Variable("custom", Object.class))));
     }
 
 }
