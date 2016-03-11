@@ -2,6 +2,8 @@ package com.selonj.katas.vp;
 
 import org.junit.Test;
 
+import java.util.Date;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
@@ -20,5 +22,6 @@ public class VariableParserTest {
     @Test
     public void variableWithinType() throws Exception {
         assertThat(parser.parse("name:string"), equalTo(new Variable("name", String.class)));
+        assertThat(parser.parse("birthday:date"), equalTo(new Variable("birthday", Date.class)));
     }
 }
