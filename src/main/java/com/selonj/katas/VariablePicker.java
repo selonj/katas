@@ -8,6 +8,12 @@ import java.util.Set;
  */
 public class VariablePicker {
     public Set<Variable> pick(String source) {
-        return new HashSet<>();
+        HashSet<Variable> variables = new HashSet<>();
+        if (!source.isEmpty()) {
+            variables.add(new Variable() {{
+                name = "name";
+            }});
+        }
+        return variables;
     }
 }
