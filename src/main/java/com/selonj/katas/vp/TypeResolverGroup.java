@@ -22,7 +22,7 @@ public class TypeResolverGroup implements TypeResolver {
     }
 
     public static TypeResolver builtIn() {
-        return groupOf(AliasTypeRegistry.builtIn(), new JavaTypeResolver());
+        return groupOf(AliasTypeRegistry.builtIn(), JavaTypeResolver.instance());
     }
 
     @Override

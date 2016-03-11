@@ -11,7 +11,7 @@ import static org.junit.Assert.assertThat;
  * Created by L.x on 16-3-11.
  */
 public class JavaTypeResolverTest {
-    private TypeResolver registry = new JavaTypeResolver();
+    private TypeResolver registry = JavaTypeResolver.instance();
 
     @Test
     public void lookupNullAsStringClass() throws Exception {
