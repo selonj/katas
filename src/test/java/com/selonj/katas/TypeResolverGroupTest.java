@@ -41,4 +41,16 @@ public class TypeResolverGroupTest {
 
         assertThat(group.lookup("string"), equalTo((Class) String.class));
     }
+
+    @Test
+    public void continueToLookupIfOneOfResolverFailedOnLookup() throws Exception {
+        given(registry1.lookup("string")).willThrow(UnresolvedTypeException.class);
+        given(registry2.lookup("string")).willReturn(String.class);
+
+        TypeResolverGroup group = new TypeResolverGroup();
+        group.add(registry1);
+        group.add(registry2);
+
+        assertThat(group.lookup("string"), equalTo((Class) String.class));
+    }
 }
