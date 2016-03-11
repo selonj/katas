@@ -39,4 +39,10 @@ public class VariablePickerTest {
         assertThat(variables, equalTo(singleton(new Variable("date", Date.class))));
     }
 
+    @Test
+    public void aVariableWithinAliasType() throws Exception {
+        Set<Variable> variables = picker.pick("${name:string}");
+        assertThat(variables, equalTo(singleton(new Variable("name", String.class))));
+    }
+
 }
