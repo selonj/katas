@@ -1,7 +1,6 @@
 package com.selonj.katas.vp;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -9,8 +8,8 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Date;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.any;
 
@@ -46,9 +45,8 @@ public class VariableParserTest {
     }
 
     @Test
-    @Ignore
     public void variableWithinDefaultValue() throws Exception {
-        given(typeResolver.lookup("name")).willReturn(String.class);
+        given(typeResolver.lookup(null)).willReturn(String.class);
 
         assertThat(parser.parse("name?:guest"), equalTo(new Variable("name", String.class, "guest")));
     }

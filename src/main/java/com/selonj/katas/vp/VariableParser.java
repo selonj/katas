@@ -15,11 +15,12 @@ public class VariableParser {
 
     public Variable parse(String expression) {
         //todo:trim name,type and defaultValue
-        Matcher matcher = Pattern.compile("(.*?)(?:\\:(.*?))?").matcher(expression);
+        Matcher matcher = Pattern.compile("(.*?)(?:\\:(.*?))?(?:\\?\\:(.*?))?").matcher(expression);
         //todo:throw VariableParseException if can't matching
         matcher.matches();
         String name = matcher.group(1);
         String typeName = matcher.group(2);
-        return new Variable(name, typeResolver.lookup(typeName));
+        String defaultValue = matcher.group(3);
+        return new Variable(name, typeResolver.lookup(typeName),defaultValue);
     }
 }

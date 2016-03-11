@@ -37,6 +37,6 @@ public class Variable<T> {
 
     @Override
     public String toString() {
-        return name + ":" + type.getName();
+        return name + ":" + type.getName()+"?:"+defaultValue;
     }
 }
