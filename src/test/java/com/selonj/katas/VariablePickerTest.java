@@ -31,7 +31,6 @@ public class VariablePickerTest {
     }
 
     @Test
-    @Ignore
     public void aVariable2() throws Exception {
         VariablePicker picker = new VariablePicker();
         Set<Variable> variables = picker.pick("${foo}");

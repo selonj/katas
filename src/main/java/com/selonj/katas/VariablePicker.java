@@ -11,10 +11,10 @@ import java.util.regex.Pattern;
 public class VariablePicker {
     public Set<Variable> pick(String source) {
         HashSet<Variable> variables = new HashSet<>();
-        Matcher matcher = Pattern.compile("\\$\\{\\w+\\}").matcher(source);
+        final Matcher matcher = Pattern.compile("\\$\\{(\\w+)\\}").matcher(source);
         if (matcher.find()) {
             variables.add(new Variable() {{
-                name = "name";
+                name = matcher.group(1);
             }});
         }
         return variables;
