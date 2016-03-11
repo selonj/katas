@@ -14,20 +14,20 @@ import static org.junit.Assert.assertTrue;
  * Created by L.x on 16-3-11.
  */
 public class VariablePickerTest {
+
+    private final VariablePicker picker = new VariablePicker();
+
     @Test
     public void emptyString() throws Exception {
-        VariablePicker picker = new VariablePicker();
         Set<Variable> variables = picker.pick("");
         assertTrue(variables.isEmpty());
     }
 
     @Test
     public void aVariable() throws Exception {
-        VariablePicker picker = new VariablePicker();
         Set<Variable> variables = picker.pick("${name}");
         assertThat(variables.size(), is(1));
         Variable variable = variables.iterator().next();
         assertThat(variable.name, equalTo("name"));
     }
-
 }
