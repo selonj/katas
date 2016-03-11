@@ -1,6 +1,7 @@
 package com.selonj.katas.vp;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -8,6 +9,13 @@ import java.util.List;
  */
 public class TypeResolverGroup implements TypeResolver {
     private List<TypeResolver> resolvers = new ArrayList<>();
+
+    public TypeResolverGroup() {
+    }
+
+    public TypeResolverGroup(TypeResolver... resolvers) {
+        this.resolvers.addAll(Arrays.asList(resolvers));
+    }
 
     @Override
     public Class lookup(String type) throws UnresolvedTypeException {

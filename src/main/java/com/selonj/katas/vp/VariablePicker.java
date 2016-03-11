@@ -11,21 +11,19 @@ import java.util.regex.Pattern;
 public class VariablePicker {
     public static final int NAME_POS = 0;
     public static final int TYPE_POS = 1;
-    private TypeResolverGroup typeResolver = builtIn();
+    private TypeResolverGroup typeResolver;
 
     public VariablePicker(TypeResolver customTypeResolver) {
-        typeResolver.add(customTypeResolver);
+        TypeResolverGroup merged = new TypeResolverGroup(customTypeResolver,builtIn());
+        typeResolver = merged;
     }
 
     public VariablePicker() {
+        typeResolver = builtIn();
     }
 
-    //todo:can using custom type resolvers
     private static TypeResolverGroup builtIn() {
-        return new TypeResolverGroup() {{
-            add(new JavaTypeResolver());
-            add(new AliasTypeRegistry());
-        }};
+        return new TypeResolverGroup(new AliasTypeRegistry(), new JavaTypeResolver());
     }
 
     public Set<Variable> pick(String source) {
