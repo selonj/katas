@@ -1,5 +1,6 @@
 package com.selonj.katas;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Set;
@@ -30,6 +31,7 @@ public class VariablePickerTest {
     }
 
     @Test
+    @Ignore
     public void aVariable2() throws Exception {
         VariablePicker picker = new VariablePicker();
         Set<Variable> variables = picker.pick("${foo}");
