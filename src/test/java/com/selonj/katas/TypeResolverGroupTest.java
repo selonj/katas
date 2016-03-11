@@ -18,7 +18,7 @@ public class TypeResolverGroupTest {
     private TypeResolver registry1;
 
     @Test
-    public void lookup() throws Exception {
+    public void lookupInAddedRegistry() throws Exception {
         given(registry1.lookup("string")).willReturn(String.class);
 
         TypeResolverGroup group = new TypeResolverGroup();
