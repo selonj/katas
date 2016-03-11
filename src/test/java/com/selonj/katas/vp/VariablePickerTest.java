@@ -65,4 +65,13 @@ public class VariablePickerTest {
         assertThat(variables, equalTo(singleton(new Variable("name", String.class, "guest"))));
     }
 
+    @Test
+    public void aVariableWithinDefaultValueOfCustomType() throws Exception {
+        customTypeRegistry.alias(Time.class, "time");
+        Set<Variable> variables = picker.pick("${start:time?:03:25}");
+
+        assertThat(variables, equalTo(singleton(new Variable("start", Time.class, Time.at(3, 25)))));
+    }
+
+
 }
