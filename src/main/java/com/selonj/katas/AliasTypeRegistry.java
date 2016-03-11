@@ -12,7 +12,7 @@ public class AliasTypeRegistry implements TypeResolver {
     @Override
     public Class lookup(String type) {
         if (!registeredTypes.containsKey(type)) {
-            throw new UnresolvedTypeException("alias: " + type);
+            throw new UnresolvedTypeException(type);
         }
         return registeredTypes.get(type);
     }

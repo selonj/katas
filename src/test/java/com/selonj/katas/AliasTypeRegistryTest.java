@@ -34,7 +34,7 @@ public class AliasTypeRegistryTest {
             registry.lookup("unknown");
             fail("should raising exception");
         } catch (UnresolvedTypeException expected) {
-            assertThat(expected.getMessage(), equalTo("alias: unknown"));
+            assertThat(expected.getMessage(), equalTo("unknown"));
         }
     }
 }
