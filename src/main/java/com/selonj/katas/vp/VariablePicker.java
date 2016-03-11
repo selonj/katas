@@ -12,8 +12,6 @@ import static com.selonj.katas.vp.TypeResolverGroup.groupOf;
  * Created by L.x on 16-3-11.
  */
 public class VariablePicker {
-    public static final int NAME_POS = 0;
-    public static final int TYPE_POS = 1;
     //todo:remove it from variable picker
     private TypeResolver typeResolver;
     //todo:can use custom variable parser
