@@ -29,12 +29,6 @@ public class TypeResolverGroupTest {
     }
 
     @Test
-    public void lookupInAddedRegistry() throws Exception {
-        given(registry1.lookup("string")).willReturn(String.class);
-        assertThat(group.lookup("string"), equalTo((Class) String.class));
-    }
-
-    @Test
     public void returnFirstResolvedTypeOfAllAddedRegistry() throws Exception {
         given(registry1.lookup("string")).willReturn(String.class);
         given(registry2.lookup("string")).willReturn(StringBuilder.class);
