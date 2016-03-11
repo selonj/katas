@@ -16,6 +16,8 @@ import static org.mockito.BDDMockito.given;
 public class TypeResolverGroupTest {
     @Mock
     private TypeResolver registry1;
+    @Mock
+    private TypeResolver registry2;
 
     @Test
     public void lookupInAddedRegistry() throws Exception {
@@ -23,6 +25,18 @@ public class TypeResolverGroupTest {
 
         TypeResolverGroup group = new TypeResolverGroup();
         group.add(registry1);
+
+        assertThat(group.lookup("string"), equalTo((Class) String.class));
+    }
+
+    @Test
+    public void returnFirstResolvedTypeOfAllAddedRegistry() throws Exception {
+        given(registry1.lookup("string")).willReturn(String.class);
+        given(registry2.lookup("string")).willReturn(StringBuilder.class);
+
+        TypeResolverGroup group = new TypeResolverGroup();
+        group.add(registry1);
+        group.add(registry2);
 
         assertThat(group.lookup("string"), equalTo((Class) String.class));
     }
