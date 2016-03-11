@@ -59,7 +59,6 @@ public class VariablePickerTest {
     }
 
     @Test
-    @Ignore
     public void aVariableWithinDefaultValue() throws Exception {
         Set<Variable> variables = picker.pick("${name?:guest}");
 

@@ -25,7 +25,7 @@ public class VariableParserTest {
 
     @Before
     public void setUp() throws Exception {
-        parser=new VariableParser(typeResolver);
+        parser = new VariableParser(typeResolver);
     }
 
 
@@ -42,5 +42,12 @@ public class VariableParserTest {
         given(typeResolver.lookup("date")).willReturn(Date.class);
 
         assertThat(parser.parse("birthday:date"), equalTo(new Variable("birthday", Date.class)));
+    }
+
+    @Test
+    public void variableWithinDefaultValue() throws Exception {
+        given(typeResolver.lookup("name")).willReturn(String.class);
+
+        assertThat(parser.parse("name?:guest"), equalTo(new Variable("name", String.class, "guest")));
     }
 }
