@@ -103,3 +103,16 @@ Factorial.of(n)=1*2*3*...*n
 ```pseudo-code
     gcd(6,4)=2
 ```
+
+
+## Variable Picker
+从数据源中提取所有的变量,变量的格式为varName:type?:defaultValue
+
+|varName            |   type                  |   defaultValue |
+|-------------------|-------------------------|----------------|
+|变量名可以为任意字符 |可以转换的Java任意类型      |默认值           |       
+
+```pseudo-code
+pick variables from '本次${name:string}将于${time:date?:2014-05-12}日抵达${destination:Location?:北京}' 
+return variables as list: [name,time,destination]
+```
