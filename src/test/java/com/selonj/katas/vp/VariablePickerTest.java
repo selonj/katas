@@ -57,4 +57,11 @@ public class VariablePickerTest {
         assertThat(variables, equalTo(singleton(new Variable("balance", Integer.class))));
     }
 
+    @Test
+    public void aVariableWithinDefaultValue() throws Exception {
+        Set<Variable> variables = picker.pick("${name?:guest}");
+
+        assertThat(variables, equalTo(singleton(new Variable("balance", Integer.class,"guest"))));
+    }
+
 }

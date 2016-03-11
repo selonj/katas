@@ -5,13 +5,20 @@ import java.util.Objects;
 /**
  * Created by L.x on 16-3-11.
  */
-public class Variable {
+public class Variable<T> {
     public String name;
-    public Class type;
+    public Class<T> type;
+    private T defaultValue;
 
     public Variable(String name, Class type) {
         this.name = name;
         this.type = type;
+    }
+
+    public Variable(String name, Class<T> type, T defaultValue) {
+        this.name = name;
+        this.type = type;
+        this.defaultValue = defaultValue;
     }
 
     @Override
