@@ -2,6 +2,8 @@ package com.selonj.katas;
 
 import org.junit.Test;
 
+import java.math.BigInteger;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
@@ -14,5 +16,12 @@ public class AliasTypeRegistryTest {
         AliasTypeRegistry registry = new AliasTypeRegistry();
         registry.alias(Object.class, "object");
         assertThat(registry.lookup("object"),equalTo((Class) Object.class));
+    }
+
+    @Test
+    public void lookupByAliasWithinCustomType2() throws Exception {
+        AliasTypeRegistry registry = new AliasTypeRegistry();
+        registry.alias(BigInteger.class, "bigint");
+        assertThat(registry.lookup("bigint"),equalTo((Class) BigInteger.class));
     }
 }
