@@ -5,6 +5,12 @@ package com.selonj.katas;
  */
 public class TypeRegistry {
     public Class lookup(String type) {
+        if (type != null) {
+            try {
+                return Class.forName(type, false, null);
+            } catch (ClassNotFoundException ex) {
+            }
+        }
         return String.class;
     }
 }
