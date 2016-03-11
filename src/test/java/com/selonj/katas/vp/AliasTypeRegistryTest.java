@@ -14,16 +14,18 @@ import static org.junit.Assert.assertThat;
  */
 public class AliasTypeRegistryTest {
 
-    private final AliasTypeRegistry registry = new AliasTypeRegistry();
-
     @Test
     public void lookupByAliasWithinCustomType() throws Exception {
+        AliasTypeRegistry registry = new AliasTypeRegistry();
+
         registry.alias(Object.class, "object");
         assertThat(registry.lookup("object"), equalTo((Class) Object.class));
     }
 
     @Test
     public void lookupBuiltInAliases() throws Exception {
+        TypeResolver registry = AliasTypeRegistry.builtIn();
+
         assertThat(registry.lookup("string"), equalTo((Class) String.class));
         assertThat(registry.lookup("byte"), equalTo((Class) Byte.class));
         assertThat(registry.lookup("short"), equalTo((Class) Short.class));

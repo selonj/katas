@@ -5,6 +5,8 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.selonj.katas.vp.TypeResolverGroup.builtIn;
+
 /**
  * Created by L.x on 16-3-11.
  */
@@ -14,11 +16,11 @@ public class VariablePicker {
     private TypeResolverGroup typeResolver;
 
     public VariablePicker(TypeResolver customTypeResolver) {
-        typeResolver = TypeResolverGroup.groupOf(customTypeResolver, TypeResolverGroup.builtIn());
+        typeResolver = TypeResolverGroup.groupOf(customTypeResolver, builtIn());
     }
 
     public VariablePicker() {
-        typeResolver = TypeResolverGroup.builtIn();
+        typeResolver = builtIn();
     }
 
     public Set<Variable> pick(String source) {
