@@ -1,6 +1,5 @@
 package com.selonj.katas;
 
-import java.lang.reflect.Type;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Matcher;
@@ -10,7 +9,7 @@ import java.util.regex.Pattern;
  * Created by L.x on 16-3-11.
  */
 public class VariablePicker {
-    private TypeRegistry typeRegistry = new TypeRegistry();
+    private JavaTypeResolver typeResolver = new JavaTypeResolver();
 
     public Set<Variable> pick(String source) {
         HashSet<Variable> variables = new HashSet<>();
@@ -23,10 +22,10 @@ public class VariablePicker {
     }
 
     private Variable resolveVariable(final String expression) {
-        return new Variable() {{
+        return new Variable() {{//todo:using new Variable(String,Class) instead
             String[] parts = expression.split(":");
             name = parts[0];
-            type = typeRegistry.lookup(parts.length > 1 ? parts[1] : null);
+            type = typeResolver.lookup(parts.length > 1 ? parts[1] : null);
         }};
     }
 }

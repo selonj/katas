@@ -6,14 +6,13 @@ import java.util.Date;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 /**
  * Created by L.x on 16-3-11.
  */
-public class VariableTypeRegistryTest {
-    private TypeRegistry registry = new TypeRegistry();
+public class JavaTypeResolverTest {
+    private JavaTypeResolver registry = new JavaTypeResolver();
 
     @Test
     public void lookupNullAsStringClass() throws Exception {
