@@ -29,6 +29,7 @@ public class AllTypeRegistryOfUnresolvedTypeTest {
         return Arrays.asList(new Object[][]{
                 {new JavaTypeResolver()},
                 {new AliasTypeRegistry()},
+                {new TypeResolverGroup()}
         });
     }
 
