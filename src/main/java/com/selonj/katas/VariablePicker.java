@@ -14,11 +14,15 @@ public class VariablePicker {
         final Matcher matcher = Pattern.compile("\\$\\{(\\w+)\\}").matcher(source);
         if (matcher.find()) {
             final String expression = matcher.group(1);
-            variables.add(new Variable() {{
-                name = expression;
-                type = String.class;
-            }});
+            variables.add(resolveVariable(expression));
         }
         return variables;
+    }
+
+    private Variable resolveVariable(final String expression) {
+        return new Variable() {{
+            name = expression;
+            type = String.class;
+        }};
     }
 }
