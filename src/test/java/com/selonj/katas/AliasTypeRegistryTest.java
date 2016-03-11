@@ -30,5 +30,6 @@ public class AliasTypeRegistryTest {
     @Test
     public void lookupBuiltInAliases() throws Exception {
         assertThat(registry.lookup("string"), equalTo((Class) String.class));
+        //todo:lookup other built-in aliases
     }
 }
