@@ -1,5 +1,6 @@
 package com.selonj.katas;
 
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,12 +22,15 @@ public class TypeResolverGroupTest {
     private TypeResolver registry2;
     private final TypeResolverGroup group = new TypeResolverGroup();
 
+    @Before
+    public void addGroupOfResolvers() throws Exception {
+        group.add(registry1);
+        group.add(registry2);
+    }
+
     @Test
     public void lookupInAddedRegistry() throws Exception {
         given(registry1.lookup("string")).willReturn(String.class);
-
-        group.add(registry1);
-
         assertThat(group.lookup("string"), equalTo((Class) String.class));
     }
 
@@ -35,9 +39,6 @@ public class TypeResolverGroupTest {
         given(registry1.lookup("string")).willReturn(String.class);
         given(registry2.lookup("string")).willReturn(StringBuilder.class);
 
-        group.add(registry1);
-        group.add(registry2);
-
         assertThat(group.lookup("string"), equalTo((Class) String.class));
     }
 
@@ -45,9 +46,6 @@ public class TypeResolverGroupTest {
     public void continueToLookupIfOneOfResolverFailedOnLookup() throws Exception {
         given(registry1.lookup("string")).willThrow(UnresolvedTypeException.class);
         given(registry2.lookup("string")).willReturn(String.class);
-
-        group.add(registry1);
-        group.add(registry2);
 
         assertThat(group.lookup("string"), equalTo((Class) String.class));
     }
