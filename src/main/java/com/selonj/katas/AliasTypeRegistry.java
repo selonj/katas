@@ -9,6 +9,10 @@ import java.util.Map;
 public class AliasTypeRegistry implements TypeResolver {
     private Map<String, Class> registeredTypes = new HashMap<>();
 
+    public AliasTypeRegistry() {
+        alias(String.class, "string");
+    }
+
     @Override
     public Class lookup(String type) {
         if (!registeredTypes.containsKey(type)) {
