@@ -6,11 +6,16 @@ package com.selonj.katas;
 public class TypeRegistry {
     public Class lookup(String type) {
         if (type != null) {
-            try {
-                return Class.forName(type, false, null);
-            } catch (ClassNotFoundException ex) {
-            }
+            return loadClass(type);
         }
         return String.class;
+    }
+
+    private Class loadClass(String className) {
+        try {
+            return Class.forName(className, false, null);
+        } catch (ClassNotFoundException ex) {
+            return null;
+        }
     }
 }
