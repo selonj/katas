@@ -34,7 +34,6 @@ public class VariablePickerTest {
     }
 
     @Test
-    @Ignore
     public void aVariableWithinOtherType() throws Exception {
         Set<Variable> variables = picker.pick("${date:java.util.Date}");
         assertThat(variables.size(), is(1));

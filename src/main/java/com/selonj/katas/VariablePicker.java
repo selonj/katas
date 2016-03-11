@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public class VariablePicker {
     public Set<Variable> pick(String source) {
         HashSet<Variable> variables = new HashSet<>();
-        final Matcher matcher = Pattern.compile("\\$\\{(\\w+)\\}").matcher(source);
+        final Matcher matcher = Pattern.compile("\\$\\{(.*?)\\}").matcher(source);
         if (matcher.find()) {
             final String expression = matcher.group(1);
             variables.add(resolveVariable(expression));
