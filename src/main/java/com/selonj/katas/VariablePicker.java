@@ -16,6 +16,7 @@ public class VariablePicker {
             final String expression = matcher.group(1);
             variables.add(new Variable() {{
                 name = expression;
+                type = String.class;
             }});
         }
         return variables;

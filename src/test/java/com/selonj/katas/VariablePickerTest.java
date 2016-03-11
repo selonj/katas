@@ -30,15 +30,17 @@ public class VariablePickerTest {
         assertThat(variables.size(), is(1));
         Variable variable = variables.iterator().next();
         assertThat(variable.name, equalTo("name"));
+        assertThat(variable.type, equalTo((Class) String.class));
     }
 
     @Test
+    @Ignore
     public void aVariableWithinOtherType() throws Exception {
         Set<Variable> variables = picker.pick("${date:java.util.Date}");
         assertThat(variables.size(), is(1));
         Variable variable = variables.iterator().next();
         assertThat(variable.name, equalTo("date"));
-        assertThat(variable.type,equalTo((Class) Date.class));
+        assertThat(variable.type, equalTo((Class) Date.class));
     }
 
 }
