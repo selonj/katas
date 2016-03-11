@@ -3,6 +3,7 @@ package com.selonj.katas;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import java.util.Date;
 import java.util.Set;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -30,4 +31,14 @@ public class VariablePickerTest {
         Variable variable = variables.iterator().next();
         assertThat(variable.name, equalTo("name"));
     }
+
+    @Test
+    public void aVariableWithinOtherType() throws Exception {
+        Set<Variable> variables = picker.pick("${date:java.util.Date}");
+        assertThat(variables.size(), is(1));
+        Variable variable = variables.iterator().next();
+        assertThat(variable.name, equalTo("date"));
+        assertThat(variable.type,equalTo(Date.class));
+    }
+
 }
