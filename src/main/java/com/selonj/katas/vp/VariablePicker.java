@@ -14,16 +14,11 @@ public class VariablePicker {
     private TypeResolverGroup typeResolver;
 
     public VariablePicker(TypeResolver customTypeResolver) {
-        TypeResolverGroup merged = new TypeResolverGroup(customTypeResolver,builtIn());
-        typeResolver = merged;
+        typeResolver = TypeResolverGroup.groupOf(customTypeResolver, TypeResolverGroup.builtIn());
     }
 
     public VariablePicker() {
-        typeResolver = builtIn();
-    }
-
-    private static TypeResolverGroup builtIn() {
-        return new TypeResolverGroup(new AliasTypeRegistry(), new JavaTypeResolver());
+        typeResolver = TypeResolverGroup.builtIn();
     }
 
     public Set<Variable> pick(String source) {

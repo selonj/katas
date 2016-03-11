@@ -13,8 +13,16 @@ public class TypeResolverGroup implements TypeResolver {
     public TypeResolverGroup() {
     }
 
-    public TypeResolverGroup(TypeResolver... resolvers) {
+    private TypeResolverGroup(TypeResolver... resolvers) {
         this.resolvers.addAll(Arrays.asList(resolvers));
+    }
+
+    public static TypeResolverGroup groupOf(TypeResolver... resolvers) {
+        return new TypeResolverGroup(resolvers);
+    }
+
+    public static TypeResolverGroup builtIn() {
+        return groupOf(new AliasTypeRegistry(), new JavaTypeResolver());
     }
 
     @Override
