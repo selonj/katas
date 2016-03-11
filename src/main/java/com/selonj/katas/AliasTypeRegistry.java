@@ -6,7 +6,7 @@ package com.selonj.katas;
 public class AliasTypeRegistry implements TypeResolver {
     @Override
     public Class lookup(String type) {
-        return null;
+        return Object.class;
     }
 
     public void alias(Class type, String alias) {
