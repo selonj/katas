@@ -1,5 +1,6 @@
 package com.selonj.katas;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -7,6 +8,6 @@ import java.util.Set;
  */
 public class VariablePicker {
     public Set<Variable> pick(String source) {
-        return null;
+        return new HashSet<>();
     }
 }
