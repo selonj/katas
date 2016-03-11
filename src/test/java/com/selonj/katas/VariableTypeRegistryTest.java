@@ -13,6 +13,6 @@ public class VariableTypeRegistryTest {
 
     @Test
     public void lookupNullAsStringClass() throws Exception {
-        assertThat(registry.lookup(null),equalTo(String.class));
+        assertThat(registry.lookup(null),equalTo((Class) String.class));
     }
 }
