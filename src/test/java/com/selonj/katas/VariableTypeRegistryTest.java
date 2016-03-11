@@ -6,6 +6,8 @@ import java.util.Date;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 /**
  * Created by L.x on 16-3-11.
@@ -21,5 +23,15 @@ public class VariableTypeRegistryTest {
     @Test
     public void loadClassIfLookupTypeIsNotNull() throws Exception {
         assertThat(registry.lookup("java.util.Date"), equalTo((Class) Date.class));
+    }
+
+    @Test
+    public void throwsExceptionIfTypeCannotResolved() throws Exception {
+        try {
+            registry.lookup("unknown type");
+            fail("should raising exception");
+        } catch (UnresolvedTypeException expected) {
+            assertTrue(true);
+        }
     }
 }
