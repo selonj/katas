@@ -13,6 +13,10 @@ public class AliasTypeRegistry implements TypeResolver {
     private Map<String, Class> registeredTypes = new HashMap<>();
 
     public AliasTypeRegistry() {
+        registerBuiltInAliases();
+    }
+
+    private void registerBuiltInAliases() {
         alias(String.class, "string");
         alias(Byte.class, "byte");
         alias(Short.class, "short");
