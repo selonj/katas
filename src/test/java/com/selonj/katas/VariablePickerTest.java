@@ -30,12 +30,4 @@ public class VariablePickerTest {
         assertThat(variable.name, equalTo("name"));
     }
 
-    @Test
-    public void aVariable2() throws Exception {
-        VariablePicker picker = new VariablePicker();
-        Set<Variable> variables = picker.pick("${foo}");
-        assertThat(variables.size(), is(1));
-        Variable variable = variables.iterator().next();
-        assertThat(variable.name, equalTo("foo"));
-    }
 }
