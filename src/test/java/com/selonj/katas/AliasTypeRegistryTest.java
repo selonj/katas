@@ -26,4 +26,9 @@ public class AliasTypeRegistryTest {
         registry.alias(BigInteger.class, "bigint");
         assertThat(registry.lookup("bigint"), equalTo((Class) BigInteger.class));
     }
+
+    @Test
+    public void lookupBuiltInAliases() throws Exception {
+        assertThat(registry.lookup("string"), equalTo((Class) String.class));
+    }
 }
