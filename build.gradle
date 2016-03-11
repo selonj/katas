@@ -13,6 +13,7 @@ repositories {
 dependencies {
     compile fileTree(dir: 'libs')
     testCompile 'junit:junit:4.+'
+    testCompile 'org.mockito:mockito-all:1.9.5'
 }
 
 apply plugin: 'idea'
