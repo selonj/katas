@@ -7,7 +7,6 @@ import java.util.List;
  * Created by L.x on 16-3-12.
  */
 public class TypeResolverGroup implements TypeResolver {
-    private TypeResolver resolver;
     private List<TypeResolver> resolvers = new ArrayList<>();
 
     @Override
