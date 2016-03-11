@@ -11,10 +11,10 @@ import java.util.regex.Pattern;
 public class VariablePicker {
     public static final int NAME_POS = 0;
     public static final int TYPE_POS = 1;
-    private TypeResolver typeResolver = builtIn();
+    private TypeResolverGroup typeResolver = builtIn();
 
     public VariablePicker(TypeResolver customTypeResolver) {
-
+        typeResolver.add(customTypeResolver);
     }
 
     public VariablePicker() {
