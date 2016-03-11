@@ -15,7 +15,7 @@ public class TypeRegistry {
         try {
             return Class.forName(className, false, null);
         } catch (ClassNotFoundException ex) {
-            return null;
+            throw new UnresolvedTypeException();
         }
     }
 }
