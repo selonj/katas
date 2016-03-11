@@ -14,5 +14,6 @@ public class VariableParserTest {
     @Test
     public void nameOnly() throws Exception {
         assertThat(parser.parse("foo"), equalTo(new Variable("foo", String.class)));
+        assertThat(parser.parse("bar"), equalTo(new Variable("bar", String.class)));
     }
 }
