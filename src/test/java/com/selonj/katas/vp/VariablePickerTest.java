@@ -49,4 +49,13 @@ public class VariablePickerTest {
         assertThat(variables, equalTo(singleton(new Variable("custom", Object.class))));
     }
 
+    @Test
+    public void aVariableUsingCustomTypeWithHighPriority() throws Exception {
+        customTypeRegistry.alias(Integer.class, "bigint");
+
+        Set<Variable> variables = picker.pick("${balance:bigint}");
+
+        assertThat(variables, equalTo(singleton(new Variable("balance", Integer.class))));
+    }
+
 }
