@@ -1,4 +1,4 @@
-package com.selonj.katas;
+package com.selonj.katas.vp;
 
 /**
  * Created by L.x on 16-3-11.

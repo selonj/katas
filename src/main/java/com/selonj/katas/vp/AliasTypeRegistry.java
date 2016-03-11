@@ -1,4 +1,4 @@
-package com.selonj.katas;
+package com.selonj.katas.vp;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

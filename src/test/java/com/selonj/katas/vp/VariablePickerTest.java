@@ -1,10 +1,7 @@
-package com.selonj.katas;
+package com.selonj.katas.vp;
 
-import org.hamcrest.core.Every;
-import org.junit.Ignore;
 import org.junit.Test;
 
-import java.util.Collections;
 import java.util.Date;
 import java.util.Set;
 
