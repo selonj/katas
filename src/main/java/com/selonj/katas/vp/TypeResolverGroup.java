@@ -17,11 +17,11 @@ public class TypeResolverGroup implements TypeResolver {
         this.resolvers.addAll(Arrays.asList(resolvers));
     }
 
-    public static TypeResolverGroup groupOf(TypeResolver... resolvers) {
+    public static TypeResolver groupOf(TypeResolver... resolvers) {
         return new TypeResolverGroup(resolvers);
     }
 
-    public static TypeResolverGroup builtIn() {
+    public static TypeResolver builtIn() {
         return groupOf(AliasTypeRegistry.builtIn(), new JavaTypeResolver());
     }
 

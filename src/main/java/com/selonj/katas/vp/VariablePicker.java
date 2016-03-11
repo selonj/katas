@@ -14,7 +14,7 @@ import static com.selonj.katas.vp.TypeResolverGroup.groupOf;
 public class VariablePicker {
     public static final int NAME_POS = 0;
     public static final int TYPE_POS = 1;
-    private TypeResolverGroup typeResolver;
+    private TypeResolver typeResolver;
 
     public VariablePicker(TypeResolver customTypeResolver) {
         typeResolver = groupOf(customTypeResolver, builtIn());
