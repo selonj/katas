@@ -14,14 +14,19 @@ import static com.selonj.katas.vp.TypeResolverGroup.groupOf;
 public class VariablePicker {
     public static final int NAME_POS = 0;
     public static final int TYPE_POS = 1;
+    //todo:remove it from variable picker
     private TypeResolver typeResolver;
+    //todo:can use custom variable parser
+    private VariableParser variableParser;
 
     public VariablePicker(TypeResolver customTypeResolver) {
         typeResolver = groupOf(customTypeResolver, builtIn());
+        variableParser = new VariableParser(typeResolver);
     }
 
     public VariablePicker() {
         typeResolver = builtIn();
+        variableParser = new VariableParser(typeResolver);
     }
 
     public Set<Variable> pick(String source) {
@@ -35,8 +40,6 @@ public class VariablePicker {
     }
 
     private Variable resolveVariable(final String expression) {
-        String[] parts = expression.split(":");
-        Class type = typeResolver.lookup(parts.length > 1 ? parts[TYPE_POS] : null);
-        return new Variable(parts[NAME_POS], type);
+        return variableParser.parse(expression);
     }
 }
