@@ -12,11 +12,13 @@ public class TypeResolverGroup implements TypeResolver {
 
     @Override
     public Class lookup(String type) throws UnresolvedTypeException {
+        for (TypeResolver resolver : resolvers) {
+            return resolver.lookup(type);
+        }
         return resolver.lookup(type);
     }
 
     public void add(TypeResolver resolver) {
-        this.resolver = resolver;
         resolvers.add(resolver);
     }
 }

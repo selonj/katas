@@ -31,7 +31,6 @@ public class TypeResolverGroupTest {
     }
 
     @Test
-    @Ignore
     public void returnFirstResolvedTypeOfAllAddedRegistry() throws Exception {
         given(registry1.lookup("string")).willReturn(String.class);
         given(registry2.lookup("string")).willReturn(StringBuilder.class);
