@@ -23,14 +23,4 @@ public class JavaTypeResolverTest {
     public void loadClassIfLookupTypeIsNotNull() throws Exception {
         assertThat(registry.lookup("java.util.Date"), equalTo((Class) Date.class));
     }
-
-    @Test
-    public void throwsExceptionIfTypeCannotResolved() throws Exception {
-        try {
-            registry.lookup("unknown type");
-            fail("should raising exception");
-        } catch (UnresolvedTypeException expected) {
-            assertThat(expected.getMessage(), equalTo("unknown type"));
-        }
-    }
 }

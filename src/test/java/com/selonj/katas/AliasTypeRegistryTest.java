@@ -6,7 +6,6 @@ import java.math.BigInteger;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 
 /**
  * Created by L.x on 16-3-12.
@@ -26,15 +25,5 @@ public class AliasTypeRegistryTest {
         AliasTypeRegistry registry = new AliasTypeRegistry();
         registry.alias(BigInteger.class, "bigint");
         assertThat(registry.lookup("bigint"), equalTo((Class) BigInteger.class));
-    }
-
-    @Test
-    public void throwsExceptionIfTypeCannotResolved() throws Exception {
-        try {
-            registry.lookup("unknown");
-            fail("should raising exception");
-        } catch (UnresolvedTypeException expected) {
-            assertThat(expected.getMessage(), equalTo("unknown"));
-        }
     }
 }
