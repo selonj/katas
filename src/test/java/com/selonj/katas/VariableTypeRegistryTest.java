@@ -31,7 +31,7 @@ public class VariableTypeRegistryTest {
             registry.lookup("unknown type");
             fail("should raising exception");
         } catch (UnresolvedTypeException expected) {
-            assertTrue(true);
+            assertThat(expected.getMessage(), equalTo("unknown type"));
         }
     }
 }
