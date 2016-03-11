@@ -2,7 +2,9 @@ package com.selonj.katas;
 
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Date;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
@@ -20,7 +22,7 @@ public class AliasTypeRegistryTest {
         assertThat(registry.lookup("object"), equalTo((Class) Object.class));
     }
 
-    @Test
+    @Test//todo: remove it
     public void lookupByAliasWithinCustomType2() throws Exception {
         AliasTypeRegistry registry = new AliasTypeRegistry();
         registry.alias(BigInteger.class, "bigint");
@@ -30,6 +32,16 @@ public class AliasTypeRegistryTest {
     @Test
     public void lookupBuiltInAliases() throws Exception {
         assertThat(registry.lookup("string"), equalTo((Class) String.class));
-        //todo:lookup other built-in aliases
+        assertThat(registry.lookup("byte"), equalTo((Class) Byte.class));
+        assertThat(registry.lookup("short"), equalTo((Class) Short.class));
+        assertThat(registry.lookup("int"), equalTo((Class) Integer.class));
+        assertThat(registry.lookup("long"), equalTo((Class) Long.class));
+        assertThat(registry.lookup("bigint"), equalTo((Class) BigInteger.class));
+        assertThat(registry.lookup("float"), equalTo((Class) Float.class));
+        assertThat(registry.lookup("double"), equalTo((Class) Double.class));
+        assertThat(registry.lookup("decimal"), equalTo((Class) BigDecimal.class));
+        assertThat(registry.lookup("char"), equalTo((Class) Character.class));
+        assertThat(registry.lookup("boolean"), equalTo((Class) Boolean.class));
+        assertThat(registry.lookup("date"), equalTo((Class) Date.class));
     }
 }
