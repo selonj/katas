@@ -24,15 +24,16 @@ public class Variable<T> {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!Variable.class.isInstance(o)) return false;
-        Variable variable = (Variable) o;
+        if (o == null || getClass() != o.getClass()) return false;
+        Variable<?> variable = (Variable<?>) o;
         return Objects.equals(name, variable.name) &&
-                Objects.equals(type, variable.type);
+                Objects.equals(type, variable.type) &&
+                Objects.equals(defaultValue, variable.defaultValue);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, type);
+        return Objects.hash(name, type, defaultValue);
     }
 
     @Override
