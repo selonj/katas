@@ -5,6 +5,6 @@ package com.selonj.katas;
  */
 public class TypeRegistry {
     public Class lookup(String type) {
-        return null;
+        return String.class;
     }
 }
