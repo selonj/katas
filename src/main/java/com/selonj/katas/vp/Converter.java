@@ -5,8 +5,15 @@ package com.selonj.katas.vp;
  */
 //todo: can convert subtypes
 public class Converter {
+    private Marshaller marshaller;
+
     //todo: convert null return null directly?
     public <T> T convert(String value, Class<T> targetType) {
-        return (T) value;
+        return (T) marshaller.marshall(value);
+    }
+
+    public <T> void register(Class<T> type, Marshaller<T> marshaller) {
+
+        this.marshaller = marshaller;
     }
 }
