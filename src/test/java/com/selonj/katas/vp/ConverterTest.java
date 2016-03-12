@@ -1,5 +1,6 @@
 package com.selonj.katas.vp;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -32,6 +33,7 @@ public class ConverterTest {
     }
 
     @Test
+    @Ignore
     public void convertStringToTargetTypeWithinCorrespondingMarshaller() throws Exception {
         converter.register(Time.class, marshaller);
         converter.register(String.class, marshaller2);
