@@ -8,17 +8,15 @@ import java.util.Map;
  */
 //todo: can convert subtypes
 public class Converter {
-    private Marshaller marshaller;
     private Map<Class<?>, Marshaller<?>> marshallers = new HashMap<>();
 
     //todo: convert null return null directly?
     public <T> T convert(String value, Class<T> targetType) {
+        Marshaller<T> marshaller = (Marshaller<T>) marshallers.get(targetType);
         return (T) marshaller.marshall(value);
     }
 
     public <T> void register(Class<T> type, Marshaller<T> marshaller) {
-
-        this.marshaller = marshaller;
         marshallers.put(type, marshaller);
     }
 }

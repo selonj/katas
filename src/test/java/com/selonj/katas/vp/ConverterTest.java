@@ -33,7 +33,6 @@ public class ConverterTest {
     }
 
     @Test
-    @Ignore
     public void convertStringToTargetTypeWithinCorrespondingMarshaller() throws Exception {
         converter.register(Time.class, marshaller);
         converter.register(String.class, marshaller2);
