@@ -105,7 +105,7 @@ Factorial.of(n)=1*2*3*...*n
 ```
 
 
-## Variable Picker
+## [Variable Picker](src/test/java/com/selonj/katas/vp/VariablePickerAcceptanceTest.java)
 从数据源中提取所有的变量,变量的格式为varName:type?:defaultValue
 
 |varName            |   type                  |   defaultValue |
