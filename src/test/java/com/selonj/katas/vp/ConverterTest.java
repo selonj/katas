@@ -9,6 +9,7 @@ import static org.junit.Assert.assertThat;
  * Created by L.x on 16-3-12.
  */
 public class ConverterTest {
+    private Converter converter=new Converter();
     @Test
     public void convertToString() throws Exception {
         assertThat(converter.convert("foo", String.class), equalTo("foo"));
