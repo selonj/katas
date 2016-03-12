@@ -7,6 +7,6 @@ import com.selonj.katas.vp.Marshaller;
  */
 public class StringMarshaller implements Marshaller<String> {
     public String marshall(String value) {
-        return null;
+        return value;
     }
 }
