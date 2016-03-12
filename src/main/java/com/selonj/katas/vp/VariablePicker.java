@@ -12,18 +12,16 @@ import static com.selonj.katas.vp.TypeResolverGroup.groupOf;
  * Created by L.x on 16-3-11.
  */
 public class VariablePicker {
-    //todo:remove it from variable picker
-    private TypeResolver typeResolver;
     //todo:can use custom variable parser
     private VariableParser variableParser;
 
     public VariablePicker(TypeResolver customTypeResolver) {
-        typeResolver = groupOf(customTypeResolver, builtIn());
+        TypeResolver typeResolver = groupOf(customTypeResolver, builtIn());
         variableParser = new RegexVariableParser(typeResolver, new StandardConverter());
     }
 
     public VariablePicker() {
-        typeResolver = builtIn();
+        TypeResolver typeResolver = builtIn();
         variableParser = new RegexVariableParser(typeResolver, new StandardConverter());
     }
 
