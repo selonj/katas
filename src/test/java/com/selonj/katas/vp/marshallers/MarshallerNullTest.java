@@ -14,4 +14,10 @@ public class MarshallerNullTest {
         StringMarshaller marshaller = new StringMarshaller();
         assertThat(marshaller.marshall(null), equalTo(null));
     }
+
+    @Test
+    public void marshallNullAsTime() throws Exception {
+        TimeMarshaller marshaller = new TimeMarshaller();
+        assertThat(marshaller.marshall(null), equalTo(null));
+    }
 }
