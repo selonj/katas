@@ -61,6 +61,12 @@ public class StandardConverterTest {
 
     @Test
     public void returnNullValueIfConvertNullAndNoMarshallerRegistered() throws Exception {
-        assertThat(converter.convert(null, Calendar.class),nullValue());
+        assertThat(converter.convert(null, Calendar.class), nullValue());
+    }
+
+    @Test
+    public void returnNullValueIfConvertNullAndMarshallerRegistered() throws Exception {
+        converter.convert(null, Time.class);
+        verify(timeMarshaller, only()).marshall(null);
     }
 }

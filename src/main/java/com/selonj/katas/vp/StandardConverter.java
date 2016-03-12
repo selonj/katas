@@ -18,7 +18,6 @@ public class StandardConverter implements Converter {
         register(Time.class, new TimeMarshaller());
     }
 
-    //todo: marshall null if a marshaller registered
     @Override
     public <T> T convert(String value, Class<T> targetType) {
         Marshaller<T> marshaller = (Marshaller<T>) marshallers.get(targetType);
