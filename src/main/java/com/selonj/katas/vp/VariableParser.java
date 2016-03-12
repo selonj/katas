@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 /**
  * Created by L.x on 16-3-12.
  */
+//todo: rename VariableParser to RegexVariableParser and make VariableParser as interface
 public class VariableParser {
     private static final Pattern VARIABLE_REGEX = Pattern.compile("(.*?)(?:\\:(.*?))?(?:\\?\\:(.*?))?");
     private static final int NAME_GROUP = 1;
@@ -29,6 +30,6 @@ public class VariableParser {
         String typeName = matcher.group(TYPE_GROUP);
         String defaultValue = matcher.group(DEFAULT_VALUE_GROUP);
         Class type = typeResolver.lookup(typeName);
-        return new Variable(name, type, converter.convert(defaultValue,type));
+        return new Variable(name, type, converter.convert(defaultValue, type));
     }
 }
