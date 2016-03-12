@@ -12,5 +12,6 @@ public class TrimmingTest {
     @Test
     public void trimString() throws Exception {
         assertThat(Trimming.on(" foo "),equalTo("foo"));
+        assertThat(Trimming.on(" bar "),equalTo("bar"));
     }
 }
