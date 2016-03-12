@@ -19,15 +19,6 @@ public class ConverterTest {
     private Converter converter = new Converter();
 
     @Test
-    public void convertToString() throws Exception {
-        given(marshaller.marshall("foo")).willReturn("foo");
-
-        converter.register(Time.class, marshaller);
-
-        assertThat(converter.convert("foo", String.class), equalTo("foo"));
-    }
-
-    @Test
     public void convertToCustomType() throws Exception {
         given(marshaller.marshall("03:25")).willReturn(Time.at(3, 25));
 
