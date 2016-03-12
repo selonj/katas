@@ -1,6 +1,5 @@
-package com.selonj.katas.vp;
+package com.selonj.katas.vp.marshallers;
 
-import com.selonj.katas.vp.marshallers.StringMarshaller;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.equalTo;
