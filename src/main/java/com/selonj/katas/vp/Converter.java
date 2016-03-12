@@ -18,7 +18,7 @@ public class Converter {
         register(Time.class, new TimeMarshaller());
     }
 
-    //todo: convert null return null directly?
+    //todo: marshall null if a marshaller registered
     public <T> T convert(String value, Class<T> targetType) {
         Marshaller<T> marshaller = (Marshaller<T>) marshallers.get(targetType);
         if (marshaller != null) {
