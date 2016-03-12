@@ -12,6 +12,9 @@ public class VariableParser {
     private static final int TYPE_GROUP = 2;
     private static final int DEFAULT_VALUE_GROUP = 3;
     private TypeResolver typeResolver;
+    //todo: make converter externalized via constructor
+    //todo: rename Converter and make Converter as interface
+    private Converter converter = new Converter();
 
     public VariableParser(TypeResolver typeResolver) {
         this.typeResolver = typeResolver;
@@ -25,6 +28,7 @@ public class VariableParser {
         String name = matcher.group(NAME_GROUP);
         String typeName = matcher.group(TYPE_GROUP);
         String defaultValue = matcher.group(DEFAULT_VALUE_GROUP);
-        return new Variable(name, typeResolver.lookup(typeName),defaultValue);
+        Class type = typeResolver.lookup(typeName);
+        return new Variable(name, type, converter.convert(defaultValue,type));
     }
 }
