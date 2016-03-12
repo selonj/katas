@@ -6,6 +6,6 @@ package com.selonj.katas.vp;
 //todo: can convert subtypes
 public class Converter {
     public <T> T convert(String value, Class<T> targetType) {
-        return null;
+        return (T) value;
     }
 }
