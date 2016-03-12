@@ -1,6 +1,5 @@
 package com.selonj.katas.vp;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -18,7 +17,7 @@ import static org.mockito.Matchers.any;
  * Created by L.x on 16-3-12.
  */
 @RunWith(MockitoJUnitRunner.class)
-public class VariableParserTest {
+public class RegexVariableParserTest {
     @Mock
     private TypeResolver typeResolver;
     @InjectMocks
