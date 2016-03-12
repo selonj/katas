@@ -54,7 +54,7 @@ public class ConverterTest {
             converter.convert("03:25", Calendar.class);
             fail("should raising exception");
         } catch (ConvertException expected) {
-            assertTrue(true);
+            assertThat(expected.getTargetClass(),equalTo((Class) Calendar.class));
         }
     }
 }
