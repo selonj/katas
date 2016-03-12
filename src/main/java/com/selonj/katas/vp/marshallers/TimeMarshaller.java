@@ -15,6 +15,9 @@ public class TimeMarshaller implements Marshaller<Time> {
 
     @Override
     public Time marshall(String value) {
+        if (value == null) {
+            return null;
+        }
         String[] parts = value.split(":");
         return Time.at(parseInt(parts[HOURS_POS]), parseInt(parts[MINUTES_POS]));
     }
