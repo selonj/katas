@@ -1,6 +1,7 @@
 package com.selonj.katas.vp;
 
 import com.selonj.katas.vp.marshallers.StringMarshaller;
+import com.selonj.katas.vp.marshallers.TimeMarshaller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,6 +15,7 @@ public class Converter {
 
     public Converter() {
         register(String.class, new StringMarshaller());
+        register(Time.class, new TimeMarshaller());
     }
 
     //todo: convert null return null directly?
