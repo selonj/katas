@@ -8,7 +8,7 @@ import static org.junit.Assert.assertThat;
 /**
  * Created by L.x on 16-3-12.
  */
-public class BuiltInMarshallersTest {
+public class ConverterWithinBuiltInMarshallersTest {
     @Test
     public void convertStringToBuiltInTypes() throws Exception {
         //todo: implement all built-in marshallers
