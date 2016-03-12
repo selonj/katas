@@ -19,7 +19,7 @@ public class ConverterTest {
     private Converter converter = new Converter();
 
     @Test
-    public void convertToCustomType() throws Exception {
+    public void convertStringToTargetType() throws Exception {
         given(marshaller.marshall("03:25")).willReturn(Time.at(3, 25));
 
         converter.register(Time.class, marshaller);
