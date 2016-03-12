@@ -1,5 +1,6 @@
 package com.selonj.katas.vp;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -20,8 +21,12 @@ import static org.mockito.Matchers.any;
 public class RegexVariableParserTest {
     @Mock
     private TypeResolver typeResolver;
-    @InjectMocks
     private VariableParser parser;
+
+    @Before
+    public void setUp() throws Exception {
+        parser=new RegexVariableParser(typeResolver, new Converter());
+    }
 
     @Test
     public void nameOnly() throws Exception {

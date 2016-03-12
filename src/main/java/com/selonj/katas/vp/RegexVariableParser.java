@@ -12,12 +12,12 @@ public class RegexVariableParser implements VariableParser {
     private static final int TYPE_GROUP = 2;
     private static final int DEFAULT_VALUE_GROUP = 3;
     private TypeResolver typeResolver;
-    //todo: make converter externalized via constructor
     //todo: rename Converter and make Converter as interface
-    private Converter converter = new Converter();
+    private Converter converter;
 
-    public RegexVariableParser(TypeResolver typeResolver) {
+    public RegexVariableParser(TypeResolver typeResolver, Converter converter) {
         this.typeResolver = typeResolver;
+        this.converter = converter;
     }
 
     @Override
