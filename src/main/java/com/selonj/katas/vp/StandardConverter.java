@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Created by L.x on 16-3-12.
  */
-//todo: can convert subtypes
+//todo: can convert subtypes, e.g: can convert(string,SuperType) if SubType registered
 public class StandardConverter implements Converter {
     private Map<Class<?>, Marshaller<?>> marshallers = new HashMap<>();
 

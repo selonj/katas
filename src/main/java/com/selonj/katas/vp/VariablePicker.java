@@ -11,6 +11,7 @@ import static com.selonj.katas.vp.TypeResolverGroup.groupOf;
 /**
  * Created by L.x on 16-3-11.
  */
+//todo:add Builder to build VariablePicker
 public class VariablePicker {
     //todo:can use custom variable parser
     private VariableParser variableParser;
