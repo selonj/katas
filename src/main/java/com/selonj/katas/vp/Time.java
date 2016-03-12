@@ -5,6 +5,7 @@ import java.util.Objects;
 /**
  * Created by L.x on 16-3-12.
  */
+//todo: checking time constraints,e.g: hours in [0..23] & minutes in [0..59]
 public class Time {
     private int hours;
     private int minutes;

@@ -2,8 +2,7 @@ package com.selonj.katas.vp;
 
 import org.junit.Test;
 
-import java.util.Date;
-import java.util.Set;
+import java.util.*;
 
 import static java.util.Collections.singleton;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -70,6 +69,18 @@ public class VariablePickerAcceptanceTest {
         Set<Variable> variables = picker.pick("${start:time?:03:25}");
 
         assertThat(variables, equalTo(singleton(new Variable("start", Time.class, Time.at(3, 25)))));
+    }
+
+    @Test
+    public void parseVariablesInOrder() throws Exception {
+        customTypeRegistry.alias(Time.class, "time");
+
+        Set<Variable> variables = picker.pick("${start:time?:03:25}${end:time?:22:10}");
+
+        assertThat(new ArrayList<>(variables), equalTo(Arrays.asList(
+                new Variable("start", Time.class, Time.at(3, 25)),
+                new Variable("end", Time.class, Time.at(22, 10))
+        )));
     }
 
 
