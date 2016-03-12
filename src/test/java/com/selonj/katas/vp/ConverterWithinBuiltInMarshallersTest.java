@@ -14,5 +14,6 @@ public class ConverterWithinBuiltInMarshallersTest {
         //todo: implement all built-in marshallers
         Converter converter = new Converter();
         assertThat(converter.convert("foo", String.class), equalTo("foo"));
+        assertThat(converter.convert("03:25", Time.class), equalTo(Time.at(3, 25)));
     }
 }
