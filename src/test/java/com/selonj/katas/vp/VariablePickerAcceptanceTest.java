@@ -83,5 +83,17 @@ public class VariablePickerAcceptanceTest {
         )));
     }
 
+    @Test
+    public void parseVariablesOfMixedString() throws Exception {
+        customTypeRegistry.alias(Time.class, "time");
+
+        Set<Variable> variables = picker.pick("startTime:${start:time?:03:25}-endTime:${end:time?:22:10}");
+
+        assertThat(new ArrayList<>(variables), equalTo(Arrays.asList(
+                new Variable("start", Time.class, Time.at(3, 25)),
+                new Variable("end", Time.class, Time.at(22, 10))
+        )));
+    }
+
 
 }

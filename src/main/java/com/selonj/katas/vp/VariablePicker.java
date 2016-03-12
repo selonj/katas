@@ -29,6 +29,7 @@ public class VariablePicker {
 
     public Set<Variable> pick(String source) {
         Set<Variable> variables = new LinkedHashSet<>();
+        //todo: can pick variable from other resource ,e.g:stream,reader,url and .etc
         final Matcher matcher = Pattern.compile("\\$\\{(.*?)\\}").matcher(source);
         while (matcher.find()) {
             final String expression = matcher.group(1);
