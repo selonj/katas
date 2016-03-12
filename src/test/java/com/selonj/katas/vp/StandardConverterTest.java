@@ -20,13 +20,13 @@ import static org.mockito.Mockito.*;
  * Created by L.x on 16-3-12.
  */
 @RunWith(MockitoJUnitRunner.class)
-public class ConverterTest {
+public class StandardConverterTest {
     @Mock
     private Marshaller<Time> timeMarshaller;
     @Mock
     private Marshaller<String> stringMarshaller;
 
-    private Converter converter = new Converter();
+    private Converter converter = new StandardConverter();
 
     @Before
     public void registerMarshallers() throws Exception {

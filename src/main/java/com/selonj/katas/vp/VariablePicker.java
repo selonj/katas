@@ -19,12 +19,12 @@ public class VariablePicker {
 
     public VariablePicker(TypeResolver customTypeResolver) {
         typeResolver = groupOf(customTypeResolver, builtIn());
-        variableParser = new RegexVariableParser(typeResolver, new Converter());
+        variableParser = new RegexVariableParser(typeResolver, new StandardConverter());
     }
 
     public VariablePicker() {
         typeResolver = builtIn();
-        variableParser = new RegexVariableParser(typeResolver, new Converter());
+        variableParser = new RegexVariableParser(typeResolver, new StandardConverter());
     }
 
     public Set<Variable> pick(String source) {

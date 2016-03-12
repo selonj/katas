@@ -12,7 +12,6 @@ public class RegexVariableParser implements VariableParser {
     private static final int TYPE_GROUP = 2;
     private static final int DEFAULT_VALUE_GROUP = 3;
     private TypeResolver typeResolver;
-    //todo: rename Converter and make Converter as interface
     private Converter converter;
 
     public RegexVariableParser(TypeResolver typeResolver, Converter converter) {

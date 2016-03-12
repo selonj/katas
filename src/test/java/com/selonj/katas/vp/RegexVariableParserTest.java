@@ -3,7 +3,6 @@ package com.selonj.katas.vp;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
@@ -25,7 +24,7 @@ public class RegexVariableParserTest {
 
     @Before
     public void setUp() throws Exception {
-        parser=new RegexVariableParser(typeResolver, new Converter());
+        parser=new RegexVariableParser(typeResolver, new StandardConverter());
     }
 
     @Test
