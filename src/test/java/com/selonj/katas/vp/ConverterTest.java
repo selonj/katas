@@ -1,6 +1,5 @@
 package com.selonj.katas.vp;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -17,29 +16,29 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class ConverterTest {
     @Mock
-    private Marshaller<Time> marshaller;
+    private Marshaller<Time> timeMarshaller;
     @Mock
-    private Marshaller<String> marshaller2;
+    private Marshaller<String> stringMarshaller;
 
     private Converter converter = new Converter();
 
     @Test
     public void convertStringToTargetType() throws Exception {
-        given(marshaller.marshall("03:25")).willReturn(Time.at(3, 25));
+        given(timeMarshaller.marshall("03:25")).willReturn(Time.at(3, 25));
 
-        converter.register(Time.class, marshaller);
+        converter.register(Time.class, timeMarshaller);
 
         assertThat(converter.convert("03:25", Time.class), equalTo(Time.at(3, 25)));
     }
 
     @Test
     public void convertStringToTargetTypeWithinCorrespondingMarshaller() throws Exception {
-        converter.register(Time.class, marshaller);
-        converter.register(String.class, marshaller2);
+        converter.register(Time.class, timeMarshaller);
+        converter.register(String.class, stringMarshaller);
 
         converter.convert("03:25", Time.class);
 
-        verifyZeroInteractions(marshaller2);
-        verify(marshaller, only()).marshall("03:25");
+        verifyZeroInteractions(stringMarshaller);
+        verify(timeMarshaller, only()).marshall("03:25");
     }
 }
