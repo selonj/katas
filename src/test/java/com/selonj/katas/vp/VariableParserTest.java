@@ -47,7 +47,8 @@ public class VariableParserTest {
     @Test
     public void variableWithinDefaultValue() throws Exception {
         given(typeResolver.lookup(null)).willReturn(String.class);
-
+        //todo: combine Converter & TypeResolver as ?Registry by using : register(String).as('string').with(Converter)
+        //todo: a parser need converter to convert default value if default was defined
         assertThat(parser.parse("name?:guest"), equalTo(new Variable("name", String.class, "guest")));
     }
 }
