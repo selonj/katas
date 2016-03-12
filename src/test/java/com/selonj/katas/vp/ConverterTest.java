@@ -6,8 +6,12 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.Calendar;
+
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
@@ -21,7 +25,7 @@ public class ConverterTest {
     @Mock
     private Marshaller<String> stringMarshaller;
 
-    private Converter converter=new Converter();
+    private Converter converter = new Converter();
 
     @Before
     public void registerMarshallers() throws Exception {
@@ -42,5 +46,15 @@ public class ConverterTest {
 
         verifyZeroInteractions(stringMarshaller);
         verify(timeMarshaller, only()).marshall("03:25");
+    }
+
+    @Test
+    public void throwsExceptionIfNoMashallerRegistered() throws Exception {
+        try {
+            converter.convert("03:25", Calendar.class);
+            fail("should raising exception");
+        } catch (ConvertException expected) {
+            assertTrue(true);
+        }
     }
 }

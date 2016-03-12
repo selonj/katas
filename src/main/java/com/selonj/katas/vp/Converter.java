@@ -13,6 +13,9 @@ public class Converter {
     //todo: convert null return null directly?
     public <T> T convert(String value, Class<T> targetType) {
         Marshaller<T> marshaller = (Marshaller<T>) marshallers.get(targetType);
+        if (marshaller == null) {
+            throw new ConvertException();
+        }
         return (T) marshaller.marshall(value);
     }
 
