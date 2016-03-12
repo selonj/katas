@@ -1,6 +1,6 @@
 package com.selonj.katas.vp;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -14,6 +14,7 @@ import static com.selonj.katas.vp.TypeResolverGroup.groupOf;
 //todo:add Builder to build VariablePicker
 public class VariablePicker {
     //todo:can use custom variable parser
+    //todo: combine Converter & TypeResolver as ?Registry by using : register(String).as('string').with(Converter)
     private VariableParser variableParser;
 
     public VariablePicker(TypeResolver customTypeResolver) {
@@ -27,16 +28,14 @@ public class VariablePicker {
     }
 
     public Set<Variable> pick(String source) {
-        HashSet<Variable> variables = new HashSet<>();
+        Set<Variable> variables = new LinkedHashSet<>();
+        //todo: can pick variable from other resource ,e.g:stream,reader,url and .etc
         final Matcher matcher = Pattern.compile("\\$\\{(.*?)\\}").matcher(source);
-        if (matcher.find()) {
+        while (matcher.find()) {
             final String expression = matcher.group(1);
-            variables.add(resolveVariable(expression));
+            variables.add(variableParser.parse(expression));
         }
         return variables;
     }
 
-    private Variable resolveVariable(final String expression) {
-        return variableParser.parse(expression);
-    }
 }

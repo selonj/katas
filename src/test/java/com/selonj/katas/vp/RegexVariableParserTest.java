@@ -45,7 +45,6 @@ public class RegexVariableParserTest {
     @Test
     public void variableWithinDefaultValue() throws Exception {
         given(typeResolver.lookup(null)).willReturn(String.class);
-        //todo: combine Converter & TypeResolver as ?Registry by using : register(String).as('string').with(Converter)
         assertThat(parser.parse("name?:guest"), equalTo(new Variable("name", String.class, "guest")));
     }
 }
