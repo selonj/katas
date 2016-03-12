@@ -6,12 +6,6 @@ import com.selonj.katas.vp.AbstractMarshaller;
  * Created by L.x on 16-3-12.
  */
 public class StringMarshaller extends AbstractMarshaller<String> {
-    public String marshall(String value) {
-        if (value == null) {
-            return null;
-        }
-        return parse(value);
-    }
 
     protected String parse(String value) {
         return value;

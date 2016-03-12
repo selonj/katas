@@ -15,13 +15,6 @@ public class TimeMarshaller extends AbstractMarshaller<Time> {
     private static final int MINUTES_POS = 1;
 
     @Override
-    public Time marshall(String value) {
-        if (value == null) {
-            return null;
-        }
-        return parse(value);
-    }
-
     protected Time parse(String value) {
         String[] parts = value.split(":");
         return Time.at(parseInt(parts[HOURS_POS]), parseInt(parts[MINUTES_POS]));
