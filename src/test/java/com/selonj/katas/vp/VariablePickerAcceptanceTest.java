@@ -13,7 +13,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by L.x on 16-3-11.
  */
-public class VariablePickerTest {
+public class VariablePickerAcceptanceTest {
     private AliasTypeRegistry customTypeRegistry = new AliasTypeRegistry();
     private final VariablePicker picker = new VariablePicker(customTypeRegistry);
 
