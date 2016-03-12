@@ -1,5 +1,7 @@
 package com.selonj.katas.vp;
 
+import com.selonj.katas.vp.utils.Trimming;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,13 +23,12 @@ public class RegexVariableParser implements VariableParser {
 
     @Override
     public Variable parse(String expression) {
-        //todo:trim name,type and defaultValue
         Matcher matcher = VARIABLE_REGEX.matcher(expression);
         //todo:throw VariableParseException if can't matching
         matcher.matches();
-        String name = matcher.group(NAME_GROUP);
-        String typeName = matcher.group(TYPE_GROUP);
-        String defaultValue = matcher.group(DEFAULT_VALUE_GROUP);
+        String name = Trimming.on(matcher.group(NAME_GROUP));
+        String typeName = Trimming.on(matcher.group(TYPE_GROUP));
+        String defaultValue = Trimming.on(matcher.group(DEFAULT_VALUE_GROUP));
         Class type = typeResolver.lookup(typeName);
         return new Variable(name, type, converter.convert(defaultValue, type));
     }
