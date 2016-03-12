@@ -1,6 +1,5 @@
 package com.selonj.katas.vp;
 
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.regex.Matcher;
@@ -33,12 +32,9 @@ public class VariablePicker {
         final Matcher matcher = Pattern.compile("\\$\\{(.*?)\\}").matcher(source);
         while (matcher.find()) {
             final String expression = matcher.group(1);
-            variables.add(resolveVariable(expression));
+            variables.add(variableParser.parse(expression));
         }
         return variables;
     }
 
-    private Variable resolveVariable(final String expression) {
-        return variableParser.parse(expression);
-    }
 }
