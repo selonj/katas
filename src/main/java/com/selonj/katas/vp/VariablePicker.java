@@ -14,6 +14,7 @@ import static com.selonj.katas.vp.TypeResolverGroup.groupOf;
 //todo:add Builder to build VariablePicker
 public class VariablePicker {
     //todo:can use custom variable parser
+    //todo: combine Converter & TypeResolver as ?Registry by using : register(String).as('string').with(Converter)
     private VariableParser variableParser;
 
     public VariablePicker(TypeResolver customTypeResolver) {
