@@ -14,7 +14,7 @@ public class Converter {
     public <T> T convert(String value, Class<T> targetType) {
         Marshaller<T> marshaller = (Marshaller<T>) marshallers.get(targetType);
         if (marshaller == null) {
-            throw new ConvertException();
+            throw new ConvertException(targetType);
         }
         return (T) marshaller.marshall(value);
     }
