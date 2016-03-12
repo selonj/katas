@@ -3,6 +3,7 @@ package com.selonj.katas.vp;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
@@ -20,14 +21,8 @@ import static org.mockito.Matchers.any;
 public class VariableParserTest {
     @Mock
     private TypeResolver typeResolver;
-
+    @InjectMocks
     private VariableParser parser;
-
-    @Before
-    public void setUp() throws Exception {
-        parser = new VariableParser(typeResolver);
-    }
-
 
     @Test
     public void nameOnly() throws Exception {
