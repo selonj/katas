@@ -5,6 +5,9 @@ package com.selonj.katas.vp.utils;
  */
 public class Trimming {
     public static String on(String source) {
+        if (source == null) {
+            return null;
+        }
         return source.trim();
     }
 }
