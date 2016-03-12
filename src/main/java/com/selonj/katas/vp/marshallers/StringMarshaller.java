@@ -10,6 +10,10 @@ public class StringMarshaller extends AbstractMarshaller<String> {
         if (value == null) {
             return null;
         }
+        return parse(value);
+    }
+
+    protected String parse(String value) {
         return value;
     }
 }
