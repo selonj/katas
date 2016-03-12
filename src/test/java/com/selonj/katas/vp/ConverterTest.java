@@ -9,6 +9,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import java.util.Calendar;
 
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -49,12 +50,17 @@ public class ConverterTest {
     }
 
     @Test
-    public void throwsExceptionIfNoMashallerRegistered() throws Exception {
+    public void throwsExceptionIfConvertSomethingAndNoMarshallerRegistered() throws Exception {
         try {
             converter.convert("03:25", Calendar.class);
             fail("should raising exception");
         } catch (ConvertException expected) {
-            assertThat(expected.getTargetClass(),equalTo((Class) Calendar.class));
+            assertThat(expected.getTargetClass(), equalTo((Class) Calendar.class));
         }
+    }
+
+    @Test
+    public void returnNullValueIfConvertNullAndNoMarshallerRegistered() throws Exception {
+        assertThat(converter.convert(null, Calendar.class),nullValue());
     }
 }
