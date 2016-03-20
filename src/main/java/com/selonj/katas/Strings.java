@@ -35,14 +35,11 @@ public class Strings {
     }
 
     public static String reverse(String source) {
-        if (source.length() > 1) {
-            char[] chars = source.toCharArray();
-            for (int i = 0, j = source.length() - 1; i < j; i++, j--) {
-                swap(chars, i, j);
-            }
-            return new String(chars);
+        char[] chars = source.toCharArray();
+        for (int i = 0, j = source.length() - 1; i < j; i++, j--) {
+            swap(chars, i, j);
         }
-        return source;
+        return new String(chars);
     }
 
     private static void swap(char[] chars, int i, int j) {
