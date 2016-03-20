@@ -12,5 +12,6 @@ public class StringReversionTest {
     @Test
     public void returnDirectlyWhenReverseStringContainsOneLetter() throws Exception {
         assertThat(Strings.reverse("a"), equalTo("a"));
+        assertThat(Strings.reverse("b"), equalTo("b"));
     }
 }
