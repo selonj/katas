@@ -36,8 +36,8 @@ public class Strings {
 
     public static String reverse(String source) {
         char[] chars = source.toCharArray();
-        for (int i = 0, j = source.length() - 1; i < j; i++, j--) {
-            swap(chars, i, j);
+        for (int start = 0, end = source.length() - 1; start < end; start++, end--) {
+            swap(chars, start, end);
         }
         return new String(chars);
     }
