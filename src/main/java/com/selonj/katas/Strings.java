@@ -33,4 +33,8 @@ public class Strings {
     private static String swapAt(String s, int pos) {
         return s.substring(pos) + s.substring(0, pos);
     }
+
+    public static String reverse(String source) {
+        return null;
+    }
 }
