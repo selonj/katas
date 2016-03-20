@@ -14,4 +14,9 @@ public class StringReversionTest {
         assertThat(Strings.reverse("a"), equalTo("a"));
         assertThat(Strings.reverse("b"), equalTo("b"));
     }
+
+    @Test
+    public void swaps2CharsWhenReverseStringContains2Chars() throws Exception {
+        assertThat(Strings.reverse("ab"), equalTo("ba"));
+    }
 }
