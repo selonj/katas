@@ -1,7 +1,6 @@
 package com.selonj.katas.vp.marshallers;
 
 import com.selonj.katas.vp.AbstractMarshaller;
-import com.selonj.katas.vp.Marshaller;
 import com.selonj.katas.vp.Time;
 
 import static java.lang.Integer.parseInt;

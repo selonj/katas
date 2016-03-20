@@ -2,7 +2,10 @@ package com.selonj.katas.vp;
 
 import org.junit.Test;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Set;
 
 import static java.util.Collections.singleton;
 import static org.hamcrest.CoreMatchers.equalTo;
