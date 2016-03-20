@@ -39,7 +39,9 @@ public class Strings {
             char[] chars = source.toCharArray();
             int i = 0;
             int j = source.length() - 1;
-            swap(chars, i, j);
+            for (; i < j; i++, j--) {
+                swap(chars, i, j);
+            }
             return new String(chars);
         }
         return source;
