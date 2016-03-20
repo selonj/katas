@@ -25,4 +25,9 @@ public class StringReversionTest {
     public void swapsTwoSidesOfCharsWhenReverseStringContainsEvenChars() throws Exception {
         assertThat(Strings.reverse("abcd"), equalTo("dcba"));
     }
+
+    @Test
+    public void swapsTwoSidesOfCharsWhenReverseStringContainsOddChars() throws Exception {
+        assertThat(Strings.reverse("abcde"), equalTo("edcba"));
+    }
 }
