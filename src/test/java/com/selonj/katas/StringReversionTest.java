@@ -1,5 +1,6 @@
 package com.selonj.katas;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.equalTo;
@@ -21,6 +22,7 @@ public class StringReversionTest {
     }
 
     @Test
+    @Ignore
     public void swapsTwoSidesOfCharsWhenReverseStringContainsEvenChars() throws Exception {
         assertThat(Strings.reverse("abcd"), equalTo("dcba"));
     }

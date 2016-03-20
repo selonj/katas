@@ -37,7 +37,9 @@ public class Strings {
     public static String reverse(String source) {
         if (source.length() > 1) {
             char[] chars = source.toCharArray();
-            swap(chars, 0, 1);
+            int i = 0;
+            int j = source.length() - 1;
+            swap(chars, i, j);
             return new String(chars);
         }
         return source;
