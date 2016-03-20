@@ -125,7 +125,7 @@ pick variables from '本次${name:string}将于${time:date?:2014-05-12}日抵达
 return variables as list: [name,time,destination]
 ```
 
-## reverse a string
+## [reverse a string](src/test/java/com/selonj/katas/StringReversionTest.java)
 
 ```pseudo-code
 reverse("abcdefg")=="gfedcba";
