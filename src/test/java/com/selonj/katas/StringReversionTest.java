@@ -10,7 +10,7 @@ import static org.junit.Assert.assertThat;
  */
 public class StringReversionTest {
     @Test
-    public void returnDirectlyWhenReverseStringContainsOneLetter() throws Exception {
+    public void returnDirectlyWhenReverseStringContains1Char() throws Exception {
         assertThat(Strings.reverse("a"), equalTo("a"));
         assertThat(Strings.reverse("b"), equalTo("b"));
     }
