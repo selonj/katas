@@ -35,6 +35,6 @@ public class Strings {
     }
 
     public static String reverse(String source) {
-        return "a";
+        return source;
     }
 }
