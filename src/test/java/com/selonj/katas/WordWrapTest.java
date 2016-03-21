@@ -41,5 +41,6 @@ public class WordWrapTest {
     public void breakingAtTheLastSpaceWhenCurrentRowContainsWhitespace() throws Exception {
         assertThat(WordWrap.of(4).wrap("a word"), equalTo("a\nword"));
         assertThat(WordWrap.of(3).wrap("word word word"), equalTo("wor\nd\nwor\nd\nwor\nd"));
+        assertThat(WordWrap.of(6).wrap("welcome to java"), equalTo("welcom\ne to\njava"));
     }
 }
