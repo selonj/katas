@@ -25,4 +25,9 @@ public class WordWrapTest {
         assertThat(WordWrap.of(5).wrap("word word"), equalTo("word\nword"));
         assertThat(WordWrap.of(5).wrap("word word word"), equalTo("word\nword\nword"));
     }
+
+    @Test
+    public void replaceWithLineBreakAtMaxColumns() throws Exception {
+        assertThat(WordWrap.of(10).wrap("word word word"), equalTo("word word\nword"));
+    }
 }
