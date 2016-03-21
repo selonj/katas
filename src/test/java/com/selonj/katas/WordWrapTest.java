@@ -38,7 +38,6 @@ public class WordWrapTest {
     }
 
     @Test
-    @Ignore
     public void breakingAtTheSpaceWhenCurrentRowContainsWhitespace() throws Exception {
         assertThat(WordWrap.of(4).wrap("a word"), equalTo("a\nword"));
     }
