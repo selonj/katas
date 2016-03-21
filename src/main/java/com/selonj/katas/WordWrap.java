@@ -31,7 +31,7 @@ public class WordWrap {
                     result.append(LINE_BREAK);
                     startPos = lastPos + 1;
                 } else {
-                    int spacePos = spacePosBetween(chars, startPos, lastPos);
+                    int spacePos = lastSpacePosIn(chars, startPos, lastPos);
                     if (spacePos != EOF) {
                         result.append(chars, startPos, spacePos - startPos);
                         result.append(LINE_BREAK);
@@ -51,11 +51,11 @@ public class WordWrap {
         return source;
     }
 
-    private int spacePosBetween(char[] chars, int start, int end) {
-        while (start <= end && chars[start] != WHITE_SPACE) {
-            start++;
+    private int lastSpacePosIn(char[] chars, int start, int end) {
+        while (start <= end && chars[end] != WHITE_SPACE) {
+            end--;
         }
-        return start < end ? start : EOF;
+        return start <= end ? end : EOF;
     }
 
 }
