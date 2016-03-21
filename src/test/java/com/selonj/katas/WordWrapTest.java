@@ -30,4 +30,9 @@ public class WordWrapTest {
     public void replaceWithLineBreakAtMaxColumns() throws Exception {
         assertThat(WordWrap.of(10).wrap("word word word"), equalTo("word word\nword"));
     }
+
+    @Test
+    public void breakLongWordWhenWordLengthLargeThanMaxColumns() throws Exception {
+        assertThat(WordWrap.of(4).wrap("wordword"), equalTo("word\nword"));
+    }
 }
