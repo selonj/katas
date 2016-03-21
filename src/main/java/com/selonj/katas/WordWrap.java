@@ -24,10 +24,9 @@ public class WordWrap {
                 result.append(chars, startPos, maxColumns - 1);
                 int lastPos = startPos + maxColumns - 1;
                 if (chars[lastPos] == ' ') {
-                    result.append(LINE_BREAK);
+                    result.append(new char[]{LINE_BREAK});
                 } else {
-                    result.append(chars[lastPos]);
-                    result.append(LINE_BREAK);
+                    result.append(new char[]{chars[lastPos], LINE_BREAK});
                 }
                 startPos = lastPos + 1;
             }
