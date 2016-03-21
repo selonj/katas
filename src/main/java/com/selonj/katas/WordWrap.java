@@ -24,19 +24,19 @@ public class WordWrap {
         int startPos = 0;
         while (chars.length - startPos > maxColumns) {
             int lastPos = startPos + maxColumns - 1;
-            rows.append(columnsInRow(chars, startPos, lastPos));
+            rows.append(columnsInLine(chars, startPos, lastPos));
             rows.append(LINE_BREAK);
-            startPos += columnsWidthInRow(chars, startPos, lastPos);
+            startPos += columnsWidthInLine(chars, startPos, lastPos);
         }
 
-        return rows.append(columnsInLastRow(chars, startPos)).toString();
+        return rows.append(columnsInLastLine(chars, startPos)).toString();
     }
 
-    private CharSequence columnsInRow(char[] chars, int startPos, int lastPos) {
+    private CharSequence columnsInLine(char[] chars, int startPos, int lastPos) {
         if (chars[lastPos] == WHITE_SPACE) {
             return substring(chars, startPos, lastPos);
         }
-        int lastSpacePos = lastSpacePosIn(chars, startPos, lastPos);
+        int lastSpacePos = lastSpacePosInLine(chars, startPos, lastPos);
         if (lastSpacePos != EOF) {
             return substring(chars, startPos, lastSpacePos);
         } else {
@@ -44,7 +44,7 @@ public class WordWrap {
         }
     }
 
-    private int lastSpacePosIn(char[] chars, int start, int last) {
+    private int lastSpacePosInLine(char[] chars, int start, int last) {
         while (start <= last) {
             if (chars[last] == WHITE_SPACE) {
                 return last;
@@ -58,15 +58,15 @@ public class WordWrap {
         return String.valueOf(chars, startPos, lastPos - startPos);
     }
 
-    private int columnsWidthInRow(char[] chars, int start, int last) {
+    private int columnsWidthInLine(char[] chars, int start, int last) {
         if (chars[last] == WHITE_SPACE) {
             return maxColumns;
         }
-        int lastSpacePos = lastSpacePosIn(chars, start, last);
+        int lastSpacePos = lastSpacePosInLine(chars, start, last);
         return lastSpacePos == EOF ? maxColumns : lastSpacePos - start + 1;
     }
 
-    private String columnsInLastRow(char[] chars, int startPos) {
+    private String columnsInLastLine(char[] chars, int startPos) {
         return substring(chars, startPos, chars.length);
     }
 
