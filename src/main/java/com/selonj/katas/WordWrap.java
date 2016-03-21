@@ -25,7 +25,12 @@ public class WordWrap {
             while (chars.length - startPos > maxColumns) {
                 int lastPos = startPos + maxColumns - 1;
                 result.append(chars, startPos, maxColumns - 1);
-                result.append(breakingCharsOn(chars[lastPos]));
+                if (chars[lastPos] == WHITE_SPACE) {
+                    result.append(LINE_BREAK);
+                } else {
+                    result.append(chars[lastPos]);
+                    result.append(LINE_BREAK);
+                }
                 startPos = lastPos + 1;
             }
             result.append(chars, startPos, chars.length - startPos);
@@ -35,11 +40,4 @@ public class WordWrap {
         return source;
     }
 
-    private char[] breakingCharsOn(char breakingChar) {
-        if (breakingChar == WHITE_SPACE) {
-            return new char[]{LINE_BREAK};
-        } else {
-            return new char[]{breakingChar, LINE_BREAK};
-        }
-    }
 }
