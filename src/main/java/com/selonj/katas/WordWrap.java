@@ -31,11 +31,11 @@ public class WordWrap {
                     result.append(LINE_BREAK);
                     startPos = lastPos + 1;
                 } else {
-                    int spacePos = lastSpacePosIn(chars, startPos, lastPos);
-                    if (spacePos != EOF) {
-                        result.append(chars, startPos, spacePos - startPos);
+                    int lastSpacePos = lastSpacePosIn(chars, startPos, lastPos);
+                    if (lastSpacePos != EOF) {
+                        result.append(chars, startPos, lastSpacePos - startPos);
                         result.append(LINE_BREAK);
-                        startPos = spacePos + 1;
+                        startPos = lastSpacePos + 1;
                     } else {
                         result.append(chars, startPos, maxColumns - 1);
                         result.append(chars[lastPos]);
@@ -51,11 +51,14 @@ public class WordWrap {
         return source;
     }
 
-    private int lastSpacePosIn(char[] chars, int start, int end) {
-        while (start <= end && chars[end] != WHITE_SPACE) {
-            end--;
+    private int lastSpacePosIn(char[] chars, int start, int last) {
+        while (start <= last) {
+            if (chars[last] == WHITE_SPACE) {
+                return last;
+            }
+            last--;
         }
-        return start <= end ? end : EOF;
+        return EOF;
     }
 
 }
