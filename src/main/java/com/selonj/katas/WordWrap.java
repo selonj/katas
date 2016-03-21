@@ -20,17 +20,17 @@ public class WordWrap {
     public String wrap(String source) {
         if (source.length() > maxColumns) {
             char[] chars = source.toCharArray();
-            StringBuilder result = new StringBuilder();
+            StringBuilder rows = new StringBuilder();
 
             int startPos = 0;
             while (chars.length - startPos > maxColumns) {
                 int lastPos = startPos + maxColumns - 1;
-                result.append(columnsInRow(chars, startPos, lastPos));
-                result.append(LINE_BREAK);
+                rows.append(columnsInRow(chars, startPos, lastPos));
+                rows.append(LINE_BREAK);
                 startPos += columnsWidthInRow(chars, startPos, lastPos);
             }
 
-            return result.append(columnsInLastRow(chars, startPos)).toString();
+            return rows.append(columnsInLastRow(chars, startPos)).toString();
         }
         return source;
     }
