@@ -5,6 +5,7 @@ package com.selonj.katas;
  */
 public class WordWrap {
     private static final char LINE_BREAK = '\n';
+    private static final char WHITE_SPACE = ' ';
     private int maxColumns;
 
     public WordWrap(int maxColumns) {
@@ -17,25 +18,28 @@ public class WordWrap {
 
     public String wrap(String source) {
         if (source.length() > maxColumns) {
-            StringBuilder result = new StringBuilder();
-            int startPos = 0;
             char[] chars = source.toCharArray();
+            StringBuilder result = new StringBuilder();
+
+            int startPos = 0;
             while (chars.length - startPos > maxColumns) {
-                result.append(chars, startPos, maxColumns - 1);
                 int lastPos = startPos + maxColumns - 1;
-                char[] breakChars;
-                if (chars[lastPos] == ' ') {
-                    breakChars = new char[]{LINE_BREAK};
-                } else {
-                    breakChars = new char[]{chars[lastPos], LINE_BREAK};
-                }
-                result.append(breakChars);
+                result.append(chars, startPos, maxColumns - 1);
+                result.append(breakingCharsOn(chars[lastPos]));
                 startPos = lastPos + 1;
             }
-
             result.append(chars, startPos, chars.length - startPos);
+
             return result.toString();
         }
         return source;
+    }
+
+    private char[] breakingCharsOn(char breakingChar) {
+        if (breakingChar == WHITE_SPACE) {
+            return new char[]{LINE_BREAK};
+        } else {
+            return new char[]{breakingChar, LINE_BREAK};
+        }
     }
 }
