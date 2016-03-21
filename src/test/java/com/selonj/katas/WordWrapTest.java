@@ -19,4 +19,9 @@ public class WordWrapTest {
     public void returnStringWhenStringLengthLessThanMaxColumns() throws Exception {
         assertThat(WordWrap.of(5).wrap("word"), equalTo("word"));
     }
+
+    @Test
+    public void replaceWithLineBreakWhenLastColumnIsWhitespace() throws Exception {
+        assertThat(WordWrap.of(5).wrap("word word"), equalTo("word\nword"));
+    }
 }
