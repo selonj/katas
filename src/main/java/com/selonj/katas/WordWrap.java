@@ -5,10 +5,10 @@ package com.selonj.katas;
  */
 public class WordWrap {
     public static WordWrap of(int maxColumns) {
-        return null;
+        return new WordWrap();
     }
 
     public String wrap(String source) {
-        return null;
+        return "";
     }
 }
