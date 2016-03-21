@@ -130,3 +130,16 @@ return variables as list: [name,time,destination]
 ```pseudo-code
 reverse("abcdefg")=="gfedcba";
 ```
+
+## WordWrap
+
+```pseudo-code
+WordWrap.of(any(int)).wrap("") == "";
+WordWrap.of(6).wrap("word") == "word";
+WordWrap.of(5).wrap("word word") == "word\nword";
+WordWrap.of(5).wrap("word word") == "word\nword";
+WordWrap.of(5).wrap("word word word") == "word\nword\nword";
+WordWrap.of(10).wrap("word word word") == "word word\nword";
+WordWrap.of(4).wrap("wordword") == "word\nword";
+WordWrap.new(3).wrap("word word word") == "wor\nd\nwor\nd\nwor\d";
+```
