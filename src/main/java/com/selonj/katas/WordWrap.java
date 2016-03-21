@@ -17,15 +17,18 @@ public class WordWrap {
 
     public String wrap(String source) {
         if (source.length() > maxColumns) {
-            String result = "";
-            int pos = 0;
-            while (source.length() - pos > maxColumns) {
-                result += source.substring(pos, pos + maxColumns - 1) + LINE_BREAK;
-                pos += maxColumns;
+            StringBuilder result = new StringBuilder();
+            int startPos = 0;
+            char[] chars = source.toCharArray();
+            while (chars.length - startPos > maxColumns) {
+                result.append(chars, startPos, maxColumns - 1);
+                int lastPos = startPos + maxColumns - 1;
+                result.append(LINE_BREAK);
+                startPos = lastPos + 1;
             }
-            result += source.substring(pos);
+            result.append(chars, startPos, chars.length - startPos);
 
-            return result;
+            return result.toString();
         }
         return source;
     }
