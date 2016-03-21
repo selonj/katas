@@ -12,6 +12,11 @@ public class WordWrapTest {
 
     @Test
     public void returnDirectlyWhenWrapEmptyString() throws Exception {
-        assertThat(WordWrap.of(5).wrap(""),equalTo(""));
+        assertThat(WordWrap.of(5).wrap(""), equalTo(""));
+    }
+
+    @Test
+    public void returnStringWhenStringLengthLessThanMaxColumns() throws Exception {
+        assertThat(WordWrap.of(5).wrap("word"), equalTo("word"));
     }
 }
