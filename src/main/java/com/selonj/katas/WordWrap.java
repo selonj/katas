@@ -32,10 +32,6 @@ public class WordWrap {
         return rows.append(columnsInLastRow(chars, startPos)).toString();
     }
 
-    private String columnsInLastRow(char[] chars, int startPos) {
-        return substring(chars, startPos, chars.length);
-    }
-
     private CharSequence columnsInRow(char[] chars, int startPos, int lastPos) {
         if (chars[lastPos] == WHITE_SPACE) {
             return substring(chars, startPos, lastPos);
@@ -46,6 +42,16 @@ public class WordWrap {
         } else {
             return substring(chars, startPos, lastPos + 1);
         }
+    }
+
+    private int lastSpacePosIn(char[] chars, int start, int last) {
+        while (start <= last) {
+            if (chars[last] == WHITE_SPACE) {
+                return last;
+            }
+            last--;
+        }
+        return EOF;
     }
 
     private String substring(char[] chars, int startPos, int lastPos) {
@@ -60,14 +66,8 @@ public class WordWrap {
         return lastSpacePos == EOF ? maxColumns : lastSpacePos - start + 1;
     }
 
-    private int lastSpacePosIn(char[] chars, int start, int last) {
-        while (start <= last) {
-            if (chars[last] == WHITE_SPACE) {
-                return last;
-            }
-            last--;
-        }
-        return EOF;
+    private String columnsInLastRow(char[] chars, int startPos) {
+        return substring(chars, startPos, chars.length);
     }
 
 }
