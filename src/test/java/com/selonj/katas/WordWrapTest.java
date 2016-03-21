@@ -23,6 +23,6 @@ public class WordWrapTest {
     @Test
     public void replaceWithLineBreakWhenLastColumnIsWhitespace() throws Exception {
         assertThat(WordWrap.of(5).wrap("word word"), equalTo("word\nword"));
-//        assertThat(WordWrap.of(5).wrap("word word word"), equalTo("word\nword\nword"));
+        assertThat(WordWrap.of(5).wrap("word word word"), equalTo("word\nword\nword"));
     }
 }

@@ -16,11 +16,15 @@ public class WordWrap {
     }
 
     public String wrap(String source) {
-        int pos = 0;
         if (source.length() > maxColumns) {
             String result = "";
-            result += source.substring(pos, pos + maxColumns - 1) + LINE_BREAK;
-            result += source.substring(pos + maxColumns);
+            int pos = 0;
+            while (source.length() - pos > maxColumns) {
+                result += source.substring(pos, pos + maxColumns - 1) + LINE_BREAK;
+                pos += maxColumns;
+            }
+            result += source.substring(pos);
+
             return result;
         }
         return source;
