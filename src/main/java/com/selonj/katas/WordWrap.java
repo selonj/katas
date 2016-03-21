@@ -13,7 +13,7 @@ public class WordWrap {
         this.maxColumns = maxColumns;
     }
 
-    public static WordWrap of(int maxColumns) {
+    public static WordWrap maxColumnsInEachLine(int maxColumns) {
         return new WordWrap(maxColumns);
     }
 
