@@ -131,7 +131,7 @@ return variables as list: [name,time,destination]
 reverse("abcdefg")=="gfedcba";
 ```
 
-## WordWrap
+## [WordWrap](src/test/java/com/selonj/katas/WordWrapTest.java)
 
 ```pseudo-code
 WordWrap.of(any(int)).wrap("") == "";
