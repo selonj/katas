@@ -35,4 +35,10 @@ public class WordWrapTest {
     public void breakLongWordWhenWordLengthLargeThanMaxColumns() throws Exception {
         assertThat(WordWrap.of(4).wrap("wordword"), equalTo("word\nword"));
     }
+
+    @Test
+    public void breakingAtTheSpaceWhenCurrentRowContainsWhitespace() throws Exception {
+        assertThat(WordWrap.of(4).wrap("a word"), equalTo("a\nword"));
+    }
+
 }
