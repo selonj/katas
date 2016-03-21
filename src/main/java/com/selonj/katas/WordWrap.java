@@ -33,19 +33,23 @@ public class WordWrap {
     }
 
     private String columnsInLastRow(char[] chars, int startPos) {
-        return String.valueOf(chars, startPos, chars.length - startPos);
+        return substring(chars, startPos, chars.length);
     }
 
     private CharSequence columnsInRow(char[] chars, int startPos, int lastPos) {
         if (chars[lastPos] == WHITE_SPACE) {
-            return String.valueOf(chars, startPos, lastPos - startPos);
+            return substring(chars, startPos, lastPos);
         }
         int lastSpacePos = lastSpacePosIn(chars, startPos, lastPos);
         if (lastSpacePos != EOF) {
-            return String.valueOf(chars, startPos, lastSpacePos - startPos);
+            return substring(chars, startPos, lastSpacePos);
         } else {
-            return String.valueOf(chars, startPos, lastPos - startPos + 1);
+            return substring(chars, startPos, lastPos + 1);
         }
+    }
+
+    private String substring(char[] chars, int startPos, int lastPos) {
+        return String.valueOf(chars, startPos, lastPos - startPos);
     }
 
     private int columnsWidthInRow(char[] chars, int start, int last) {
