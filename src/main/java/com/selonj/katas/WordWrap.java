@@ -23,11 +23,16 @@ public class WordWrap {
             while (chars.length - startPos > maxColumns) {
                 result.append(chars, startPos, maxColumns - 1);
                 int lastPos = startPos + maxColumns - 1;
-                result.append(LINE_BREAK);
+                if (chars[lastPos] == ' ') {
+                    result.append(LINE_BREAK);
+                } else {
+                    result.append(chars[lastPos]);
+                    result.append(LINE_BREAK);
+                }
                 startPos = lastPos + 1;
             }
-            result.append(chars, startPos, chars.length - startPos);
 
+            result.append(chars, startPos, chars.length - startPos);
             return result.toString();
         }
         return source;

@@ -33,6 +33,6 @@ public class WordWrapTest {
 
     @Test
     public void breakLongWordWhenWordLengthLargeThanMaxColumns() throws Exception {
-//        assertThat(WordWrap.of(4).wrap("wordword"), equalTo("word\nword"));
+        assertThat(WordWrap.of(4).wrap("wordword"), equalTo("word\nword"));
     }
 }
