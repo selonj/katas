@@ -16,8 +16,12 @@ public class WordWrap {
     }
 
     public String wrap(String source) {
+        int pos = 0;
         if (source.length() > maxColumns) {
-            return source.substring(0, maxColumns - 1) + LINE_BREAK + source.substring(maxColumns);
+            String result = "";
+            result += source.substring(pos, pos + maxColumns - 1) + LINE_BREAK;
+            result += source.substring(pos + maxColumns);
+            return result;
         }
         return source;
     }
