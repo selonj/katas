@@ -25,30 +25,33 @@ public class WordWrap {
             int startPos = 0;
             while (chars.length - startPos > maxColumns) {
                 int lastPos = startPos + maxColumns - 1;
-                if (chars[lastPos] == WHITE_SPACE) {
-                    result.append(chars, startPos, maxColumns - 1);
-                    result.append(LINE_BREAK);
-                } else {
-                    int lastSpacePos = lastSpacePosIn(chars, startPos, lastPos);
-                    if (lastSpacePos != EOF) {
-                        result.append(chars, startPos, lastSpacePos - startPos);
-                        result.append(LINE_BREAK);
-                    } else {
-                        result.append(chars, startPos, maxColumns - 1);
-                        result.append(chars[lastPos]);
-                        result.append(LINE_BREAK);
-                    }
-                }
-                startPos += columnsInRow(chars, startPos, lastPos);
+                result.append(columnsInRow(chars, startPos, lastPos));
+                result.append(LINE_BREAK);
+                startPos += columnsWidthInRow(chars, startPos, lastPos);
             }
-            result.append(chars, startPos, chars.length - startPos);
 
-            return result.toString();
+            return result.append(columnsInLastRow(chars, startPos)).toString();
         }
         return source;
     }
 
-    private int columnsInRow(char[] chars, int start, int last) {
+    private String columnsInLastRow(char[] chars, int startPos) {
+        return String.valueOf(chars, startPos, chars.length - startPos);
+    }
+
+    private CharSequence columnsInRow(char[] chars, int startPos, int lastPos) {
+        if (chars[lastPos] == WHITE_SPACE) {
+            return String.valueOf(chars, startPos, lastPos - startPos);
+        }
+        int lastSpacePos = lastSpacePosIn(chars, startPos, lastPos);
+        if (lastSpacePos != EOF) {
+            return String.valueOf(chars, startPos, lastSpacePos - startPos);
+        } else {
+            return String.valueOf(chars, startPos, lastPos - startPos + 1);
+        }
+    }
+
+    private int columnsWidthInRow(char[] chars, int start, int last) {
         if (chars[last] == WHITE_SPACE) {
             return maxColumns;
         }
