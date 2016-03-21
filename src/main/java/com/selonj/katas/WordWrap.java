@@ -25,22 +25,24 @@ public class WordWrap {
             int startPos = 0;
             while (chars.length - startPos > maxColumns) {
                 int lastPos = startPos + maxColumns - 1;
+
                 if (chars[lastPos] == WHITE_SPACE) {
                     result.append(chars, startPos, maxColumns - 1);
                     result.append(LINE_BREAK);
+                    startPos = lastPos + 1;
                 } else {
                     int spacePos = spacePosBetween(chars, startPos, lastPos);
                     if (spacePos != EOF) {
                         result.append(chars, startPos, spacePos - startPos);
                         result.append(LINE_BREAK);
-                        lastPos = spacePos;
+                        startPos = spacePos + 1;
                     } else {
                         result.append(chars, startPos, maxColumns - 1);
                         result.append(chars[lastPos]);
                         result.append(LINE_BREAK);
+                        startPos = lastPos + 1;
                     }
                 }
-                startPos = lastPos + 1;
             }
             result.append(chars, startPos, chars.length - startPos);
 

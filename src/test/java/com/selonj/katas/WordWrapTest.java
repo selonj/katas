@@ -38,8 +38,9 @@ public class WordWrapTest {
     }
 
     @Test
-    public void breakingAtTheSpaceWhenCurrentRowContainsWhitespace() throws Exception {
+    public void breakingAtTheLastSpaceWhenCurrentRowContainsWhitespace() throws Exception {
         assertThat(WordWrap.of(4).wrap("a word"), equalTo("a\nword"));
+        assertThat(WordWrap.of(3).wrap("word word word"), equalTo("wor\nd\nwor\nd\nwor\nd"));
     }
 
 }
