@@ -19,29 +19,33 @@ public class WordWrap {
 
     public String wrap(String source) {
         char[] chars = source.toCharArray();
-        StringBuilder rows = new StringBuilder();
+        StringBuilder lines = new StringBuilder();
 
         int startPos = 0;
         while (chars.length - startPos > maxColumns) {
-            int lastPos = startPos + maxColumns - 1;
-            rows.append(columnsInLine(chars, startPos, lastPos));
-            rows.append(LINE_BREAK);
-            startPos += columnsWidthInLine(chars, startPos, lastPos);
+            int lastPos = lastColumnPosInLine(chars, startPos);
+            lines.append(columnsInLine(chars, startPos, lastPos));
+            lines.append(LINE_BREAK);
+            startPos = lastPos + 1;
         }
 
-        return rows.append(columnsInLastLine(chars, startPos)).toString();
+        return lines.append(columnsInLastLine(chars, startPos)).toString();
+    }
+
+    private int lastColumnPosInLine(char[] chars, int start) {
+        int last = start + maxColumns - 1;
+        if (chars[last] == WHITE_SPACE) {
+            return last;
+        }
+        int lastSpacePos = lastSpacePosInLine(chars, start, last);
+        return lastSpacePos == EOF ? last : lastSpacePos;
     }
 
     private CharSequence columnsInLine(char[] chars, int startPos, int lastPos) {
         if (chars[lastPos] == WHITE_SPACE) {
             return substring(chars, startPos, lastPos);
         }
-        int lastSpacePos = lastSpacePosInLine(chars, startPos, lastPos);
-        if (lastSpacePos != EOF) {
-            return substring(chars, startPos, lastSpacePos);
-        } else {
-            return substring(chars, startPos, lastPos + 1);
-        }
+        return substring(chars, startPos, lastPos + 1);
     }
 
     private int lastSpacePosInLine(char[] chars, int start, int last) {
@@ -58,16 +62,7 @@ public class WordWrap {
         return String.valueOf(chars, startPos, lastPos - startPos);
     }
 
-    private int columnsWidthInLine(char[] chars, int start, int last) {
-        if (chars[last] == WHITE_SPACE) {
-            return maxColumns;
-        }
-        int lastSpacePos = lastSpacePosInLine(chars, start, last);
-        return lastSpacePos == EOF ? maxColumns : lastSpacePos - start + 1;
-    }
-
     private String columnsInLastLine(char[] chars, int startPos) {
         return substring(chars, startPos, chars.length);
     }
-
 }
