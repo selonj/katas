@@ -3,6 +3,9 @@
 ##  What a kata?
 >   a [kata](http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata) study it as a form, not as a conclusion. It is not the conclusion of the kata that matters, it's the steps that lead to the conclusion. If you want to lean to think the way I think, to design the way I design, then you must learn to react to minutia the way I react. Following this form will help you to do that. As you learn the form, and repeat it, and repeat it, you will condition your mind and body to respond the way I respond to the minute factors that lead to design decisions.
 
+##  Referneces 
+- [x] [a short introduction of TDD](etc/TDD_content.pdf)
+
 ##  [删除有序数组中的重复元素](src/test/java/com/selonj/katas/UniqueOrderedArrayTest.java)
 
 伪代码:
@@ -108,4 +111,35 @@ gcd(6,4)=2
 
 ```pseudo-code
 lcm(6,4)=12
+```
+
+## [Variable Picker](src/test/java/com/selonj/katas/vp/VariablePickerAcceptanceTest.java)
+从数据源中提取所有的变量,变量的格式为varName:type?:defaultValue
+
+|varName            |   type                  |   defaultValue |
+|-------------------|-------------------------|----------------|
+|变量名可以为任意字符 |可以转换的Java任意类型      |默认值           |       
+
+```pseudo-code
+pick variables from '本次${name:string}将于${time:date?:2014-05-12}日抵达${destination:Location?:北京}' 
+return variables as list: [name,time,destination]
+```
+
+## [reverse a string](src/test/java/com/selonj/katas/StringReversionTest.java)
+
+```pseudo-code
+reverse("abcdefg")=="gfedcba";
+```
+
+## [WordWrap](src/test/java/com/selonj/katas/WordWrapTest.java)
+
+```pseudo-code
+WordWrap.of(any(int)).wrap("") == "";
+WordWrap.of(6).wrap("word") == "word";
+WordWrap.of(5).wrap("word word") == "word\nword";
+WordWrap.of(5).wrap("word word") == "word\nword";
+WordWrap.of(5).wrap("word word word") == "word\nword\nword";
+WordWrap.of(10).wrap("word word word") == "word word\nword";
+WordWrap.of(4).wrap("wordword") == "word\nword";
+WordWrap.new(3).wrap("word word word") == "wor\nd\nwor\nd\nwor\d";
 ```

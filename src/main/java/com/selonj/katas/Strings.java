@@ -33,4 +33,18 @@ public class Strings {
     private static String swapAt(String s, int pos) {
         return s.substring(pos) + s.substring(0, pos);
     }
+
+    public static String reverse(String source) {
+        char[] chars = source.toCharArray();
+        for (int start = 0, end = source.length() - 1; start < end; start++, end--) {
+            swap(chars, start, end);
+        }
+        return new String(chars);
+    }
+
+    private static void swap(char[] chars, int i, int j) {
+        char tmp = chars[i];
+        chars[i] = chars[j];
+        chars[j] = tmp;
+    }
 }

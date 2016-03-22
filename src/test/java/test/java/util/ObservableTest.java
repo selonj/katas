@@ -11,6 +11,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.Matchers.everyItem;
 import static org.junit.Assert.assertThat;
 
 /**
