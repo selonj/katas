@@ -4,6 +4,7 @@ package com.selonj.katas;
  * Created by L.x on 16-3-27.
  */
 public class SecretNumber {
+    private static final int NO_MATCHING = -1;
     private final char[] digits;
 
     public SecretNumber(String digits) {
@@ -21,14 +22,11 @@ public class SecretNumber {
 
     private int cows(char[] that) {
         int cows = 0;
-        int i = 0;
-        int position;
-        while (i < that.length) {
-            position = find(that[i]);
-            if (position != -1 && position != i) {
+        for (int i = 0; i < that.length; i++) {
+            int position = find(that[i]);
+            if (position != NO_MATCHING && position != i) {
                 cows++;
             }
-            i++;
         }
         return cows;
     }
