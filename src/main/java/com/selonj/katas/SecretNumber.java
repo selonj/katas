@@ -23,16 +23,13 @@ public class SecretNumber {
         int cows = 0;
         int i = 0;
         int position;
-        position = find(that[i]);
-        if (position != -1 && position != i) {
-            cows++;
+        while (i < that.length) {
+            position = find(that[i]);
+            if (position != -1 && position != i) {
+                cows++;
+            }
+            i++;
         }
-        i++;
-        position = find(that[i]);
-        if (position != -1 && position != i) {
-            cows++;
-        }
-        i++;
         return cows;
     }
 
