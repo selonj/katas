@@ -24,6 +24,11 @@ public class BullsAndCowsTest {
         assertResult(SecretNumber.of("1234").matching("1234"), 4, 0);
     }
 
+    @Test
+    public void hasCowsWhenDigitsMatchingAtTheWrongPosition() throws Exception {
+        assertResult(SecretNumber.of("1234").matching("4678"), 0, 1);
+    }
+
     private void assertResult(MatchingResult result, int bulls, int cows) {
         assertThat("bulls", result.bulls, equalTo(bulls));
         assertThat("cows", result.cows, equalTo(cows));
