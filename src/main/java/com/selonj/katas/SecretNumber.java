@@ -16,7 +16,25 @@ public class SecretNumber {
 
     public MatchingResult matching(String digits) {
         char[] that = digits.toCharArray();
-        return new MatchingResult(bulls(that), 0);
+        return new MatchingResult(bulls(that), cows(that));
+    }
+
+    private int cows(char[] that) {
+        int cows = 0;
+        int position = find(that[0]);
+        if (position != -1 && position != 0) {
+            cows++;
+        }
+        return cows;
+    }
+
+    private int find(char digit) {
+        for (int i = 0; i < digits.length; i++) {
+            if (digits[i] == digit) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     private int bulls(char[] that) {
