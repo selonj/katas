@@ -15,6 +15,10 @@ public class SecretNumber {
     }
 
     public MatchingResult matching(String digits) {
-        return new MatchingResult(0,0);
+        int bulls = 0;
+        if (this.digits[0] == digits.charAt(0)) {
+            bulls = 1;
+        }
+        return new MatchingResult(bulls, 0);
     }
 }

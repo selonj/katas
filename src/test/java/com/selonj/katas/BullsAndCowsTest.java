@@ -20,7 +20,6 @@ public class BullsAndCowsTest {
     }
 
     @Test
-    @Ignore
     public void hasBullsWhenDigitsMatchingAtTheRightPosition() throws Exception {
         MatchingResult result = SecretNumber.of("1234").matching("1678");
 
