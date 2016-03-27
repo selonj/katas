@@ -5,10 +5,10 @@ package com.selonj.katas;
  */
 public class SecretNumber {
     public static SecretNumber of(String digits) {
-        return null;
+        return new SecretNumber();
     }
 
     public MatchingResult matching(String digits) {
-        return null;
+        return new MatchingResult();
     }
 }
