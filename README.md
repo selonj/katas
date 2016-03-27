@@ -143,3 +143,7 @@ WordWrap.of(10).wrap("word word word") == "word word\nword";
 WordWrap.of(4).wrap("wordword") == "word\nword";
 WordWrap.new(3).wrap("word word word") == "wor\nd\nwor\nd\nwor\d";
 ```
+
+## Bulls and Cows
+
+Matching digits are in their right positions, they are "bulls", if in different positions, they are "cows".
