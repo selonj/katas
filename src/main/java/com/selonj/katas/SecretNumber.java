@@ -22,10 +22,17 @@ public class SecretNumber {
     private int cows(char[] that) {
         int cows = 0;
         int i = 0;
-        int position = find(that[i]);
+        int position;
+        position = find(that[i]);
         if (position != -1 && position != i) {
             cows++;
         }
+        i++;
+        position = find(that[i]);
+        if (position != -1 && position != i) {
+            cows++;
+        }
+        i++;
         return cows;
     }
 
