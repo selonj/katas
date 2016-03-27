@@ -17,12 +17,10 @@ public class SecretNumber {
     public MatchingResult matching(String digits) {
         char[] that = digits.toCharArray();
         int bulls = 0;
-        int i = 0;
-        while (i < this.digits.length) {
+        for (int i = 0; i < this.digits.length; i++) {
             if (this.digits[i] == that[i]) {
                 bulls++;
             }
-            i++;
         }
         return new MatchingResult(bulls, 0);
     }
