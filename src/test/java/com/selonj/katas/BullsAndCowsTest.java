@@ -13,18 +13,18 @@ public class BullsAndCowsTest {
 
     @Test
     public void noBullsAndCowsWhenAllDigitsAreWrong() throws Exception {
-        MatchingResult result = SecretNumber.of("1234").matching("5678");
 
-        assertThat(result.bulls, equalTo(0));
-        assertThat(result.cows, equalTo(0));
+        assertResult(SecretNumber.of("1234").matching("5678"), 0, 0);
     }
 
     @Test
     public void hasBullsWhenDigitsMatchingAtTheRightPosition() throws Exception {
-        MatchingResult result = SecretNumber.of("1234").matching("1678");
+        assertResult(SecretNumber.of("1234").matching("1678"), 1, 0);
+    }
 
-        assertThat(result.bulls, equalTo(1));
-        assertThat(result.cows, equalTo(0));
+    private void assertResult(MatchingResult result, int bulls, int cows) {
+        assertThat("bulls", result.bulls, equalTo(bulls));
+        assertThat("cows", result.cows, equalTo(cows));
     }
 
 
