@@ -16,12 +16,16 @@ public class SecretNumber {
 
     public MatchingResult matching(String digits) {
         char[] that = digits.toCharArray();
+        return new MatchingResult(bulls(that), 0);
+    }
+
+    private int bulls(char[] that) {
         int bulls = 0;
         for (int i = 0; i < this.digits.length; i++) {
             if (this.digits[i] == that[i]) {
                 bulls++;
             }
         }
-        return new MatchingResult(bulls, 0);
+        return bulls;
     }
 }
