@@ -21,6 +21,10 @@ public class SecretNumber {
         if (this.digits[i] == that[i]) {
             bulls++;
         }
+        i++;
+        if (this.digits[i] == that[i]) {
+            bulls++;
+        }
         return new MatchingResult(bulls, 0);
     }
 }
