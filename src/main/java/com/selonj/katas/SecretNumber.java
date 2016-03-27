@@ -21,8 +21,9 @@ public class SecretNumber {
 
     private int cows(char[] that) {
         int cows = 0;
-        int position = find(that[0]);
-        if (position != -1 && position != 0) {
+        int i = 0;
+        int position = find(that[i]);
+        if (position != -1 && position != i) {
             cows++;
         }
         return cows;
