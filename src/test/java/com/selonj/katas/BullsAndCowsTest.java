@@ -18,5 +18,13 @@ public class BullsAndCowsTest {
         assertThat(result.cows, equalTo(0));
     }
 
+    @Test
+    public void hasBullsWhenDigitsMatchingAtTheRightPosition() throws Exception {
+        MatchingResult result = SecretNumber.of("1234").matching("1678");
+
+        assertThat(result.bulls, equalTo(1));
+        assertThat(result.cows, equalTo(0));
+    }
+
 
 }
