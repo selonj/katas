@@ -1,6 +1,5 @@
 package test.java.net;
 
-import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -27,91 +26,82 @@ public class CookieManagerTest {
     public CookiePolicy policy;
     @InjectMocks
     public CookieManager manager;
-
     private URI uri = URI.create("http://www.baidu.com/search");
     private HttpCookie cookie = new HttpCookie("session_id", "uuid");
 
     @Test
     public void savingCookie() throws Exception {
         allowingSavingAnyCookies(true);
-
         manager.put(uri, cookie(cookie));
-
-        checking(a(cookie).domain("www.baidu.com").path("/").of(uri)).saved(once());
+        checking(store).saved(a(cookie).domain("www.baidu.com").path("/").of(uri)).once();
     }
 
     @Test
     public void savingCookie2() throws Exception {
         allowingSavingAnyCookies(true);
-
         manager.put(uri, cookie2(cookie));
-
-        checking(a(cookie).domain("www.baidu.com").path("/").of(uri)).saved(once());
+        checking(store).saved(a(cookie).domain("www.baidu.com").path("/").of(uri)).once();
     }
 
     @Test
     public void savingSameCookieWithDiffVersionsTwice() throws Exception {
         allowingSavingAnyCookies(true);
-
         manager.put(uri, headers(cookie(cookie), cookie2(cookie)));
-
-        checking(a(cookie).domain("www.baidu.com").path("/").of(uri)).saved(twice());
+        checking(store).saved(a(cookie).domain("www.baidu.com").path("/").of(uri)).twice();
     }
 
     @Test
     public void savingSameCookiesTwice() throws Exception {
         allowingSavingAnyCookies(true);
-
         manager.put(uri, headers(header("Set-Cookie", cookie, cookie)));
-
-        checking(a(cookie).domain("www.baidu.com").path("/").of(uri)).saved(twice());
+        checking(store).saved(a(cookie).domain("www.baidu.com").path("/").of(uri)).twice();
     }
 
     @Test
     public void thereIsNoCookiesBeSavedWhenHeadersHasNoCookies() throws Exception {
         allowingSavingAnyCookies(true);
-
         manager.put(uri, header("other", "value"));
-
-        checking(anyCookies()).neverBeSaved();
+        checking(store).hasNoCookieBeSaved();
     }
-
 
     @Test
     public void thereIsNoCookiesBeSavedWhenDisallowed() throws Exception {
         allowingSavingAnyCookies(false);
-
         manager.put(uri, cookie(cookie));
-
-        checking(anyCookies()).neverBeSaved();
+        checking(store).hasNoCookieBeSaved();
     }
 
     private void allowingSavingAnyCookies(boolean allowed) {
         Mockito.stub(policy.shouldAccept(any(URI.class), any(HttpCookie.class))).toReturn(allowed);
     }
 
-    private CookieStoreVerifier checking(final CookieExpectation expectation) {
-        return new CookieStoreVerifier() {
+    private CookieStoreChecker checking(final CookieStore store) {
+        return new CookieStoreChecker() {
             @Override
-            public void saved(VerificationMode cardinality) {
-                verify(store, cardinality).add(expectation.uri(), expectation.cookie());
+            public CardinalityClause saved(final CookieExpectation expectation) {
+                return new CardinalityClause() {
+                    @Override
+                    public void once() {
+                        assertSaved(expectation, only());
+                    }
+
+                    @Override
+                    public void twice() {
+                        assertSaved(expectation, times(2));
+                    }
+                };
+            }
+
+            private void assertSaved(CookieExpectation expectation, VerificationMode times) {
+                verify(store, times).add(expectation.uri(), expectation.cookie());
             }
 
             @Override
-            public void neverBeSaved() {
-                saved(never());
+            public void hasNoCookieBeSaved() {
+                assertSaved(anyCookies(), never());
             }
         };
     }
-
-    private VerificationMode once() {
-        return only();
-    }
-
-    private VerificationMode twice() {
-        return times(2);
-    }
-
 
     private CookieExpectation anyCookies() {
         return new CookieExpectation() {
@@ -128,9 +118,7 @@ public class CookieManagerTest {
     }
 
     private CookieExpectationBuilder a(final HttpCookie cookie) {
-
         return new CookieExpectationBuilder() {
-
             private URI uri;
             private String path;
             private String domain;
@@ -165,7 +153,6 @@ public class CookieManagerTest {
             public URI uri() {
                 return eq(uri);
             }
-
         };
     }
 
@@ -179,9 +166,7 @@ public class CookieManagerTest {
 
     private Map<String, List<String>> headers(final Map<String, List<String>>... headers) {
         return new HashMap<String, List<String>>() {{
-            for (Map<String, List<String>> header : headers) {
-                putAll(header);
-            }
+            for (Map<String, List<String>> header : headers) putAll(header);
         }};
     }
 
@@ -191,9 +176,7 @@ public class CookieManagerTest {
 
     private String[] strings(Object[] values) {
         String[] result = new String[values.length];
-        for (int i = 0; i < result.length; i++) {
-            result[i] = values[i].toString();
-        }
+        for (int i = 0; i < result.length; i++) result[i] = values[i].toString();
         return result;
     }
 
@@ -209,13 +192,17 @@ public class CookieManagerTest {
         CookieExpectationBuilder path(String path);
 
         CookieExpectation of(URI uri);
-
-
     }
 
-    private interface CookieStoreVerifier {
-        void saved(VerificationMode cardinality);
+    private interface CookieStoreChecker {
+        CardinalityClause saved(CookieExpectation expectation);
 
-        void neverBeSaved();
+        void hasNoCookieBeSaved();
+    }
+
+    private interface CardinalityClause {
+        void once();
+
+        void twice();
     }
 }
