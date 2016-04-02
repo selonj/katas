@@ -32,42 +32,55 @@ public class CookieManagerTest {
     @Test
     public void savingCookie() throws Exception {
         allowingSavingAnyCookies(true);
+
         manager.put(uri, cookie(cookie));
-        checking(store).saved(a(cookie).domain("www.baidu.com").path("/").of(uri)).once();
+
+        checking(store).saved(a(cookie).domain("www.baidu.com").path("/").of(uri), once());
     }
+
 
     @Test
     public void savingCookie2() throws Exception {
         allowingSavingAnyCookies(true);
+
         manager.put(uri, cookie2(cookie));
-        checking(store).saved(a(cookie).domain("www.baidu.com").path("/").of(uri)).once();
+
+        checking(store).saved(a(cookie).domain("www.baidu.com").path("/").of(uri), once());
     }
 
     @Test
     public void savingSameCookieWithDiffVersionsTwice() throws Exception {
         allowingSavingAnyCookies(true);
+
         manager.put(uri, headers(cookie(cookie), cookie2(cookie)));
-        checking(store).saved(a(cookie).domain("www.baidu.com").path("/").of(uri)).twice();
+
+        checking(store).saved(a(cookie).domain("www.baidu.com").path("/").of(uri), twice());
     }
 
     @Test
     public void savingSameCookiesTwice() throws Exception {
         allowingSavingAnyCookies(true);
+
         manager.put(uri, headers(header("Set-Cookie", cookie, cookie)));
-        checking(store).saved(a(cookie).domain("www.baidu.com").path("/").of(uri)).twice();
+
+        checking(store).saved(a(cookie).domain("www.baidu.com").path("/").of(uri), twice());
     }
 
     @Test
     public void thereIsNoCookiesBeSavedWhenHeadersHasNoCookies() throws Exception {
         allowingSavingAnyCookies(true);
+
         manager.put(uri, header("other", "value"));
+
         checking(store).hasNoCookieBeSaved();
     }
 
     @Test
     public void thereIsNoCookiesBeSavedWhenDisallowed() throws Exception {
         allowingSavingAnyCookies(false);
+
         manager.put(uri, cookie(cookie));
+
         checking(store).hasNoCookieBeSaved();
     }
 
@@ -78,27 +91,13 @@ public class CookieManagerTest {
     private CookieStoreChecker checking(final CookieStore store) {
         return new CookieStoreChecker() {
             @Override
-            public CardinalityClause saved(final CookieExpectation expectation) {
-                return new CardinalityClause() {
-                    @Override
-                    public void once() {
-                        assertSaved(expectation, only());
-                    }
-
-                    @Override
-                    public void twice() {
-                        assertSaved(expectation, times(2));
-                    }
-                };
-            }
-
-            private void assertSaved(CookieExpectation expectation, VerificationMode times) {
-                verify(store, times).add(expectation.uri(), expectation.cookie());
+            public void hasNoCookieBeSaved() {
+                saved(anyCookies(), never());
             }
 
             @Override
-            public void hasNoCookieBeSaved() {
-                assertSaved(anyCookies(), never());
+            public void saved(CookieExpectation expectation, VerificationMode cardinality) {
+                verify(store, cardinality).add(expectation.uri(), expectation.cookie());
             }
         };
     }
@@ -136,7 +135,7 @@ public class CookieManagerTest {
             }
 
             @Override
-            public CookieExpectation of(URI uri) {
+            public CookieExpectationBuilder of(URI uri) {
                 this.uri = uri;
                 return this;
             }
@@ -154,6 +153,14 @@ public class CookieManagerTest {
                 return eq(uri);
             }
         };
+    }
+
+    private VerificationMode once() {
+        return only();
+    }
+
+    private VerificationMode twice() {
+        return times(2);
     }
 
     private Map<String, List<String>> cookie2(HttpCookie cookie) {
@@ -191,18 +198,12 @@ public class CookieManagerTest {
 
         CookieExpectationBuilder path(String path);
 
-        CookieExpectation of(URI uri);
+        CookieExpectationBuilder of(URI uri);
     }
 
     private interface CookieStoreChecker {
-        CardinalityClause saved(CookieExpectation expectation);
-
         void hasNoCookieBeSaved();
-    }
 
-    private interface CardinalityClause {
-        void once();
-
-        void twice();
+        void saved(CookieExpectation expectation, VerificationMode cardinality);
     }
 }
