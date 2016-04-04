@@ -17,7 +17,8 @@ public class Array<T> {
     }
 
     public Array<T> map(Transformation<T> transformation) {
-        return this;
+        T[] mappedArray = items;
+        return Array.of(mappedArray);
     }
 
     public T[] toArray() {
