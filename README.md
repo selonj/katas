@@ -147,3 +147,18 @@ WordWrap.new(3).wrap("word word word") == "wor\nd\nwor\nd\nwor\d";
 ## [Bulls and Cows](src/test/java/com/selonj/katas/BullsAndCowsTest.java)
 
 Matching digits are in their right positions, they are "bulls", if in different positions, they are "cows".
+
+##[Array Mappings](src/test/java/com/selonj/katas/ArrayMappingTest.java)
+
+In case you haven't come across the map method for arrays, here is how it works:
+
+```pseudo-code
+[1,2,3].map(x => x ** 2) === [1,4,9]
+[1,2,3].map(x => 2 * x) === [2,4,6]
+[1,2,3].map(x => 2 ** x) === [2,4,8]
+[1,2,3].map(x => x.toString()) === ["1","2","3"]
+["1","2","3"].map(x => parseInt(x)) === [1,2,3]
+["random","array","to","be","mapped"].map(x => mapping(x)) === [mapping("random"),mapping("array"),mapping("to"),mapping("be"),mapping("mapped")]
+```
+
+The map method does not mutate the original array.
