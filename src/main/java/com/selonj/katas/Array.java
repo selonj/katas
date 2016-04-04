@@ -17,7 +17,13 @@ public class Array<T> {
     }
 
     public Array<T> map(Transformation<T> transformation) {
-        T[] mappedArray = items;
+        if (transformation == null) {
+            return this;
+        }
+        T[] mappedArray = (T[]) new Object[items.length];
+        for (int i = 0; i < items.length; i++) {
+            mappedArray[i] = transformation.transform(items[i]);
+        }
         return Array.of(mappedArray);
     }
 

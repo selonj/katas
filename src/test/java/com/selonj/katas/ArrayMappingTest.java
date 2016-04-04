@@ -17,7 +17,6 @@ public class ArrayMappingTest {
     }
 
     @Test
-    @Ignore
     public void returnsMappedArrayWhenMapsAnArrayWithDoubleMapping() throws Exception {
         Array<Integer> result = Array.of(1, 2, 3).map(doubleMapping());
         assertThat(result, equalTo(Array.of(2, 4, 6)));
