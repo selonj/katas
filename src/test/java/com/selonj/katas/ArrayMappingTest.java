@@ -22,6 +22,21 @@ public class ArrayMappingTest {
         assertThat(result, equalTo(Array.of(2, 4, 6)));
     }
 
+    @Test
+    public void mapsAnArrayToAnotherType() throws Exception {
+        Array<String> result = Array.of(1, 2, 3).map(stringify());
+        assertThat(result, equalTo(Array.of("1", "2", "3")));
+    }
+
+    private Transformation<String> stringify() {
+        return new Transformation<String>() {
+            @Override
+            public String transform(String item) {
+                return null;
+            }
+        };
+    }
+
     private Transformation<Integer> doubleMapping() {
         return new Transformation<Integer>() {
             public Integer transform(Integer item) {
