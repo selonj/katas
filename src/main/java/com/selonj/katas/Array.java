@@ -1,5 +1,7 @@
 package com.selonj.katas;
 
+import java.util.Arrays;
+
 /**
  * Created by L.x on 16-4-4.
  */
@@ -20,5 +22,24 @@ public class Array<T> {
 
     public T[] toArray() {
         return items;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Array) {
+            Array that = (Array) obj;
+            return Arrays.equals(items, that.items);
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(items);
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(items);
     }
 }
