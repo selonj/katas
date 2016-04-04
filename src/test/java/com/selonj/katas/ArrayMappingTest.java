@@ -28,24 +28,24 @@ public class ArrayMappingTest {
         assertThat(result, equalTo(Array.of("1", "2", "3")));
     }
 
-    private Transformation<String> stringify() {
-        return new Transformation<String>() {
+    private Transformation<Integer, String> stringify() {
+        return new Transformation<Integer, String>() {
             @Override
-            public String transform(String item) {
-                return null;
+            public String transform(Integer item) {
+                return item.toString();
             }
         };
     }
 
-    private Transformation<Integer> doubleMapping() {
-        return new Transformation<Integer>() {
+    private Transformation<Integer, Integer> doubleMapping() {
+        return new Transformation<Integer, Integer>() {
             public Integer transform(Integer item) {
                 return item * 2;
             }
         };
     }
 
-    private Transformation<Integer> withNoMapping() {
+    private Transformation<Integer, Integer> withNoMapping() {
         return null;
     }
 }
