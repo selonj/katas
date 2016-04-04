@@ -18,13 +18,22 @@ public class Array<T> {
 
     public <O> Array<O> map(Transformation<T, O> transformation) {
         if (transformation == null) {
-            return (Array<O>) this;
+            return Array.of((O[]) items.clone());
         }
         O[] mappedArray = (O[]) new Object[items.length];
         for (int i = 0; i < items.length; i++) {
             mappedArray[i] = transformation.transform(items[i]);
         }
         return Array.of(mappedArray);
+    }
+
+    public void set(int index, T value) {
+        items[index] = value;
+    }
+
+
+    public T get(int index) {
+        return items[index];
     }
 
     public T[] toArray() {
@@ -35,28 +44,19 @@ public class Array<T> {
     public boolean equals(Object obj) {
         if (obj instanceof Array) {
             Array that = (Array) obj;
-            return Arrays.equals(items, that.items);
+            return Arrays.equals(toArray(), that.toArray());
         }
         return false;
     }
 
     @Override
     public int hashCode() {
-        return Arrays.hashCode(items);
+        return Arrays.hashCode(toArray());
     }
+
 
     @Override
     public String toString() {
-        return Arrays.toString(items);
-    }
-
-
-    public void set(int index, T value) {
-        items[index] = value;
-    }
-
-
-    public T get(int index) {
-        return items[index];
+        return Arrays.toString(toArray());
     }
 }
