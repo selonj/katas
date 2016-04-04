@@ -41,14 +41,6 @@ public class ArrayMappingTest {
         };
     }
 
-    private Transformation<Integer, Integer> doubleMapping() {
-        return new Transformation<Integer, Integer>() {
-            public Integer transform(Integer item) {
-                return item * 2;
-            }
-        };
-    }
-
     private Transformation<Integer, Integer> withNoMapping() {
         return null;
     }
