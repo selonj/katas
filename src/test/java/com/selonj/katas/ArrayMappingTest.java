@@ -12,6 +12,10 @@ public class ArrayMappingTest {
     @Test
     public void clonesAnArrayWhenMapsAnArrayWithNoMapping() throws Exception {
         Array<Integer> result = Array.of(1, 2, 3).map(withNoMapping());
-        assertThat(result.toArray(), equalTo(new int[]{1, 2, 3}));
+        assertThat(result.toArray(), equalTo(new Integer[]{1, 2, 3}));
+    }
+
+    private Transformation<Integer> withNoMapping() {
+        return null;
     }
 }
