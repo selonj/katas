@@ -148,7 +148,7 @@ WordWrap.new(3).wrap("word word word") == "wor\nd\nwor\nd\nwor\d";
 
 Matching digits are in their right positions, they are "bulls", if in different positions, they are "cows".
 
-##Array Mappings
+##[Array Mappings](src/test/java/com/selonj/katas/ArrayMappingTest.java)
 
 In case you haven't come across the map method for arrays, here is how it works:
 
