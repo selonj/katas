@@ -51,4 +51,12 @@ public class Array<T> {
     }
 
 
+    public void set(int index, T value) {
+        items[index] = value;
+    }
+
+
+    public T get(int index) {
+        return items[index];
+    }
 }
