@@ -25,3 +25,11 @@ idea {
         excludeDirs += [file('.gradle'), file('gradle'), file('.idea')]
     }
 }
+
+def fileEncoding='UTF-8'
+tasks.withType(AbstractCompile) {
+  options.encoding = fileEncoding
+}
+test {
+  systemProperty('file.encoding', fileEncoding)
+}
