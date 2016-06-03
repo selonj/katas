@@ -162,3 +162,9 @@ In case you haven't come across the map method for arrays, here is how it works:
 ```
 
 The map method does not mutate the original array.
+
+
+
+## [TyrantMap](src/test/java/com/selonj/katas/tyrant/TyrantMapTest.java)
+
+kata from KentBeck [TDD-Tyrant Repository](https://github.com/KentBeck/TDD-Tyrant). 
